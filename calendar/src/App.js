@@ -19,7 +19,7 @@ function App() {
       {/* {showEventModal && <EventModal />} */}
 
       <div className="h-screen flex flex-col">
-        <CalendarHeader />
+        <CalendarHeader month={currentMonth}/>
         <div className="flex flex-1">
           <Sidebar />
           <Month month={currentMonth} />
