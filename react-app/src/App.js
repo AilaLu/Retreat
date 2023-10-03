@@ -6,7 +6,8 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import Calendar from 'react-calendar'
+import Calendar from "react-calendar";
+import { AllCategories } from "./components/Categories/AllCategories";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,10 +21,13 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-        <ProtectedRoute path='/tasks'>
-        <Calendar />
-        </ProtectedRoute>
-          <Route path="/login" >
+          <ProtectedRoute exact path="/">
+            <Calendar />
+          </ProtectedRoute>
+          <ProtectedRoute path="/api/tasks">
+            <AllCategories/>
+          </ProtectedRoute>
+          <Route path="/login">
             <LoginFormPage />
           </Route>
           <Route path="/signup">
