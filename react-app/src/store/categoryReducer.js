@@ -19,30 +19,30 @@ export const getCategoriesThunk = () => async (dispatch) => {
   }
 };
 
-export const addCategory =
-  (productId, purchaseQuantity) => async (dispatch) => {
+export const addCategoryThunk = (name) => async (dispatch) => {
     //  try {
-    const res = await fetch(`/api/products/${productId}/shopping_cart`, {
+
+    const res = await fetch("/api/categories", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ purchaseQuantity: purchaseQuantity }),
+      body: JSON.stringify({name}),
     });
-    // console.log(
-    //   "*********************the response from backend in thunk**************",
-    //   res
-    // );
+    console.log(
+      "*********************the response from backend in thunk****************",
+      res
+    );
 
     if (res.ok) {
       // console.log(
       //   "*********************in the if block, in thunk**************"
       // );
-      const newItemResponse = await res.json();
+      const newCategoryResponse = await res.json();
       // console.log(
       //   "*********************in the if block, res.json()**************",
-      //   newItemResponse
+      //   newCategoryResponse
       // );
       dispatch(getCategoriesThunk());
-      return newItemResponse;
+      return newCategoryResponse;
     } else {
       const errors = await res.json();
       // console.log("*********************in the else block, the response from backend in thunk**************", errors);
