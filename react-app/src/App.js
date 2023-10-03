@@ -24,7 +24,7 @@ function App() {
           <ProtectedRoute exact path="/">
             <Calendar />
           </ProtectedRoute>
-          <ProtectedRoute path="/api/tasks">
+          <ProtectedRoute path="/manage_tasks">
             <AllCategories/>
           </ProtectedRoute>
           <Route path="/login">
