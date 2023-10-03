@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import OpenModalButton from "../../OpenModalButton";
+import { AddCategoryModal } from "../AddCategoryModal";
 import "./AllCategories.css";
 import { getCategoriesThunk } from "../../../store/categoryReducer";
-// import { ProductCard } from "../ProductCard";
+import { CategoryCard } from "../CategoryCard";
 // import { getAllFavorites } from "../../store/favoritesReducer";
 // import { getTransactionItemsThunk } from "../../store/transactionReducer";
 
@@ -11,17 +12,15 @@ export const AllCategories = () => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.session.user);
-
-  // const [filter, setFilter] = useState("");
+  const categoriesObj = useSelector((state) => state.categories);
+  const categoriesArr = Object.values(categoriesObj);
+  // console.log('********** in all categories component*******', categoriesArr);
 
   useEffect(() => {
-    dispatch(getCategoriesThunk())
+    dispatch(getCategoriesThunk());
     // dispatch(getAllFavorites(user ? user : null))
     // dispatch(getTransactionItemsThunk())
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   }, [dispatch])
 
   if (!user) return null;
 
@@ -29,6 +28,16 @@ export const AllCategories = () => {
     <>
       <h1>All Categories</h1>
       <div>Hello {user.username}</div>
+      <session>
+        {categoriesArr.map((category) => (
+          <CategoryCard category={category} key={category.id} />
+        ))}
+      </session>
+      <OpenModalButton
+        buttonText="Add Category"
+        // onItemClick={closeMenu}
+        modalComponent={<AddCategoryModal />}
+      />
     </>
   );
 };

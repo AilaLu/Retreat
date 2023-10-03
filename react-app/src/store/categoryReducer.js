@@ -13,15 +13,13 @@ export const getCategoriesThunk = () => async (dispatch) => {
   const res = await fetch("/api/categories");
   if (res.ok) {
     const categories = await res.json();
-    console.log("*********************the response from backend in thunk, getCategoriesThunk**************", categories);
-    // const itemsArr = items.shopping_carts;
-    // console.log("*********************the response from backend in thunk**************", itemsArr);
-
-    // dispatch(getCategoriesAction(itemsArr));
+    // console.log("*********************show in browser console, the response from backend in thunk, getCategoriesThunk**************", categories);
+    const categoriesArray = categories.Categories
+    dispatch(getCategoriesAction(categoriesArray));
   }
 };
 
-export const createItemThunk =
+export const addCategory =
   (productId, purchaseQuantity) => async (dispatch) => {
     //  try {
     const res = await fetch(`/api/products/${productId}/shopping_cart`, {

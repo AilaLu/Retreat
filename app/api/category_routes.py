@@ -12,6 +12,6 @@ def get_categories():
     Query for all categories and returns them in a list of category dictionaries
     """
     categories = [category.to_dict() for category in Category.query.all()]
-    print("============in api category_route=========, prints categories", categories)
-    return {'categories': categories}
+    # print("============show in the terminal, in api category_route=========, prints categories", categories)
+    return {"Categories": categories}
 
