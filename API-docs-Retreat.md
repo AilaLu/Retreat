@@ -322,13 +322,17 @@ Returns all the categories owned (created) by the current user.
           "Tasks": [
             {
               "id": 1,
+              "userId": 1,
+              "categoryId": 1,
               "title": "yoga",
-              "iconUrl": "https://img.icons8.com/color/48/yoga.png"
+              "icon": "https://img.icons8.com/color/48/yoga.png"
             },
             {
               "id": 2,
+              "userId": 1,
+              "categoryId": 1,
               "title": "swim",
-              "iconUrl": "https://img.icons8.com/color/48/swim.png"
+              "icon": "https://img.icons8.com/color/48/swim.png"
             }
           ]
         },
@@ -339,13 +343,17 @@ Returns all the categories owned (created) by the current user.
           "Tasks": [
             {
               "id": 1,
+              "userId": 1,
+              "categoryId": 2,
               "title": "hug",
-              "iconUrl": "https://img.icons8.com/color/48/hug.png"
+              "icon": "https://img.icons8.com/color/48/hug.png"
             },
             {
               "id": 2,
+              "userId": 1,
+              "categoryId": 2,
               "title": "meditation",
-              "iconUrl": "https://img.icons8.com/color/48/meditation.png"
+              "icon": "https://img.icons8.com/color/48/meditation.png"
             }
           ]
         }
