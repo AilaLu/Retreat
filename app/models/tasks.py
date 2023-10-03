@@ -16,7 +16,6 @@ class Task(db.Model):
 # relationship attribute
     users = db.relationship("User", back_populates="tasks")
     categories = db.relationship("Category", back_populates="tasks")
-    favorites_lists = db.relationship("Favorite", back_populates="tasks", cascade="all, delete")
 
 
     def to_dict(self):
