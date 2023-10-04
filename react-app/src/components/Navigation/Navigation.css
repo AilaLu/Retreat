@@ -5,3 +5,59 @@
 .hidden {
   display: none;
 }
+
+
+.navigation {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgb(195, 194, 194);
+}
+
+.profile-button {
+  border-radius: 30px;
+  padding: 5px 15px;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.fa-tree {
+  font-size: larger;
+  width: 30px;
+  height: 30px;
+  color: tomato;
+}
+
+.logo-text {
+  display: inline;
+  /* text-decoration: none; */
+  color: #FC9C9C;
+  margin: center;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+/* not logged in dropdown */
+.signUp-logIn {
+  width: fit-content;
+  padding: 2px 55px 2px 10px;
+}
+
+/* logged in dropdown */
+.session-user {
+  width: fit-content;
+  padding: 2px 55px 2px 10px;
+}
+.signUp-logIn-btn {
+  border: white;
+  background-color: white;
+}
+
+.manageTasks-profileBtn {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
