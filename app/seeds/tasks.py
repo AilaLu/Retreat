@@ -17,7 +17,7 @@ def seed_tasks():
     task3 = Task(
         userId=1, categoryId= 2, title="meditation", icon="https://img.icons8.com/color/48/meditation.png")
     task4 = Task(
-        userId=1, categoryId= 1, title="hug", icon="https://img.icons8.com/color/48/hug.png")
+        userId=1, categoryId= 2, title="hug", icon="https://img.icons8.com/color/48/hug.png")
   
 
     db.session.add(task1)

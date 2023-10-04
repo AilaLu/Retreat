@@ -20,5 +20,5 @@ class Category(db.Model):
             'id': self.id,
             'userId': self.userId,
             'name': self.name,
-            'tasks': [task.title for task in self.tasks]
+            'tasks': [task for task in self.tasks]
         }

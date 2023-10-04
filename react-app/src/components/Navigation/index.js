@@ -1,27 +1,42 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
-import './Navigation.css';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import ProfileButton from "./ProfileButton";
+import "./Navigation.css";
 
-function Navigation({ isLoaded }){
-	const sessionUser = useSelector(state => state.session.user);
+function Navigation({ isLoaded }) {
+  const sessionUser = useSelector((state) => state.session.user);
 
-	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
-			</li>
-			<li>
-				<NavLink exact to="/api/tasks">Manage tasks</NavLink>
-			</li>
-			{isLoaded && (
-				<li>
-					<ProfileButton user={sessionUser} />
-				</li>
-			)}
-		</ul>
-	);
+  let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = <ProfileButton user={sessionUser} />;
+  } else {
+    sessionLinks = <ProfileButton />;
+  }
+
+  //if logged in, then can manage tasks
+  let manageTasks = "";
+  if (!sessionUser) manageTasks = "hidden";
+
+  return (
+    <div className="components-border navigation">
+      <div className="flex-space-between">
+        <div className="logo hover-cursor-pointer">
+          <NavLink exact to="/">
+            <h4 className="logo-text ">Retreat</h4>
+          </NavLink>
+        </div>
+        <div className="manageTasks-profileBtn">
+          <div className={manageTasks}>
+            <NavLink exact to="/manage_tasks">
+              Manage tasks
+            </NavLink>
+          </div>
+          <div className="profile-btn">{isLoaded && sessionLinks}</div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Navigation;

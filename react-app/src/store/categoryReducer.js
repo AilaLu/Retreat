@@ -10,7 +10,7 @@ export const getCategoriesAction = (categories) => ({
 
 /** Thunk: */
 export const getCategoriesThunk = () => async (dispatch) => {
-  const res = await fetch("/api/categories");
+  const res = await fetch("/api/categories/");
   if (res.ok) {
     const categories = await res.json();
     // console.log("*********************show in browser console, the response from backend in thunk, getCategoriesThunk**************", categories);
@@ -22,7 +22,7 @@ export const getCategoriesThunk = () => async (dispatch) => {
 export const addCategoryThunk = (name) => async (dispatch) => {
     //  try {
 
-    const res = await fetch("/api/categories", {
+    const res = await fetch("/api/categories/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({name}),
