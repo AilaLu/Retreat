@@ -33,11 +33,13 @@ export const AllCategories = () => {
           <CategoryCard category={category} key={category.id} />
         ))}
       </session>
-      <OpenModalButton
-        buttonText="Create New Category Block"
-        // buttonStyle={}
-        modalComponent={<AddCategoryModal />}
-      />
+      <div className="add-category">
+        <OpenModalButton
+          buttonText="Create New Category Block"
+          // buttonStyle={}
+          modalComponent={<AddCategoryModal />}
+        />
+      </div>
     </>
   );
 };

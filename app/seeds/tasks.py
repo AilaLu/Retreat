@@ -13,9 +13,9 @@ def seed_tasks():
     task1 = Task(
         userId=1, categoryId= 1, title="yoga", icon="https://img.icons8.com/color/48/yoga.png")
     task2 = Task(
-        userId=1, categoryId= 1, title="swim", icon="https://img.icons8.com/color/48/swim.png")
+        userId=1, categoryId= 1, title="swim", icon="https://img.icons8.com/color/48/snorkeling.png")
     task3 = Task(
-        userId=1, categoryId= 2, title="meditation", icon="https://img.icons8.com/color/48/meditation.png")
+        userId=1, categoryId= 2, title="meditation", icon="https://img.icons8.com/color/48/floating-guru.png")
     task4 = Task(
         userId=1, categoryId= 2, title="hug", icon="https://img.icons8.com/color/48/hug.png")
   
