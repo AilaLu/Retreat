@@ -51,9 +51,43 @@ export const addCategoryThunk = (name) => async (dispatch) => {
     //  }
   };
 
-export const deleteItemThunk = (productId) => async (dispatch) => {
+
+  export const editCategoryThunk = (name, categoryId) => async (dispatch) => {
+    //  try {
+
+    const res = await fetch(`/api/categories/${categoryId}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({name}),
+    });
+    // console.log(
+    //   "*********************the response from backend in thunk****************",
+    //   res
+    // );
+
+    if (res.ok) {
+      const newCategoryResponse = await res.json();
+      // console.log(
+      //   "*********************in the if block, res.json()**************",
+      //   newCategoryResponse
+      // );
+      dispatch(getCategoriesThunk());
+      return newCategoryResponse;
+    } else {
+      const errors = await res.json();
+      // console.log("*********************in the else block, the response from backend in thunk**************", errors);
+      return errors;
+    }
+    //  } catch (error) {
+    // const errors = await error.json();
+    //  return error;
+    //  }
+  };
+
+
+export const deleteItemThunk = (categoryId) => async (dispatch) => {
   //  console.log("*********************the response from backend in thunk**************", productId);
-  const res = await fetch(`/api/shopping_cart/${productId}`, {
+  const res = await fetch(`/api/categories/${categoryId}`, {
     method: "DELETE",
   });
 

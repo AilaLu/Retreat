@@ -5,9 +5,9 @@ from app.forms.category_form import CategoryForm
 
 category_routes = Blueprint('categories', __name__)
 
-
-@category_routes.route('/')
-# @login_required
+#R
+@category_routes.route("/")
+@login_required
 def get_categories():
     """
     Query for all categories and returns them in a list of category dictionaries
@@ -16,8 +16,13 @@ def get_categories():
     # print("============show in the terminal, in api category_route=========, prints categories", categories)
     return {"Categories": categories}
 
-@category_routes.route('/', methods=["POST"])
-# @login_required
+
+
+
+
+#C
+@category_routes.route("/", methods=["POST"])
+@login_required
 def create_category():
     """
     Create a new category
@@ -27,7 +32,7 @@ def create_category():
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        print("============show in the terminal, in api category_route=========, in the post route lalala")
+        # print("============show in the terminal, in api category_route=========, in the create post route lalala")
         newCategory = Category(
             userId = current_user.id,
             name = form.data["name"],
@@ -35,6 +40,34 @@ def create_category():
         db.session.add(newCategory)
         db.session.commit()
         return newCategory.to_dict()
+    else:
+          print(form.errors)
+          return {"errors":form.errors}
+
+
+
+
+
+#U
+@category_routes.route("/<int:id>", methods=["POST"])
+@login_required
+def update_category():
+    """
+    Edit a category
+    """
+
+    form = CategoryForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        print("============show in the terminal, in api category_route=========, in the edit route ")
+        editCategory = Category(
+            userId = current_user.id,
+            name = form.data["name"],
+        )
+        db.session.add(editCategory)
+        db.session.commit()
+        return editCategory.to_dict()
     else:
           print(form.errors)
           return {"errors":form.errors}
