@@ -27,15 +27,12 @@ export const addCategoryThunk = (name) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({name}),
     });
-    console.log(
-      "*********************the response from backend in thunk****************",
-      res
-    );
+    // console.log(
+    //   "*********************the response from backend in thunk****************",
+    //   res
+    // );
 
     if (res.ok) {
-      // console.log(
-      //   "*********************in the if block, in thunk**************"
-      // );
       const newCategoryResponse = await res.json();
       // console.log(
       //   "*********************in the if block, res.json()**************",

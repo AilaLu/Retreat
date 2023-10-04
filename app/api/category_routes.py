@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Category #Task
+from app.models import db, Category
 from app.forms.category_form import CategoryForm
 
 category_routes = Blueprint('categories', __name__)

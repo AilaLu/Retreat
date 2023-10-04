@@ -13,22 +13,22 @@ import "./AddCategoryModal.css";
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(addCategoryThunk(name));
-    if (data) {
-      setErrors(data);
-    } else {
-        closeModal()
-    }
+    // if (data) {
+    //   setErrors(data);
+    // } else {
+    //     closeModal()
+    // }
   };
 
   return (
     <>
       <h1>Add Category Name</h1>
       <form onSubmit= {handleSubmit}>
-        <ul>
+        {/* <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
-        </ul>
+        </ul> */}
         <label>
           <input
             type="text"

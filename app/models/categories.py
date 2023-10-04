@@ -20,5 +20,6 @@ class Category(db.Model):
             'id': self.id,
             'userId': self.userId,
             'name': self.name,
-            'tasks': [task for task in self.tasks]
+            'tasks': [task.title for task in self.tasks]
+            # raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
         }
