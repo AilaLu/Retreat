@@ -21,5 +21,5 @@ class Category(db.Model):
             'userId': self.userId,
             'name': self.name,
             'tasks': [task.title for task in self.tasks]
-            # raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+            #!if trying to loop task obj, raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
         }

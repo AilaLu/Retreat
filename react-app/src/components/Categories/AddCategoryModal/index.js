@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { addCategoryThunk } from "../../../store/categoryReducer";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
@@ -10,25 +10,23 @@ import "./AddCategoryModal.css";
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
+  useEffect(() => {
+   const errors = {};
+   if (name.length < 1)
+       errors.name = "please enter category name";
+   setErrors(errors);
+ }, [name]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = await dispatch(addCategoryThunk(name));
-    // if (data) {
-    //   setErrors(data);
-    // } else {
-    //     closeModal()
-    // }
-  };
+    await dispatch(addCategoryThunk(name)).then(closeModal)
+};
 
   return (
     <>
       <h1>Add Category Name</h1>
       <form onSubmit= {handleSubmit}>
-        {/* <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul> */}
+      
         <label>
           <input
             type="text"
@@ -37,6 +35,9 @@ import "./AddCategoryModal.css";
             required
           />
         </label>
+        <div className="errors">
+          {errors.name && <p>{errors.name}</p>}
+        </div>
         <div className="padding-bottom">
           <button className="big grey button" onClick={closeModal}>
             Cancel
@@ -44,8 +45,6 @@ import "./AddCategoryModal.css";
           <button className="big green button" type="submit" onClick={handleSubmit}>
             Done
           </button>
-        </div>
-        <div>
         </div>
       </form>
     </>
