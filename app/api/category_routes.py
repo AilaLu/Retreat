@@ -49,25 +49,37 @@ def create_category():
 
 
 #U
-@category_routes.route("/<int:id>", methods=["POST"])
+@category_routes.route("/<int:id>", methods=["PUT"])
 @login_required
-def update_category():
+def update_category(id):
     """
     Edit a category
     """
-
+    print("============show in the terminal, in api category_route=========, in the edit route ")
     form = CategoryForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        print("============show in the terminal, in api category_route=========, in the edit route ")
-        editCategory = Category(
-            userId = current_user.id,
-            name = form.data["name"],
-        )
-        db.session.add(editCategory)
+        category = Category.query.get(id)
+        print("============show in the terminal, in api category_route=========, in the edit route ", category)
+        category.name = form.data["name"]
         db.session.commit()
-        return editCategory.to_dict()
+        return category.to_dict()
     else:
           print(form.errors)
           return {"errors":form.errors}
+    
+
+
+#D
+@category_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
+def delete_category(id):
+    """
+    Delete a category
+    """
+
+    category = Category.query.get(id)
+    db.session.delete(category)
+    db.session.commit()
+    return "Deleted"

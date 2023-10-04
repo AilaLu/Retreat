@@ -56,26 +56,26 @@ export const addCategoryThunk = (name) => async (dispatch) => {
     //  try {
 
     const res = await fetch(`/api/categories/${categoryId}`, {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({name}),
     });
     // console.log(
     //   "*********************the response from backend in thunk****************",
-    //   res
+    //   categoryId
     // );
 
     if (res.ok) {
       const newCategoryResponse = await res.json();
-      // console.log(
-      //   "*********************in the if block, res.json()**************",
-      //   newCategoryResponse
-      // );
+      console.log(
+        "*********************in the if block, res.json()**************",
+        newCategoryResponse
+      );
       dispatch(getCategoriesThunk());
       return newCategoryResponse;
     } else {
       const errors = await res.json();
-      // console.log("*********************in the else block, the response from backend in thunk**************", errors);
+      console.log("*********************in the else block, the response from backend in thunk**************", errors);
       return errors;
     }
     //  } catch (error) {
@@ -85,7 +85,7 @@ export const addCategoryThunk = (name) => async (dispatch) => {
   };
 
 
-export const deleteItemThunk = (categoryId) => async (dispatch) => {
+export const deleteCategoryThunk = (categoryId) => async (dispatch) => {
   //  console.log("*********************the response from backend in thunk**************", productId);
   const res = await fetch(`/api/categories/${categoryId}`, {
     method: "DELETE",

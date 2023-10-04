@@ -35,7 +35,7 @@ export const AllCategories = () => {
       </session>
       <OpenModalButton
         buttonText="Create New Category Block"
-        // onItemClick={closeMenu}
+        // buttonStyle={}
         modalComponent={<AddCategoryModal />}
       />
     </>
