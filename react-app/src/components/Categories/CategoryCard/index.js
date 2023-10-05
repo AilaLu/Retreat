@@ -5,6 +5,7 @@ import { DeleteCategoryModal } from "../DeleteCategoryModal";
 import { IconSelectModal } from "../../Tasks/IconSelectModal";
 import "./CategoryCard.css";
 import { useDispatch } from "react-redux";
+import { getCategoriesThunk } from "../../../store/categoryReducer";
 import { getTasksThunk } from "../../../store/taskReducer";
 
 export const CategoryCard = ({category}) => {
@@ -16,7 +17,7 @@ export const CategoryCard = ({category}) => {
   }, [dispatch]);
 
 //  console.log('********** in category card component*******', tasks);
- 
+if (!tasks) return null;
   return (
     <session className="border">
       <h6>Category id {category.id}</h6>

@@ -13,8 +13,11 @@ export const getTasksThunk = (categoryId) => async (dispatch) => {
   const res = await fetch(`/api/categories/${categoryId}/tasks`);
   if (res.ok) {
     const tasks = await res.json();
-
-    const tasksArray = tasks.tasks
+    const tasksArray = tasks.Category_tasks
+    // console.log(
+    //  "*********************in the if block, res.json()**************",
+    //  tasksArray
+    //  );
     dispatch(getTasksAction(tasksArray));
   }
 };
@@ -29,11 +32,11 @@ export const addTaskThunk = (title, icon, categoryId) => async (dispatch) => {
 
     if (res.ok) {
       const newTaskResponse = await res.json();
-      console.log(
-        "*********************in the if block, res.json()**************",
-        newTaskResponse
-      );
-      dispatch(getTasksThunk());
+      // console.log(
+      //   "*********************in the if block, res.json()**************",
+      //   newTaskResponse
+      // );
+      dispatch(getTasksThunk(categoryId));
       return newTaskResponse;
     } else {
       const errors = await res.json();
@@ -44,7 +47,7 @@ export const addTaskThunk = (title, icon, categoryId) => async (dispatch) => {
   };
 
 
-  export const editTaskThunk = (title, icon,  taskId) => async (dispatch) => {
+  export const editTaskThunk = (title, icon,  taskId, categoryId) => async (dispatch) => {
     //  try {
 
     const res = await fetch(`/api/tasks/${taskId}`, {
@@ -56,7 +59,7 @@ export const addTaskThunk = (title, icon, categoryId) => async (dispatch) => {
 
     if (res.ok) {
       const newTaskResponse = await res.json();
-      dispatch(getTasksThunk());
+      dispatch(getTasksThunk(categoryId));
       return newTaskResponse;
     } else {
       const errors = await res.json();
@@ -67,13 +70,13 @@ export const addTaskThunk = (title, icon, categoryId) => async (dispatch) => {
   };
 
 
-export const deleteTaskThunk = (taskId) => async (dispatch) => {
+export const deleteTaskThunk = (taskId, categoryId) => async (dispatch) => {
   const res = await fetch(`/api/tasks/${taskId}`, {
     method: "DELETE",
   });
 
   if (res.ok) {
-    dispatch(getTasksThunk());
+    dispatch(getTasksThunk(categoryId));
   } else {
     const errors = await res.json();
     return errors;
