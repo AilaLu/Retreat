@@ -32,13 +32,13 @@ export const addTaskThunk = (title, icon, categoryId) => async (dispatch) => {
 
 
     if (res.ok) {
-      const newTaskResponse = await res.json();
-      const get = await dispatch(getTasksThunk(categoryId));
-      console.log(
-        "*********************in the if block, **************",
-      get
-      );
-      return get
+      // const newTaskResponse = await res.json();
+      const tasks = await dispatch(getTasksThunk(categoryId));
+      // console.log(
+      //   "*********************in the if block, **************",
+      // tasks
+      // );
+      return tasks
     } else {
       const errors = await res.json();
 
@@ -79,7 +79,7 @@ export const deleteTaskThunk = (taskId, categoryId) => async (dispatch) => {
   if (res.ok) {
     console.log(
         "*********************in the if block, res.json()**************",
-        categoryId
+        taskId
       );
     dispatch(getTasksThunk(categoryId));
   } else {

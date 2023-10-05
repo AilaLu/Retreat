@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { icons } from "../../../assets/icon";
 import { addTaskThunk } from "../../../store/taskReducer";
-import "./IconSelectModal.css";
 
 export const IconSelectModal = ({ categoryId, setTasks}) => {
  const dispatch = useDispatch();
@@ -25,8 +24,8 @@ export const IconSelectModal = ({ categoryId, setTasks}) => {
   e.preventDefault();
   const newtasks = await dispatch(addTaskThunk(title, taskIcon, categoryId))
   closeModal()
-  console.log('new tasks in icon select modal ===========', newtasks);
-  setTasks(newtasks)
+  // console.log('new tasks in icon select modal ===========', newtasks);
+  setTasks(newtasks) //! you can send setState as a prop, and still update the state in another component(category card)!!!
  };
  
  // console.log("icons", icons);

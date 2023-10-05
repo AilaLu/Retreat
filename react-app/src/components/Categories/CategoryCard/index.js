@@ -25,7 +25,7 @@ export const CategoryCard = ({ category }) => {
 
     if (!tasks) return null;
     return (
-    <session className="border">
+    <section className="border">
       <h6>Category id {category.id}</h6>
       <div className="edit-delete-category">
         <OpenModalButton
@@ -62,6 +62,6 @@ export const CategoryCard = ({ category }) => {
           modalComponent={<IconSelectModal categoryId={category.id} setTasks={setTasks} />}
         />
       </div>
-    </session>
+    </section>
   );
 };

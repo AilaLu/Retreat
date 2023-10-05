@@ -3,15 +3,14 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 // import "./AddCategoryModal.css";
 
- export const DeleteTaskModal = ({taskId}) => {
+ export const DeleteTaskModal = ({task}) => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('==========taskid=============');
     
-    await dispatch(deleteTaskThunk(taskId)).then(closeModal)
+    await dispatch(deleteTaskThunk(task.id, task.categoryId)).then(closeModal)
 };
 
   return (

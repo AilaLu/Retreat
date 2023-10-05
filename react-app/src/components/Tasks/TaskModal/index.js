@@ -1,43 +1,40 @@
-//Edit and delete task
+//* Edit and delete task
 
-import { useDispatch } from "react-redux";
-import { useModal } from "../../../context/Modal";
 import OpenModalButton from "../../OpenModalButton";
-// import {EditTaskModal}
-// import {EditTitleModal}
+import { EditIconModal } from "../EditIconModal";
+import { EditTitleModal } from "../EditTitleModal";
 import { DeleteTaskModal } from "../DeleteTaskModal";
 // import "./AddCategoryModal.css";
 
 export const TaskModal = ({ task }) => {
+  // console.log("===========task", task.categoryId);
 
-  console.log('===========task', task.categoryId);
-  
   return (
     <>
-      <session className="icon">
+      <section className="icon">
         <img src={task.icon} alt={task.title} />
         <div>{task.title}</div>
-      </session>
-      <session className="edit icon">
+      </section>
+      <section className="edit icon">
         <OpenModalButton
           buttonText="Change icon"
           // buttonStyle={}
-          // modalComponent={<EditIconModal taskId={task.id} />}
+          modalComponent={<EditIconModal task={task} />}
         />
         <OpenModalButton
           buttonText="Change title"
           // buttonStyle={}
-          // modalComponent={<EditTitleModal taskId={task.id} />}
+          modalComponent={<EditTitleModal task={task} />}
         />
-      </session>
+      </section>
 
-      <session className="delete icon">
+      <section className="delete icon">
         <OpenModalButton
           buttonText="Delete icon"
           // buttonStyle={}
-          modalComponent={<DeleteTaskModal taskId={task.id} />}
+          modalComponent={<DeleteTaskModal task={task} />}
         />
-      </session>
+      </section>
     </>
   );
 };

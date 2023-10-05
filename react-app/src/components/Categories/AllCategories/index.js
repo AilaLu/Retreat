@@ -25,11 +25,11 @@ export const AllCategories = () => {
     <>
       <h1>All Categories</h1>
       <div>Hello {user.username}</div>
-      <session>
+      <section>
         {categoriesArr.map((category) => (
           <CategoryCard category={category} key={category.id} />
         ))}
-      </session>
+      </section>
       <div className="add-category">
         <OpenModalButton
           buttonText="Create New Category Block"
