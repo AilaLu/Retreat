@@ -101,8 +101,8 @@ def get_tasks_by_category(id):
     Query tasks for a category
     """
     category_tasks = Task.query.filter(Task.categoryId ==  id).all()
-
     res = [task.to_dict() for task in category_tasks]
+    print("========category_tasks==========", res)
     return {"Category_tasks": res}
 
 

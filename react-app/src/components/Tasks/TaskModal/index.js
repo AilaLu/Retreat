@@ -3,10 +3,15 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import OpenModalButton from "../../OpenModalButton";
+// import {EditTaskModal}
+// import {EditTitleModal}
+import { DeleteTaskModal } from "../DeleteTaskModal";
 // import "./AddCategoryModal.css";
 
 export const TaskModal = ({ task }) => {
 
+  console.log('===========task', task.categoryId);
+  
   return (
     <>
       <session className="icon">
@@ -17,12 +22,12 @@ export const TaskModal = ({ task }) => {
         <OpenModalButton
           buttonText="Change icon"
           // buttonStyle={}
-          // modalComponent={<EditIconModal task={task} />}
+          // modalComponent={<EditIconModal taskId={task.id} />}
         />
         <OpenModalButton
           buttonText="Change title"
           // buttonStyle={}
-          // modalComponent={<EditTitleModal task={task} />}
+          // modalComponent={<EditTitleModal taskId={task.id} />}
         />
       </session>
 
@@ -30,7 +35,7 @@ export const TaskModal = ({ task }) => {
         <OpenModalButton
           buttonText="Delete icon"
           // buttonStyle={}
-          // modalComponent={<DeleteTaskModal task={task} />}
+          modalComponent={<DeleteTaskModal taskId={task.id} />}
         />
       </session>
     </>

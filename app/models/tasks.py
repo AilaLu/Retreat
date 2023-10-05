@@ -22,6 +22,7 @@ class Task(db.Model):
         return {
             'id': self.id,
             'userId': self.userId,
+            'categoryId': self.categoryId,
             'title': self.title,
             'icon': self.icon,
         }

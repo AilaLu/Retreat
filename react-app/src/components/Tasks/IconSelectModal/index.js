@@ -5,7 +5,7 @@ import { icons } from "../../../assets/icon";
 import { addTaskThunk } from "../../../store/taskReducer";
 import "./IconSelectModal.css";
 
-export const IconSelectModal = ({ categoryId}) => {
+export const IconSelectModal = ({ categoryId, setTasks}) => {
  const dispatch = useDispatch();
  const [modalSwitch, setModalSwitch] = useState("select icon")
  const [taskIcon, setTaskIcon] = useState("")
@@ -23,7 +23,10 @@ export const IconSelectModal = ({ categoryId}) => {
 
  const handleTitleSubmit = async (e) => {
   e.preventDefault();
-  await dispatch(addTaskThunk(title, taskIcon, categoryId)).then(closeModal)
+  const newtasks = await dispatch(addTaskThunk(title, taskIcon, categoryId))
+  closeModal()
+  console.log('new tasks in icon select modal ===========', newtasks);
+  setTasks(newtasks)
  };
  
  // console.log("icons", icons);

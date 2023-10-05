@@ -50,7 +50,7 @@ def delete_task(id):
     """
     Delete a task
     """
-
+    print("============show in the terminal, in api task_route=========, in the delete route ", task)
     task = Task.query.get(id)
     db.session.delete(task)
     db.session.commit()
