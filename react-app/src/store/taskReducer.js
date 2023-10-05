@@ -72,7 +72,7 @@ export const addTaskThunk = (title, icon, categoryId) => async (dispatch) => {
 
 
 export const deleteTaskThunk = (taskId, categoryId) => async (dispatch) => {
-  const res = await fetch(`/api/tasks/${taskId}`, {
+  const res = await fetch(`/api/tasks/delete/${taskId}`, {
     method: "DELETE",
   });
 

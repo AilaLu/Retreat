@@ -5,8 +5,6 @@ import { editTaskThunk } from "../../../store/taskReducer";
 
 export const EditTitleModal = ({ task }) => {
  const dispatch = useDispatch();
- const [modalSwitch, setModalSwitch] = useState("select icon")
- const [taskIcon, setTaskIcon] = useState("")
  const [title, setTitle] = useState("");
  const [errors, setErrors] = useState([]);
  const { closeModal } = useModal();
@@ -14,10 +12,8 @@ export const EditTitleModal = ({ task }) => {
 
  const handleTitleSubmit = async (e) => {
   e.preventDefault();
-  await dispatch(editTaskThunk(task.title, task.icon, task.id, task.categoryId))
+  await dispatch(editTaskThunk(title, task.icon, task.id, task.categoryId))
   closeModal()
-  // console.log('new tasks in icon select modal ===========', newtasks);
-
  };
 
   return (

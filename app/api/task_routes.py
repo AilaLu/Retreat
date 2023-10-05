@@ -43,8 +43,8 @@ def update_task(id):
 
 
 #D
-#api/tasks/id
-task_routes.route("/<int:id>", methods=["DELETE"])
+#api/tasks/delete/id
+task_routes.route("/delete/<int:id>", methods=["DELETE"])
 @login_required
 def delete_task(id):
     """
