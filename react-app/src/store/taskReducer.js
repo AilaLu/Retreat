@@ -32,10 +32,10 @@ export const addTaskThunk = (title, icon, categoryId) => async (dispatch) => {
 
     if (res.ok) {
       const newTaskResponse = await res.json();
-      // console.log(
-      //   "*********************in the if block, res.json()**************",
-      //   newTaskResponse
-      // );
+      console.log(
+        "*********************in the if block, res.json()**************",
+        categoryId
+      );
       dispatch(getTasksThunk(categoryId));
       return newTaskResponse;
     } else {

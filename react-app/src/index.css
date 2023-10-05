@@ -2,9 +2,10 @@
 
 body {
   font-family: sans-serif;
-  color: #324561;
+  color: lightgray;
   margin: 0;
-  /* background-color: #F4F1EA; */
+  background-color: rgb(50, 50, 50);
+  /* #F4F1EA; */
 }
 
 .errors {
