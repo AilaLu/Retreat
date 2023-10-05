@@ -1,0 +1,9 @@
+.tasks{
+ display: flex;
+ flex-direction: row;
+ gap: 20px;
+}
+
+/* icon size */
+/* width="48"
+height="48" */

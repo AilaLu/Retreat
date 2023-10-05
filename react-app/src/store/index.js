@@ -2,11 +2,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from "./session";
 import { categoryReducer } from "./categoryReducer";
+import { taskReducer } from "./taskReducer"
 
 //! gotta put it here to have the next state populated
 const rootReducer = combineReducers({
   session,
   categories: categoryReducer,
+  tasks: taskReducer
 });
 
 let enhancer;

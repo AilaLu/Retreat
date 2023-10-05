@@ -1,14 +1,17 @@
-import React from 'react';
-import { useModal } from '../../context/Modal';
+import React from "react";
+import { useModal } from "../../../context/Modal";
 
-function OpenModalButton({
+export function OpenTaskModal({
   modalComponent, // component to render inside the modal
   buttonText, // text of the button that opens the modal
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
   onModalClose, // optional: callback function that will be called once the modal is closed
   buttonStyle, //the button css
-  // icon, //the icon for tasks
-  // title //task title
+  src, //the icon for tasks
+  alt, //task title
+  width,
+  height,
+  key,
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
@@ -19,10 +22,9 @@ function OpenModalButton({
   };
 
   return (
-    <button onClick={onClick} className={buttonStyle} disabled={false}>{buttonText}</button>
-    // {/* <img src={icon} alt={title} /> */}
-    
+    <button onClick={onClick} className={buttonStyle} disabled={false}>
+      {buttonText}{" "}
+      <img key={key} width={width} height={height} src={src} alt={alt} />
+    </button>
   );
 }
-
-export default OpenModalButton;

@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Category
+from app.models import db, Category, Task
 from app.forms.category_form import CategoryForm
+from app.forms.task_form import TaskForm
 
 category_routes = Blueprint('categories', __name__)
 
@@ -13,7 +14,7 @@ def get_categories():
     Query for all categories and returns them in a list of category dictionaries
     """
     categories = [category.to_dict() for category in Category.query.all()]
-    # print("============show in the terminal, in api category_route=========, prints categories", categories)
+
     return {"Categories": categories}
 
 
@@ -32,7 +33,7 @@ def create_category():
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
-        # print("============show in the terminal, in api category_route=========, in the create post route lalala")
+
         newCategory = Category(
             userId = current_user.id,
             name = form.data["name"],
@@ -55,13 +56,13 @@ def update_category(id):
     """
     Edit a category
     """
-    print("============show in the terminal, in api category_route=========, in the edit route ")
+
     form = CategoryForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
 
     if form.validate_on_submit():
         category = Category.query.get(id)
-        print("============show in the terminal, in api category_route=========, in the edit route ", category)
+
         category.name = form.data["name"]
         db.session.commit()
         return category.to_dict()
@@ -83,3 +84,50 @@ def delete_category(id):
     db.session.delete(category)
     db.session.commit()
     return "Deleted"
+
+
+
+
+#==============================================#
+# for tasks, get tasks by category(R) and create task by category(C) is in the category route
+
+
+# #R #!can be taken care of just by the lazy load in the model
+#api/categories/id/tasks
+@category_routes.route("/<int:id>/tasks")
+@login_required
+def get_tasks_by_category(id):
+    """
+    Query tasks for a category
+    """
+    category_tasks = Task.query.filter(Task.categoryId ==  id).all()
+    res = [task.to_dict() for task in category_tasks]
+    # print("========category_tasks==========", res)
+    return {"Category_tasks": res}
+
+
+#C
+@category_routes.route("/<int:id>/tasks", methods=["POST"])
+@login_required
+def create_task_by_category(id):
+    """
+    Create a new task by category
+    """
+
+    form = TaskForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        # print("============show in the terminal, in api category_route=========, in the create task route ")
+        newTask = Task(
+            userId = current_user.id,
+            categoryId = id,
+            title = form.data["title"],
+            icon = form.data["icon"]
+        )
+        db.session.add(newTask)
+        db.session.commit()
+        return newTask.to_dict()
+    else:
+          print(form.errors)
+          return {"errors":form.errors}

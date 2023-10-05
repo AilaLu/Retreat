@@ -13,24 +13,19 @@ export const getCategoriesThunk = () => async (dispatch) => {
   const res = await fetch("/api/categories/");
   if (res.ok) {
     const categories = await res.json();
-    // console.log("*********************show in browser console, the response from backend in thunk, getCategoriesThunk**************", categories);
+
     const categoriesArray = categories.Categories
     dispatch(getCategoriesAction(categoriesArray));
   }
 };
 
 export const addCategoryThunk = (name) => async (dispatch) => {
-    //  try {
-
     const res = await fetch("/api/categories/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({name}),
     });
-    // console.log(
-    //   "*********************the response from backend in thunk****************",
-    //   res
-    // );
+
 
     if (res.ok) {
       const newCategoryResponse = await res.json();
@@ -42,13 +37,10 @@ export const addCategoryThunk = (name) => async (dispatch) => {
       return newCategoryResponse;
     } else {
       const errors = await res.json();
-      // console.log("*********************in the else block, the response from backend in thunk**************", errors);
+
       return errors;
     }
-    //  } catch (error) {
-    // const errors = await error.json();
-    //  return error;
-    //  }
+
   };
 
 
@@ -60,33 +52,22 @@ export const addCategoryThunk = (name) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({name}),
     });
-    // console.log(
-    //   "*********************the response from backend in thunk****************",
-    //   categoryId
-    // );
+
 
     if (res.ok) {
       const newCategoryResponse = await res.json();
-      console.log(
-        "*********************in the if block, res.json()**************",
-        newCategoryResponse
-      );
       dispatch(getCategoriesThunk());
       return newCategoryResponse;
     } else {
       const errors = await res.json();
-      console.log("*********************in the else block, the response from backend in thunk**************", errors);
+
       return errors;
     }
-    //  } catch (error) {
-    // const errors = await error.json();
-    //  return error;
-    //  }
+
   };
 
 
 export const deleteCategoryThunk = (categoryId) => async (dispatch) => {
-  //  console.log("*********************the response from backend in thunk**************", productId);
   const res = await fetch(`/api/categories/${categoryId}`, {
     method: "DELETE",
   });
@@ -101,7 +82,6 @@ export const deleteCategoryThunk = (categoryId) => async (dispatch) => {
 
 const initialState = {}; //store shape
 
-/** shopping Cart reducers: */
 export const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CATEGORIES:
