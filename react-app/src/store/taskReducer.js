@@ -1,67 +1,79 @@
 //type CRUD
 /** Action Type Constants: */
-export const GET_TASKS = "category/GET_TASKS";
+export const GET_TASKS = "task/GET_TASKS";
 
 /**  Action Creators: */
-export const getCategoriesAction = (categories) => ({
+export const getTasksAction = (tasks) => ({
   type: GET_TASKS,
-  categories, //payload
+  tasks, //payload
 });
 
 /** Thunk: */
-export const getCategoriesThunk = () => async (dispatch) => {
-  const res = await fetch("/api/categories/");
+export const getTasksThunk = (categoryId) => async (dispatch) => {
+  const res = await fetch(`/api/categories/${categoryId}/tasks`);
   if (res.ok) {
-    const categories = await res.json();
-    // console.log("*********************show in browser console, the response from backend in thunk, getCategoriesThunk**************", categories);
-    const categoriesArray = categories.Categories
-    dispatch(getCategoriesAction(categoriesArray));
+    const tasks = await res.json();
+
+    const tasksArray = tasks.tasks
+    dispatch(getTasksAction(tasksArray));
   }
 };
 
-export const addTaskThunk = (title, icon) => async (dispatch) => {
-    //  try {
-
-    const res = await fetch("/api/categories/", {
+export const addTaskThunk = (title, icon, categoryId) => async (dispatch) => {
+    const res = await fetch(`/api/categories/${categoryId}/tasks`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({title, icon}),
     });
-    console.log(
-      "*********************the response from backend in thunk****************",
-      res
-    );
+
 
     if (res.ok) {
-      // console.log(
-      //   "*********************in the if block, in thunk**************"
-      // );
-      const newCategoryResponse = await res.json();
-      // console.log(
-      //   "*********************in the if block, res.json()**************",
-      //   newCategoryResponse
-      // );
-      dispatch(getCategoriesThunk());
-      return newCategoryResponse;
+      const newTaskResponse = await res.json();
+      console.log(
+        "*********************in the if block, res.json()**************",
+        newTaskResponse
+      );
+      dispatch(getTasksThunk());
+      return newTaskResponse;
     } else {
       const errors = await res.json();
-      // console.log("*********************in the else block, the response from backend in thunk**************", errors);
+
       return errors;
     }
-    //  } catch (error) {
-    // const errors = await error.json();
-    //  return error;
-    //  }
+
   };
 
-export const deleteItemThunk = (productId) => async (dispatch) => {
-  //  console.log("*********************the response from backend in thunk**************", productId);
-  const res = await fetch(`/api/shopping_cart/${productId}`, {
+
+  export const editTaskThunk = (title, icon,  taskId) => async (dispatch) => {
+    //  try {
+
+    const res = await fetch(`/api/tasks/${taskId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({title, icon}),
+    });
+
+
+    if (res.ok) {
+      const newTaskResponse = await res.json();
+      dispatch(getTasksThunk());
+      return newTaskResponse;
+    } else {
+      const errors = await res.json();
+
+      return errors;
+    }
+
+  };
+
+
+export const deleteTaskThunk = (taskId) => async (dispatch) => {
+  const res = await fetch(`/api/tasks/${taskId}`, {
     method: "DELETE",
   });
 
   if (res.ok) {
-    dispatch(getCategoriesThunk());
+    dispatch(getTasksThunk());
   } else {
     const errors = await res.json();
     return errors;
@@ -70,11 +82,10 @@ export const deleteItemThunk = (productId) => async (dispatch) => {
 
 const initialState = {}; //store shape
 
-/** shopping Cart reducers: */
-export const categoryReducer = (state = initialState, action) => {
+export const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_TASKS:
-      return { ...action.categories };
+      return { ...action.tasks };
     default:
       return state;
   }

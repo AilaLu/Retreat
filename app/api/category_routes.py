@@ -93,17 +93,17 @@ def delete_category(id):
 
 
 # #R #!can be taken care of just by the lazy load in the model
-# #api/categories/id/tasks
-# @category_routes.route("/<int:id>/tasks")
-# @login_required
-# def get_tasks_by_category(id):
-#     """
-#     Query tasks for a category
-#     """
-#     category_tasks = Task.query.filter(Task.categoryId ==  id).all()
+#api/categories/id/tasks
+@category_routes.route("/<int:id>/tasks")
+@login_required
+def get_tasks_by_category(id):
+    """
+    Query tasks for a category
+    """
+    category_tasks = Task.query.filter(Task.categoryId ==  id).all()
 
-#     res = [task.to_dict() for task in category_tasks]
-#     return {"Category_tasks": res}
+    res = [task.to_dict() for task in category_tasks]
+    return {"Category_tasks": res}
 
 
 #C
@@ -121,6 +121,7 @@ def create_task_by_category(id):
         # print("============show in the terminal, in api category_route=========, in the create task route ")
         newTask = Task(
             userId = current_user.id,
+            categoryId = id,
             title = form.data["title"],
             icon = form.data["icon"]
         )

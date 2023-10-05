@@ -1,12 +1,20 @@
+import {useEffect} from "react"
 import OpenModalButton from "../../OpenModalButton";
 import {EditCategoryModal} from "../EditCategoryModal"
 import { DeleteCategoryModal } from "../DeleteCategoryModal";
 import { IconSelectModal } from "../../Tasks/IconSelectModal";
 import "./CategoryCard.css";
+import { useDispatch } from "react-redux";
+import { getTasksThunk } from "../../../store/taskReducer";
 
 export const CategoryCard = ({category}) => {
+  const tasks = Object.values(category.tasks)
+  const dispatch = useDispatch();
  
- const tasks = Object.values(category.tasks)
+  useEffect(() => {
+    dispatch(getTasksThunk(category.id))
+  }, [dispatch]);
+
 //  console.log('********** in category card component*******', tasks);
  
   return (
@@ -35,7 +43,7 @@ export const CategoryCard = ({category}) => {
      <OpenModalButton
           buttonText="Create New Task"
           // buttonStyle={}
-          modalComponent={<IconSelectModal categoryId={category.id}/>}
+          modalComponent={<IconSelectModal categoryId={category.id} />}
           />
    </div>
    {/* ( <div key={task.id}>{task.title}</div>) */}
