@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { editTaskThunk } from "../../../store/taskReducer";
 
-export const EditTitleModal = ({ task }) => {
+export const EditTitleModal = ({ task, setTasks }) => {
  const dispatch = useDispatch();
  const [title, setTitle] = useState("");
  const [errors, setErrors] = useState([]);
@@ -12,7 +12,8 @@ export const EditTitleModal = ({ task }) => {
 
  const handleTitleSubmit = async (e) => {
   e.preventDefault();
-  await dispatch(editTaskThunk(title, task.icon, task.id, task.categoryId))
+  const tasks = await dispatch(editTaskThunk(title, task.icon, task.id, task.categoryId))
+  setTasks(tasks)
   closeModal()
  };
 

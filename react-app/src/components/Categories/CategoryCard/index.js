@@ -49,7 +49,7 @@ export const CategoryCard = ({ category }) => {
               src={task.icon}
               alt={task.title}
               // buttonStyle={}
-              modalComponent={<TaskModal task={task} />}
+              modalComponent={<TaskModal task={task} setTasks={setTasks}/>}
             />
             <div>{task.title}</div>
           </div>

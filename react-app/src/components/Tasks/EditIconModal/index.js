@@ -4,15 +4,17 @@ import { useModal } from "../../../context/Modal";
 import { icons } from "../../../assets/icon";
 import { editTaskThunk } from "../../../store/taskReducer";
 
-export const EditIconModal = ({ task }) => {
+export const EditIconModal = ({ task, setTasks }) => {
  const dispatch = useDispatch();
- const [taskIcon, setTaskIcon] = useState("")
  const { closeModal } = useModal();
 
  const handleIconSubmit = async (e) => {
   e.preventDefault();
-  setTaskIcon(e.target.src)
-  await dispatch(editTaskThunk(task.title, taskIcon, task.id, task.categoryId))
+  // console.log('=============edited icon==========', e.target.src);
+  const taskIcon = e.target.src
+  
+  const tasks = await dispatch(editTaskThunk(task.title, taskIcon, task.id, task.categoryId))
+  setTasks(tasks)
   closeModal()
  };
 
