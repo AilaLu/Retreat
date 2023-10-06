@@ -1,0 +1,200 @@
+.footer-container {
+  margin-top: 100px;
+}
+
+#renewable-energy-section {
+  font-family: "Roboto";
+  font-weight: 300;
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  color: lightgrey;
+  text-align: center;
+  padding: 7px;
+}
+
+.team-section {
+  padding-top: 20px;
+  padding-bottom: 12px;
+  background-color: rgb(50, 50, 50);
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-around;
+}
+
+.member-image {
+  position: relative;
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.linkedin-logo {
+  position: relative;
+  max-width: 15px;
+  height: auto;
+  z-index: 1;
+  margin-right: 5px;
+}
+
+.github-logo {
+  position: relative;
+  max-width: 15px;
+  height: auto;
+  z-index: 1;
+  border-radius: 20%;
+}
+
+.fa-brands-redux-icon {
+  max-height: 1.5rem;
+  top: 4px;
+}
+
+.creator {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.member-image {
+  transition: 1s ease-out;
+}
+
+.member-image:hover {
+  box-shadow: 0px 0px 5px 5px lightgrey;
+  transition: 0.1s ease-in;
+}
+
+.stack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  background-color: rgb(50, 50, 50);
+  color: #ffffff;
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 4px;
+}
+
+.stack a:hover {
+  text-decoration: underline;
+}
+
+.links a {
+  margin: 0 10px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  width: max-content;
+  max-width: 100%;
+  color: lightgrey;
+  font-size: 12px;
+  /* background-color: rgb(255, 90, 95); */
+  /* border-radius: 10px; */
+  /* padding: 5px 10px 5px 10px; */
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  top: -1.5rem;
+}
+
+.tooltip-text-img {
+  visibility: hidden;
+  position: absolute;
+  width: max-content;
+  max-width: 100%;
+  color: lightgrey;
+  font-size: 12px;
+  /* background-color: rgb(255, 90, 95); */
+  /* border-radius: 10px; */
+  /* padding: 5px 10px 5px 10px; */
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  /* top: -1.5rem; */
+}
+
+.hover-text {
+  position: relative;
+  display: inline-block;
+  margin: 0 15px;
+  /* margin: 40px; */
+  /* text-align: center; */
+}
+
+.hover-text-img {
+  position: relative;
+  display: inline-block;
+  /* margin: 0 15px; */
+}
+
+.hover-text:hover .tooltip-text {
+  visibility: visible;
+}
+
+.hover-text-img:hover .tooltip-text-img {
+  visibility: visible;
+}
+
+#topTip {
+  /* top: -20px; */
+  /* left: 60px; */
+  opacity: 0;
+  transition: opacity 0.5s;
+  font-size: 14px;
+  font-family: "Roboto";
+}
+
+#topTip-img {
+  /* top: -20px; */
+  /* left: 60px; */
+  opacity: 0;
+  transition: opacity 0.5s;
+  font-size: 14px;
+  font-family: "Roboto";
+  font-style: normal;
+}
+
+.hover-text:hover #topTip {
+  opacity: 1;
+}
+
+.hover-text-img:hover #topTip-img {
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .who-we-are {
+    display: none;
+    position: absolute;
+  }
+
+  .tech1 {
+    display: none;
+    position: absolute;
+  }
+
+  .tech2 {
+    display: none;
+    position: absolute;
+  }
+
+  .tech3 {
+    display: none;
+    position: absolute;
+  }
+}
+
+@media (max-width: 550px) {
+  .team-members {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}

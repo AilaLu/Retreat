@@ -40,7 +40,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <img width="25" height="25" src="https://img.icons8.com/color/96/gender-neutral-user.png" alt="gender-neutral-user"/>
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (

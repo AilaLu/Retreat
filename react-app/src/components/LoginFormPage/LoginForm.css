@@ -1,0 +1,106 @@
+#log-in-entire-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#inner-login-page {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid rgb(222, 222, 222); */
+  margin-bottom: 20px;
+  transition: 1s ease-out;
+}
+
+#inner-login-page:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  transition: 0.5s ease-in-out;
+}
+
+#form-login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#email-password-login-page {
+  /* border: 1px solid rgb(222, 222, 222); */
+  padding: 10px 50px 30px 50px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#email-input-login-page {
+  margin-left: 40px;
+}
+
+#password-input-login-page {
+  margin-left: 15px;
+}
+
+#login-butt-login-page {
+  background-color: #79c561;
+  color: lightgrey;
+  border: none;
+  border-radius: 15px;
+  margin-top: 10px;
+  width: 150px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 40px;
+}
+
+#login-butt-login-page:hover {
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#sign-up-login-page {
+  background-color: #79c561;
+  color: lightgrey;
+  border: none;
+  border-radius: 15px;
+  margin-top: 5px;
+  width: 150px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+#sign-up-login-page:hover {
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#demo-link-page {
+  background-color: #79c561;
+  color: lightgrey;
+  border: none;
+  border-radius: 15px;
+  margin-top: 5px;
+  width: 150px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+#demo-link-page:hover {
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}

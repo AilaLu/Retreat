@@ -18,8 +18,9 @@
   justify-content: space-between;
 }
 
-.logo>a{
+.logo > a {
   text-decoration: none;
+  color: hwb(84 18% 0% / 0.657);
 }
 
 .logo-text {
@@ -30,12 +31,16 @@
   font-size: 30px;
 }
 
-.profile-btn>button {
+.profile-btn > button {
   border-radius: 30px;
-  padding: 5px 15px;
+  padding: 15px 15px;
   background-color: lightgray;
-  margin-left: 10px;
+  margin-left: 30px;
   border: none;
+}
+
+.profile-btn>button:hover {
+  cursor: pointer;
 }
 
 .manageTasks-profileBtn {
@@ -51,10 +56,10 @@
   color: lightgray;
 }
 
-.manageTasks>a:-webkit-any-link {
+.manageTasks > a:-webkit-any-link {
   text-decoration: none;
   color: lightgray;
-  background-color: #78c561ae ;
+  background-color: #78c561ae;
   /* opacity: ; */
   border-radius: 20px;
   padding: 5px 15px;

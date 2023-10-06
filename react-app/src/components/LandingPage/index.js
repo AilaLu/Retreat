@@ -22,19 +22,19 @@ export const LandingPage = () => {
   if (!user) return null;
 
   return (
-    <>
+    <div className="landing-page">
       <div>Hello {user.username}:)</div>
-      <p>
+      <div>
         Retreat is a simple tool to track your mood, daily task and journal.{" "}
-      </p>
+      </div>
       <img
-        width="200"
+        width="250"
         src="https://media0.giphy.com/media/xT0xeAIDaF8WaeHF6w/giphy.gif?cid=ecf05e474ipkfkv5pmyulhvu2r5f6lv9gw3ks79qo02s3jzs&ep=v1_gifs_related&rid=giphy.gif&ct=g"
         alt=""
       />
       <div className="go-add-task">
         <NavLink exact to="/manage_tasks">Let's go create some tasks for daily self-care <i className="fa-solid fa-arrow-right"></i></NavLink>
       </div>
-    </>
+    </div>
   );
 };
