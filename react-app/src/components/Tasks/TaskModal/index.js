@@ -30,7 +30,7 @@ export const TaskModal = ({ task, setTasks }) => {
 
       <section className="delete-icon">
         <OpenModalButton
-          buttonText="Delete icon"
+          buttonText="Delete task"
           // buttonStyle={}
           modalComponent={<DeleteTaskModal task={task} setTasks={setTasks}/>}
         />

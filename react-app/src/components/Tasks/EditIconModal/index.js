@@ -10,7 +10,6 @@ export const EditIconModal = ({ task, setTasks }) => {
 
  const handleIconSubmit = async (e) => {
   e.preventDefault();
-  // console.log('=============edited icon==========', e.target.src);
   const taskIcon = e.target.src
   
   const tasks = await dispatch(editTaskThunk(task.title, taskIcon, task.id, task.categoryId))
@@ -24,13 +23,18 @@ export const EditIconModal = ({ task, setTasks }) => {
       <div>
       <h1>Change an icon for your task</h1>
       <form onSubmit={handleIconSubmit}>
-        <div className="">
+        <div className="icons">
           {icons.map((icon, index) => (
-            <button key={index} className="" type="submit" onClick={handleIconSubmit} data-icon={icon}>
-              <img src={icon} alt="" />
-            </button>
+           <div className="icon" key={index}>
+              <button className="" type="submit" onClick={handleIconSubmit} data-icon={icon}>
+                <img src={icon} alt="" />
+              </button>
+            </div>
           ))}
         </div>
+        <button className="big grey button" onClick={closeModal}>
+            Cancel
+          </button>
       </form></div>
     </>
   );

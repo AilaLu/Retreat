@@ -1,4 +1,4 @@
-import {useState} from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { editTaskThunk } from "../../../store/taskReducer";
@@ -9,6 +9,13 @@ export const EditTitleModal = ({ task, setTasks }) => {
  const [errors, setErrors] = useState([]);
  const { closeModal } = useModal();
 
+
+ useEffect(() => {
+  const errors = {};
+  if (title.length < 1)
+      errors.title = "please enter icon title";
+  setErrors(errors);
+}, [title]);
 
  const handleTitleSubmit = async (e) => {
   e.preventDefault();
@@ -32,7 +39,7 @@ export const EditTitleModal = ({ task, setTasks }) => {
           />
         </label>
         <div className="errors">
-          {errors.name && <p>{errors.name}</p>}
+          {errors.title && <p>{errors.title}</p>}
         </div>
         <div className="padding-bottom">
           <button className="big grey button" onClick={closeModal}>
