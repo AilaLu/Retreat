@@ -23,7 +23,8 @@ function Navigation({ isLoaded }) {
       <div className="flex-space-between">
         <div className="logo">
           <NavLink exact to="/">
-            <h4 className="logo-text">Retreat</h4>
+          <img width="25" height="25" src="https://img.icons8.com/external-those-icons-flat-those-icons/96/external-Clover-objects-those-icons-flat-those-icons.png" alt="external-Clover-objects-those-icons-flat-those-icons"/>
+            <div className="logo-text">Retreat</div>
           </NavLink>
         </div>
         <div className="manageTasks-profileBtn">

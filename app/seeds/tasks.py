@@ -6,18 +6,18 @@ from sqlalchemy.sql import text
    #  "userId": 1,
    #  "categoryId": 1,
    #  "title": "yoga",
-   #  "icon": "https://img.icons8.com/color/48/yoga.png"
+   #  "icon": "https://img.icons8.com/color/96/yoga.png"
    #   }
 
 def seed_tasks():
     task1 = Task(
-        userId=1, categoryId= 1, title="yoga", icon="https://img.icons8.com/color/48/yoga.png")
+        userId=1, categoryId= 1, title="yoga", icon="https://img.icons8.com/color/96/yoga.png")
     task2 = Task(
-        userId=1, categoryId= 1, title="swim", icon="https://img.icons8.com/color/48/snorkeling.png")
+        userId=1, categoryId= 1, title="swim", icon="https://img.icons8.com/color/96/snorkeling.png")
     task3 = Task(
-        userId=1, categoryId= 2, title="meditation", icon="https://img.icons8.com/color/48/floating-guru.png")
+        userId=1, categoryId= 2, title="meditation", icon="https://img.icons8.com/color/96/floating-guru.png")
     task4 = Task(
-        userId=1, categoryId= 2, title="hug", icon="https://img.icons8.com/color/48/hug.png")
+        userId=1, categoryId= 2, title="hug", icon="https://img.icons8.com/color/96/hug.png")
   
 
     db.session.add(task1)

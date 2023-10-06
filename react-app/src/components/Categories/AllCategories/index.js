@@ -51,7 +51,7 @@ export const AllCategories = () => {
           // buttonStyle={}
           width="48"
           height="48"
-          src="https://img.icons8.com/color/48/plus--v1.png"
+          src="https://img.icons8.com/color/96/plus--v1.png"
           alt="plus"
           modalComponent={<AddCategoryModal />}
         />

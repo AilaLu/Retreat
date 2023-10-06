@@ -26,8 +26,8 @@
   display: inline;
   /* text-decoration: none; */
   color: hwb(84 18% 0% / 0.657);
-  margin: center;
-  font-size: xx-large;
+  margin-left: 5px;
+  font-size: 30px;
 }
 
 .profile-btn>button {
