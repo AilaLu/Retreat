@@ -1,13 +1,30 @@
+
+/* official block/modal color */
+/* rgb(50, 50, 50); */
+/* official green: 
+#79C561 */
+/* official font color::afterlightgray */
 /* TODO Add site wide styles */
 
 body {
-  font-family: sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: lightgray;
   margin: 0;
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(30, 30, 30);
+  padding: 20px;
   /* #F4F1EA; */
 }
 
 .errors {
   color: tomato;
 }
+
+.center-children {
+  text-align: center;
+}
+
+.center-self {
+  display: block;
+  margin: auto;
+}
+

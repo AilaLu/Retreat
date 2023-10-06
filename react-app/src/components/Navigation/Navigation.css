@@ -6,52 +6,36 @@
   display: none;
 }
 
-
 .navigation {
   padding: 10px 20px;
   margin-bottom: 20px;
   border-bottom: 2px solid rgb(195, 194, 194);
 }
 
-.profile-button {
-  border-radius: 30px;
-  padding: 5px 15px;
-  background-color: white;
-  margin-left: 10px;
+.flex-space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.fa-tree {
-  font-size: larger;
-  width: 30px;
-  height: 30px;
-  color: tomato;
+.logo>a{
+  text-decoration: none;
 }
 
 .logo-text {
   display: inline;
   /* text-decoration: none; */
-  color: #FC9C9C;
-  margin: center;
+  color: hwb(84 18% 0% / 0.657);
+  margin-left: 5px;
+  font-size: 30px;
 }
 
-a:-webkit-any-link {
-  text-decoration: none;
-}
-
-/* not logged in dropdown */
-.signUp-logIn {
-  width: fit-content;
-  padding: 2px 55px 2px 10px;
-}
-
-/* logged in dropdown */
-.session-user {
-  width: fit-content;
-  padding: 2px 55px 2px 10px;
-}
-.signUp-logIn-btn {
-  border: white;
-  background-color: white;
+.profile-btn>button {
+  border-radius: 30px;
+  padding: 5px 15px;
+  background-color: lightgray;
+  margin-left: 10px;
+  border: none;
 }
 
 .manageTasks-profileBtn {
@@ -60,4 +44,17 @@ a:-webkit-any-link {
   align-content: center;
   align-items: center;
   justify-content: space-between;
+}
+
+.manageTasks {
+  margin-right: 20px;
+  color: lightgray;
+}
+
+.manageTasks>a:-webkit-any-link {
+  text-decoration: none;
+  color: lightgray;
+  background-color: rgb(50, 50, 50);
+  border-radius: 20px;
+  padding: 5px 15px;
 }
