@@ -1,0 +1,16 @@
+.edit-delete-task{
+display: flex;
+flex-direction: column;
+}
+
+.edit-delete-task-btn {
+ color: lightgray;
+ background-color: rgb(50, 50, 50);
+ border-radius: 20px;
+ padding: 5px 15px;
+ margin: 5px 0;
+}
+
+.edit-delete-task-btn:hover {
+ cursor: pointer;
+}

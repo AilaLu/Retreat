@@ -54,7 +54,8 @@
 .manageTasks>a:-webkit-any-link {
   text-decoration: none;
   color: lightgray;
-  background-color: rgb(50, 50, 50);
+  background-color: #78c561ae ;
+  /* opacity: ; */
   border-radius: 20px;
   padding: 5px 15px;
 }

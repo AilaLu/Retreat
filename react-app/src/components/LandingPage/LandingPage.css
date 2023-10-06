@@ -1,0 +1,17 @@
+.go-add-task {
+  margin-right: 20px;
+  margin-top: 50px;
+  color: lightgray;
+}
+
+.go-add-task > a:-webkit-any-link {
+  text-decoration: none;
+  color: lightgray;
+  background-color: rgba(120, 197, 97, 0.682);
+  border-radius: 20px;
+  padding: 15px 30px;
+}
+
+.go-add-task:hover {
+  cursor: pointer;
+}
