@@ -4,20 +4,17 @@ import { useModal } from "../../../context/Modal";
 import { icons } from "../../../assets/icon";
 import { editTaskThunk } from "../../../store/taskReducer";
 
-export const EditIconModal = ({ task }) => {
+export const EditIconModal = ({ task, setTasks }) => {
  const dispatch = useDispatch();
- const [modalSwitch, setModalSwitch] = useState("select icon")
- const [taskIcon, setTaskIcon] = useState("")
- const [title, setTitle] = useState("");
- const [errors, setErrors] = useState([]);
  const { closeModal } = useModal();
 
  const handleIconSubmit = async (e) => {
   e.preventDefault();
-  //! send task icon and categoryId, render task title form to collect task title
-  setModalSwitch("task title") //render the task title form
-  // console.log('************icon from btn data property**********', e.target.src);
-  setTaskIcon(e.target.src)
+  const taskIcon = e.target.src
+  
+  const tasks = await dispatch(editTaskThunk(task.title, taskIcon, task.id, task.categoryId))
+  setTasks(tasks)
+  closeModal()
  };
 
  
@@ -26,13 +23,18 @@ export const EditIconModal = ({ task }) => {
       <div>
       <h1>Change an icon for your task</h1>
       <form onSubmit={handleIconSubmit}>
-        <div className="">
+        <div className="icons">
           {icons.map((icon, index) => (
-            <button key={index} className="" type="submit" onClick={handleIconSubmit} data-icon={icon}>
-              <img src={icon} alt="" />
-            </button>
+           <div className="icon" key={index}>
+              <button className="" type="submit" onClick={handleIconSubmit} data-icon={icon}>
+                <img src={icon} alt="" />
+              </button>
+            </div>
           ))}
         </div>
+        <button className="big grey button" onClick={closeModal}>
+            Cancel
+          </button>
       </form></div>
     </>
   );

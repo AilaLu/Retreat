@@ -6,7 +6,7 @@ import { EditTitleModal } from "../EditTitleModal";
 import { DeleteTaskModal } from "../DeleteTaskModal";
 // import "./AddCategoryModal.css";
 
-export const TaskModal = ({ task }) => {
+export const TaskModal = ({ task, setTasks }) => {
   // console.log("===========task", task.categoryId);
 
   return (
@@ -15,24 +15,24 @@ export const TaskModal = ({ task }) => {
         <img src={task.icon} alt={task.title} />
         <div>{task.title}</div>
       </section>
-      <section className="edit icon">
+      <section className="edit-icon">
         <OpenModalButton
           buttonText="Change icon"
           // buttonStyle={}
-          modalComponent={<EditIconModal task={task} />}
+          modalComponent={<EditIconModal task={task} setTasks={setTasks}/>}
         />
         <OpenModalButton
           buttonText="Change title"
           // buttonStyle={}
-          modalComponent={<EditTitleModal task={task} />}
+          modalComponent={<EditTitleModal task={task} setTasks={setTasks}/>}
         />
       </section>
 
-      <section className="delete icon">
+      <section className="delete-icon">
         <OpenModalButton
-          buttonText="Delete icon"
+          buttonText="Delete task"
           // buttonStyle={}
-          modalComponent={<DeleteTaskModal task={task} />}
+          modalComponent={<DeleteTaskModal task={task} setTasks={setTasks}/>}
         />
       </section>
     </>
