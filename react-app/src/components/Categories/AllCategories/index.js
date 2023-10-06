@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import OpenModalButton from "../../OpenModalButton";
 import { AddCategoryModal } from "../AddCategoryModal";
 import "./AllCategories.css";
 import { getCategoriesThunk } from "../../../store/categoryReducer";
 import { CategoryCard } from "../CategoryCard";
-
+import { OpenTaskModal } from "../../Tasks/OpenTaskModal";
+import { moods } from "../../../assets/icon";
 
 export const AllCategories = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,14 @@ export const AllCategories = () => {
   const categoriesObj = useSelector((state) => state.categories);
   const categoriesArr = Object.values(categoriesObj);
 
+  const handleMoodSubmit = async (e) => {
+    e.preventDefault();
+    // const taskIcon = e.target.src
+
+    // const tasks = await dispatch(editTaskThunk(task.title, taskIcon, task.id, task.categoryId))
+    // setTasks(tasks)
+    // closeModal()
+  };
 
   useEffect(() => {
     dispatch(getCategoriesThunk());
@@ -23,19 +31,31 @@ export const AllCategories = () => {
 
   return (
     <>
-      <h1>All Categories</h1>
-      <div>Hello {user.username}</div>
-      <section>
+      <div>Hello {user.username}:)</div>
+      {/* <section className="moods">
+        {moods.map((mood, index) => (
+          <div className="mood" key={index}>
+            <button className="" type="submit" onClick={handleMoodSubmit}>
+              <img src={mood} alt="" />
+            </button>
+          </div>
+        ))}
+      </section> */}
+      <section className="categories">
         {categoriesArr.map((category) => (
           <CategoryCard category={category} key={category.id} />
         ))}
       </section>
       <div className="add-category">
-        <OpenModalButton
-          buttonText="Create New Category Block"
+        <OpenTaskModal
           // buttonStyle={}
+          width="48"
+          height="48"
+          src="https://img.icons8.com/color/48/plus--v1.png"
+          alt="plus"
           modalComponent={<AddCategoryModal />}
         />
+        <div className="new-category">New Category</div>
       </div>
     </>
   );

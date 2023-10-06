@@ -1,0 +1,33 @@
+.moods{
+ background-color: rgb(50, 50, 50);
+ border-radius: 20px;
+ margin-bottom: 50px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-between;
+ padding: 50px;
+}
+
+.add-category {
+  background-color: rgb(50, 50, 50);
+  border: 1px solid rgba(172, 255, 47, 0.62);
+  color: rgba(172, 255, 47, 0.62);
+  border-radius: 20px;
+  padding: 50px;
+  text-align: center;
+}
+
+.add-category>button{
+ background-color: rgb(50, 50, 50);
+ border: none;
+}
+
+.add-category>button:hover{
+ cursor: pointer;
+}
+
+.new-category {
+  color: rgba(172, 255, 47, 0.62);
+  margin-top: 10px;
+}

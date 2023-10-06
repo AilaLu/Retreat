@@ -15,15 +15,15 @@ function Navigation({ isLoaded }) {
   }
 
   //if logged in, then can manage tasks
-  let manageTasks = "";
+  let manageTasks = "manageTasks";
   if (!sessionUser) manageTasks = "hidden";
 
   return (
-    <div className="components-border navigation">
+    <div className="navigation">
       <div className="flex-space-between">
-        <div className="logo hover-cursor-pointer">
+        <div className="logo">
           <NavLink exact to="/">
-            <h4 className="logo-text ">Retreat</h4>
+            <h4 className="logo-text">Retreat</h4>
           </NavLink>
         </div>
         <div className="manageTasks-profileBtn">

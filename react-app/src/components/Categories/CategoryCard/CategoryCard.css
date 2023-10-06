@@ -1,7 +1,64 @@
-.tasks{
- display: flex;
- flex-direction: row;
- gap: 20px;
+.edit-delete-category {
+  display: flex;
+  justify-content: end;
+}
+
+.edit-delete-category > button {
+  color: lightgray;
+  background-color: rgb(50, 50, 50);
+  border-radius: 20px;
+  padding: 5px 15px;
+}
+
+.edit-delete-category > button:hover {
+  cursor: pointer;
+}
+
+.category-card {
+  background-color: rgb(50, 50, 50);
+  border-radius: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  margin: 10px 0 20px 0;
+}
+
+.task-icon > button {
+  border-radius: 50%;
+  border: none;
+  padding: 10px;
+}
+
+.task-icon > button:hover {
+  cursor: pointer;
+}
+
+.task-title {
+  margin-top: 10px;
+}
+
+.new-task {
+  color: hwb(84 18% 0% / 0.62);
+  margin-top: 10px;
+}
+
+.add-task > button {
+  background-color: rgb(50, 50, 50);
+  border: none;
+}
+
+.add-task > button:hover {
+  cursor: pointer;
 }
 
 /* icon size */
