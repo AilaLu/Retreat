@@ -28,12 +28,10 @@ export const CategoryCard = ({ category }) => {
       <div className="edit-delete-category">
         <OpenModalButton
           buttonText="Edit Category"
-          // buttonStyle={}
           modalComponent={<EditCategoryModal categoryId={category.id} />}
         />
         <OpenModalButton
           buttonText="Delete Category"
-          // buttonStyle={}
           modalComponent={<DeleteCategoryModal categoryId={category.id} />}
         />
       </div>

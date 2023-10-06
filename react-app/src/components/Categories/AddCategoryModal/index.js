@@ -4,29 +4,27 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import "./AddCategoryModal.css";
 
- export const AddCategoryModal = () => {
+export const AddCategoryModal = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
   useEffect(() => {
-   const errors = {};
-   if (name.length < 1)
-       errors.name = "please enter category name";
-   setErrors(errors);
- }, [name]);
+    const errors = {};
+    if (name.length < 1) errors.name = "please enter category name";
+    setErrors(errors);
+  }, [name]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(addCategoryThunk(name)).then(closeModal)
-};
+    await dispatch(addCategoryThunk(name)).then(closeModal);
+  };
 
   return (
     <>
       <h1>Add Category Name</h1>
-      <form onSubmit= {handleSubmit}>
-      
+      <form onSubmit={handleSubmit}>
         <label>
           <input
             type="text"
@@ -35,20 +33,20 @@ import "./AddCategoryModal.css";
             required
           />
         </label>
-        <div className="errors">
-          {errors.name && <p>{errors.name}</p>}
-        </div>
-        <div className="padding-bottom">
-          <button className="big grey button" onClick={closeModal}>
+        <div className="errors">{errors.name && <p>{errors.name}</p>}</div>
+        <div className="modal-btns">
+          <button className="big-grey-btn" onClick={closeModal}>
             Cancel
           </button>
-          <button className="big green button" type="submit" onClick={handleSubmit}>
+          <button
+            className="big-green-btn"
+            type="submit"
+            onClick={handleSubmit}
+          >
             Done
           </button>
         </div>
       </form>
     </>
   );
-}
-
-
+};

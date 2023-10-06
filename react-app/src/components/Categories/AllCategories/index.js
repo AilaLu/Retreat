@@ -48,7 +48,6 @@ export const AllCategories = () => {
       </section>
       <div className="add-category">
         <OpenTaskModal
-          // buttonStyle={}
           width="48"
           height="48"
           src="https://img.icons8.com/color/96/plus--v1.png"

@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Calendar from "react-calendar";
 import { AllCategories } from "./components/Categories/AllCategories";
+import { LandingPage } from "./components/LandingPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,8 @@ function App() {
       {isLoaded && (
         <Switch>
           <ProtectedRoute exact path="/">
-            <Calendar />
+            {/* <Calendar /> */}
+            <LandingPage />
           </ProtectedRoute>
           <ProtectedRoute path="/manage_tasks">
             <AllCategories/>
