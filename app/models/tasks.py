@@ -16,6 +16,7 @@ class Task(db.Model):
 # relationship attribute
     users = db.relationship("User", back_populates="tasks")
     categories = db.relationship("Category", back_populates="tasks")
+    checkInTasks = db.relationship("CheckInTask", back_populates="tasks", cascade="all, delete", lazy="joined")
 
 
     def to_dict(self):
@@ -25,4 +26,5 @@ class Task(db.Model):
             'categoryId': self.categoryId,
             'title': self.title,
             'icon': self.icon,
+            'checkInTasks': [checkInTask.to_dict() for checkInTask in self.checkInTasks]
         }
