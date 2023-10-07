@@ -6,10 +6,10 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import Calendar from "react-calendar";
 import { AllCategories } from "./components/Categories/AllCategories";
 import { LandingPage } from "./components/LandingPage";
 import Footer from "./components/Footer";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -24,11 +24,10 @@ function App() {
       {isLoaded && (
         <Switch>
           <ProtectedRoute exact path="/">
-            {/* <Calendar /> */}
             <LandingPage />
           </ProtectedRoute>
           <ProtectedRoute path="/manage_tasks">
-            <AllCategories/>
+            <AllCategories />
           </ProtectedRoute>
           <Route path="/login">
             <LoginFormPage />
@@ -38,7 +37,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -1,10 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./LandingPage.css"
+import Calendar from "react-calendar";
+import 'react-calendar/dist/Calendar.css'
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
+  const [value, onChange] = useState(new Date());
 
   const user = useSelector((state) => state.session.user);
   const categoriesObj = useSelector((state) => state.categories);
@@ -35,6 +38,7 @@ export const LandingPage = () => {
       <div className="go-add-task">
         <NavLink exact to="/manage_tasks">Let's go create some tasks for daily self-care <i className="fa-solid fa-arrow-right"></i></NavLink>
       </div>
+      <Calendar onChange={onChange} value={value} locale="en-GB" />
     </div>
   );
 };
