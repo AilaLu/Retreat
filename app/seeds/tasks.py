@@ -43,4 +43,3 @@ def undo_tasks():
 
     db.session.commit()
 
-#need to have one of these undo commands for each seeded table, just replace undo_users with categories, etc.
