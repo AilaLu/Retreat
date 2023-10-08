@@ -19,9 +19,9 @@
 }
 
 #modal-content {
-  text-align: center; 
+  text-align: center;
   /* center children */
-  width: 30vw;  
+  width: 30vw;
   /* for icon select 50vw is better */
   position: absolute;
   background-color: rgb(30, 30, 30);
@@ -30,23 +30,23 @@
   border-radius: 20px;
 }
 
-.modal-btns{
+.modal-btns {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
 }
 
- .big-grey-btn{
- padding: 10px 20px;
- background-color: gray;
- color: lightgray;
- border-radius: 20px;
- margin-right: 50px;
-}
-
-.big-green-btn{
+.big-grey-btn {
   padding: 10px 20px;
-  background-color: #79C561 ;
+  background-color: gray;
   color: lightgray;
   border-radius: 20px;
- }
+  margin-right: 50px;
+}
+
+.big-green-btn {
+  padding: 10px 20px;
+  background-color: #abff2e9e;
+  color: lightgray;
+  border-radius: 20px;
+}

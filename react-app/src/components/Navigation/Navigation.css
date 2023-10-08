@@ -20,13 +20,13 @@
 
 .logo > a {
   text-decoration: none;
-  color: hwb(84 18% 0% / 0.657);
+  color: #abff2ea8;
 }
 
 .logo-text {
   display: inline;
   /* text-decoration: none; */
-  color: hwb(84 18% 0% / 0.657);
+  color: #abff2ea8;
   margin-left: 5px;
   font-size: 30px;
 }

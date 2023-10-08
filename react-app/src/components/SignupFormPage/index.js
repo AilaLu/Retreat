@@ -21,17 +21,18 @@ function SignupFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      const data = await dispatch(
-        signUp(username, email, password, firstName, lastName)
-      );
-      if (data) {
+   
+    const data = await dispatch(
+      signUp(username, email, password, firstName, lastName)
+    );
+    // console.log('data', data);// data is an array
+    
+    if (data) {
+      setErrors(data);
+      if(password !== confirmPassword){
+        data.push("password: Confirm Password field must be the same as the Password field.")
         setErrors(data);
-      }
-    } else {
-      setErrors([
-        "Confirm Password field must be the same as the Password field",
-      ]);
+      } 
     }
   };
 
@@ -59,6 +60,18 @@ function SignupFormPage() {
                 />
               </label>
             </div>
+            <div id="username-signup-page">
+              <label>
+                Username
+                <input
+                  id="username-input-signup-page"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
 
             <div id="firstname-signup-page">
               <label>
@@ -75,7 +88,7 @@ function SignupFormPage() {
 
             <div id="lastname-signup-page">
               <label>
-                First Name
+                Last Name
                 <input
                   id="lastname-input-signup-page"
                   type="text"
@@ -86,18 +99,6 @@ function SignupFormPage() {
               </label>
             </div>
 
-            <div id="username-signup-page">
-              <label>
-                Username
-                <input
-                  id="username-input-signup-page"
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
-                />
-              </label>
-            </div>
 
             <div id="password-signup-page">
               <label>
