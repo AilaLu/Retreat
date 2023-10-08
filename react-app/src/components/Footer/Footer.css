@@ -1,23 +1,16 @@
 .footer-container {
-  margin-top: 100px;
-}
-
-#renewable-energy-section {
-  font-family: "Roboto";
-  font-weight: 300;
-  text-decoration-line: underline;
-  text-decoration-style: dashed;
-  color: lightgrey;
-  text-align: center;
-  padding: 7px;
-}
-
-.team-section {
   padding-top: 20px;
   padding-bottom: 12px;
   background-color: rgb(50, 50, 50);
   border-radius: 20px;
   color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.footer-container > a {
+  color: lightgray;
 }
 
 .team-members {
@@ -54,6 +47,7 @@
 .creator {
   text-align: center;
   margin-top: 5px;
+  margin-left: 50px;
 }
 
 .member-image {
@@ -66,7 +60,7 @@
 }
 
 .stack {
-  display: flex;
+  text-align: center;
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
@@ -75,6 +69,7 @@
   padding-left: 10px;
   padding-top: 2px;
   padding-bottom: 4px;
+  margin-left: 50px;
 }
 
 .stack a:hover {
@@ -85,6 +80,10 @@
   margin: 0 10px;
   color: #ffffff;
   text-decoration: none;
+}
+
+.first-row {
+  margin-bottom: 50px;
 }
 
 .tooltip-text {
@@ -144,8 +143,7 @@
   /* left: 60px; */
   opacity: 0;
   transition: opacity 0.5s;
-  font-size: 14px;
-  font-family: "Roboto";
+  font-size: small;
 }
 
 #topTip-img {
@@ -153,8 +151,7 @@
   /* left: 60px; */
   opacity: 0;
   transition: opacity 0.5s;
-  font-size: 14px;
-  font-family: "Roboto";
+  font-size: small;
   font-style: normal;
 }
 
@@ -194,4 +191,24 @@
     flex-direction: column;
     justify-content: space-around;
   }
+}
+
+.github {
+  text-align: center;
+}
+
+.retreat-github-link{
+  border: 3px solid lightgray;
+border-radius: 50%;
+}
+
+.retreat-github-link:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 5px lightgrey;
+  transition: 0.1s ease-in;
+}
+
+.retreat-inspired-by {
+  margin-top: 20px;
+  font-size: medium;
 }
