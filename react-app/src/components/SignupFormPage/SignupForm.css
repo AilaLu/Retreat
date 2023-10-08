@@ -1,0 +1,83 @@
+#signup-entire-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#inner-signup-page {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid rgb(222, 222, 222); */
+  margin-bottom: 20px;
+  transition: 1s ease-out;
+}
+
+#inner-signup-page:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  transition: 0.5s ease-in-out;
+}
+
+#form-signup-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#whole-form-signup-page {
+  /* border: 1px solid rgb(222, 222, 222); */
+  padding: 10px 50px 30px 50px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#email-input-signup-page {
+  margin-left: 104px;
+}
+
+#firstname-input-signup-page {
+  margin-left: 67px;
+}
+
+#lastname-input-signup-page {
+  margin-left: 67px;
+}
+
+#username-input-signup-page {
+  margin-left: 74px;
+}
+
+#password-input-signup-page {
+  margin-left: 79px;
+}
+
+#confirm-password-input-signup-page {
+  margin-left: 15px;
+}
+
+#signup-butt-signup-page {
+  background-color: #abff2e9e;
+  color: lightgrey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+font-size: x-large;
+  border: none;
+  border-radius: 15px;
+  margin-top: 10px;
+  width: 150px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#signup-butt-signup-page:hover {
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}

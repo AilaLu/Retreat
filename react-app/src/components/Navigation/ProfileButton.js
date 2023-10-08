@@ -40,7 +40,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
+      <img width="25" height="25" src="https://img.icons8.com/color/96/gender-neutral-user.png" alt="gender-neutral-user"/>
       </button>
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
@@ -48,23 +48,25 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.email}</li>
             <li>
-              <button onClick={handleLogout}>Log Out</button>
+              <button className="log-out" onClick={handleLogout}>Log Out</button>
             </li>
           </>
         ) : (
-          <>
+          <div className="login-signup-btns">
             <OpenModalButton
               buttonText="Log In"
+              buttonStyle="login-btn"
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
 
             <OpenModalButton
               buttonText="Sign Up"
+              buttonStyle="signup-btn"
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
             />
-          </>
+          </div>
         )}
       </ul>
     </>

@@ -1,18 +1,19 @@
-
 /* official block/modal color */
 /* rgb(50, 50, 50); */
 /* official green: 
-#79C561 */
+/* #abff2e9e; */
+
 /* official font color::afterlightgray */
 /* TODO Add site wide styles */
 
 body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: xx-large;
   color: lightgray;
   margin: 0;
   background-color: rgb(30, 30, 30);
   padding: 20px;
-  /* #F4F1EA; */
 }
 
 .errors {
@@ -27,4 +28,3 @@ body {
   display: block;
   margin: auto;
 }
-

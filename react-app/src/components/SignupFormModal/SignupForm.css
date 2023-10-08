@@ -1,0 +1,46 @@
+.signup-modal {
+  margin: 30px;
+}
+
+.signup-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, 1fr);
+  row-gap: 10px;
+}
+
+.signup-field {
+  display: grid;
+}
+
+.signup-button {
+  background-color: #abff2e9e;
+  color: lightgrey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: x-large;
+  border: none;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.signup-title {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.signup-subtitle {
+  margin-bottom: 20px;
+}
+
+.signup-button:hover {
+  cursor: pointer;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
