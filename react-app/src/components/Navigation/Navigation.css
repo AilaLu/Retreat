@@ -1,6 +1,4 @@
-.profile-dropdown {
-  position: absolute;
-}
+
 
 .hidden {
   display: none;
@@ -59,8 +57,53 @@
 .manageTasks > a:-webkit-any-link {
   text-decoration: none;
   color: lightgray;
-  background-color: #78c561ae;
+  background-color: rgba(120, 197, 97, 0.682);
   /* opacity: ; */
   border-radius: 20px;
   padding: 5px 15px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  list-style-type: none; 
+  /* no bullet dots */
+  background-color: rgb(50, 50, 50);
+  padding: 20px;
+  right: 20px;
+  /* z-index: 1; */
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
+
+
+.log-out {
+  background-color: #abff2e9e;
+  color: lightgrey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+  font-size: x-large;
+  border: none;
+  border-radius: 15px;
+  margin-top: 5px;
+  padding: 5px 20px;
+}
+
+.login-signup-btns{
+  display: flex;
+  flex-direction: column;
+}
+
+.login-signup-btns>button{
+  background-color: #abff2e9e;
+  color: lightgrey;
+  font-size: x-large;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 15px;
+}
+
+.login-btn{
+  margin-bottom: 20px;
 }

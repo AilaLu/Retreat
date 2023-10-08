@@ -9,11 +9,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* padding: 20px; */
 }
 
 .login-button {
   background-color: #abff2e9e;
   color: lightgrey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+font-size: x-large;
   border: none;
   border-radius: 20px;
   margin-top: 10px;
@@ -39,6 +43,9 @@
 #demo-link {
   background-color: #abff2e9e;
   color: lightgrey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+font-size: x-large;
   border: none;
   border-radius: 20px;
   text-align: center;
@@ -46,7 +53,6 @@
   padding-bottom: 9px;
   margin-top: -10px;
   font-weight: 300;
-  font-size: 14px;
 }
 
 #demo-link:hover {

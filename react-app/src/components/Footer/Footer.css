@@ -30,14 +30,12 @@
   max-width: 120px;
   height: auto;
   border-radius: 50%;
-  z-index: 1;
 }
 
 .linkedin-logo {
   position: relative;
   max-width: 15px;
   height: auto;
-  z-index: 1;
   margin-right: 5px;
 }
 
@@ -45,7 +43,6 @@
   position: relative;
   max-width: 15px;
   height: auto;
-  z-index: 1;
   border-radius: 20%;
 }
 
