@@ -13,12 +13,13 @@ export const EditCategoryModal = ({ categoryId }) => {
   useEffect(() => {
     const errors = {};
     if (name.length < 1) errors.name = "please enter category name";
+    if (name.length > 50) errors.name = "category name should be under 100 characters";    
     setErrors(errors);
   }, [name]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("*********** in the edit modal***********", categoryId);
+    // console.log("*********** in the edit modal***********", categoryId);
 
     await dispatch(editCategoryThunk(name, categoryId)).then(closeModal);
   };

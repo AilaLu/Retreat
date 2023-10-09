@@ -11,7 +11,8 @@ export const EditTitleModal = ({ task, setTasks }) => {
 
   useEffect(() => {
     const errors = {};
-    if (title.length < 1) errors.title = "please enter icon title";
+    if (title.length < 1) errors.title = "please enter task title";
+    if (title.length > 50) errors.title = "task title should be under 50 characters";   
     setErrors(errors);
   }, [title]);
 
