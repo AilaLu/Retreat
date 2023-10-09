@@ -1,6 +1,15 @@
+.footer{
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%; 
+  /*! height: around 400px; so add padding bottom to root for 500px */
+  /* margin-right: -20px; */
+  /* margin-left: -20px; */
+}
+
 .footer-container {
-  padding-top: 20px;
-  padding-bottom: 12px;
+  padding: 20px 5px;
   background-color: rgb(50, 50, 50);
   border-radius: 20px;
   color: #ffffff;
@@ -13,10 +22,6 @@
   color: lightgray;
 }
 
-.team-members {
-  display: flex;
-  justify-content: space-around;
-}
 
 .member-image {
   position: relative;
@@ -46,8 +51,6 @@
 
 .creator {
   text-align: center;
-  margin-top: 5px;
-  margin-left: 50px;
 }
 
 .member-image {
@@ -61,15 +64,11 @@
 
 .stack {
   text-align: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  padding-top: 20px;
   background-color: rgb(50, 50, 50);
   color: #ffffff;
-  padding-left: 10px;
-  padding-top: 2px;
-  padding-bottom: 4px;
-  margin-left: 50px;
+
 }
 
 .stack a:hover {

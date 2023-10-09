@@ -6,7 +6,7 @@ import flask_icon from "./flask_icon.png";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <div className="footer-container">
         <div className="creator">
           <h4>Creator</h4>
