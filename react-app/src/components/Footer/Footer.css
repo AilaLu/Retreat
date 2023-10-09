@@ -1,43 +1,39 @@
+.footer{
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%; 
+  /*! height: around 400px; so add padding bottom to root for 500px */
+  /* margin-right: -20px; */
+  /* margin-left: -20px; */
+}
+
 .footer-container {
-  margin-top: 100px;
-}
-
-#renewable-energy-section {
-  font-family: "Roboto";
-  font-weight: 300;
-  text-decoration-line: underline;
-  text-decoration-style: dashed;
-  color: lightgrey;
-  text-align: center;
-  padding: 7px;
-}
-
-.team-section {
-  padding-top: 20px;
-  padding-bottom: 12px;
+  padding: 20px 5px;
   background-color: rgb(50, 50, 50);
   border-radius: 20px;
   color: #ffffff;
-}
-
-.team-members {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
 }
+
+.footer-container > a {
+  color: lightgray;
+}
+
 
 .member-image {
   position: relative;
   max-width: 120px;
   height: auto;
   border-radius: 50%;
-  z-index: 1;
 }
 
 .linkedin-logo {
   position: relative;
   max-width: 15px;
   height: auto;
-  z-index: 1;
   margin-right: 5px;
 }
 
@@ -45,7 +41,6 @@
   position: relative;
   max-width: 15px;
   height: auto;
-  z-index: 1;
   border-radius: 20%;
 }
 
@@ -56,7 +51,6 @@
 
 .creator {
   text-align: center;
-  margin-top: 5px;
 }
 
 .member-image {
@@ -69,15 +63,12 @@
 }
 
 .stack {
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
+  justify-content: space-evenly;
   align-items: center;
-  padding-top: 20px;
   background-color: rgb(50, 50, 50);
   color: #ffffff;
-  padding-left: 10px;
-  padding-top: 2px;
-  padding-bottom: 4px;
+
 }
 
 .stack a:hover {
@@ -88,6 +79,10 @@
   margin: 0 10px;
   color: #ffffff;
   text-decoration: none;
+}
+
+.first-row {
+  margin-bottom: 50px;
 }
 
 .tooltip-text {
@@ -147,8 +142,7 @@
   /* left: 60px; */
   opacity: 0;
   transition: opacity 0.5s;
-  font-size: 14px;
-  font-family: "Roboto";
+  font-size: small;
 }
 
 #topTip-img {
@@ -156,8 +150,7 @@
   /* left: 60px; */
   opacity: 0;
   transition: opacity 0.5s;
-  font-size: 14px;
-  font-family: "Roboto";
+  font-size: small;
   font-style: normal;
 }
 
@@ -197,4 +190,24 @@
     flex-direction: column;
     justify-content: space-around;
   }
+}
+
+.github {
+  text-align: center;
+}
+
+.retreat-github-link{
+  border: 3px solid lightgray;
+border-radius: 50%;
+}
+
+.retreat-github-link:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 5px lightgrey;
+  transition: 0.1s ease-in;
+}
+
+.retreat-inspired-by {
+  margin-top: 20px;
+  font-size: medium;
 }

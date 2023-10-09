@@ -30,7 +30,7 @@ function SignupFormPage() {
       }
     } else {
       setErrors([
-        "Confirm Password field must be the same as the Password field",
+        "password: Confirm Password field must be the same as the Password field",
       ]);
     }
   };
@@ -59,6 +59,18 @@ function SignupFormPage() {
                 />
               </label>
             </div>
+            <div id="username-signup-page">
+              <label>
+                Username
+                <input
+                  id="username-input-signup-page"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
+              </label>
+            </div>
 
             <div id="firstname-signup-page">
               <label>
@@ -75,25 +87,12 @@ function SignupFormPage() {
 
             <div id="lastname-signup-page">
               <label>
-                First Name
+                Last Name
                 <input
                   id="lastname-input-signup-page"
                   type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
-                  required
-                />
-              </label>
-            </div>
-
-            <div id="username-signup-page">
-              <label>
-                Username
-                <input
-                  id="username-input-signup-page"
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
                   required
                 />
               </label>

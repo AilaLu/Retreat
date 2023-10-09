@@ -44,8 +44,11 @@
 }
 
 #login-butt-login-page {
-  background-color: #79c561;
+  background-color: #abff2e9e;
   color: lightgrey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: x-large;
   border: none;
   border-radius: 15px;
   margin-top: 10px;
@@ -63,8 +66,11 @@
 }
 
 #sign-up-login-page {
-  background-color: #79c561;
+  background-color: #abff2e9e;
   color: lightgrey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: x-large;
   border: none;
   border-radius: 15px;
   margin-top: 5px;
@@ -73,7 +79,6 @@
   padding-bottom: 4px;
   text-align: center;
   font-weight: 300;
-  font-size: 14px;
 }
 
 #sign-up-login-page:hover {
@@ -84,8 +89,11 @@
 }
 
 #demo-link-page {
-  background-color: #79c561;
+  background-color: #abff2e9e;
   color: lightgrey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: x-large;
   border: none;
   border-radius: 15px;
   margin-top: 5px;
@@ -94,7 +102,6 @@
   padding-bottom: 4px;
   text-align: center;
   font-weight: 300;
-  font-size: 14px;
   margin-bottom: 40px;
 }
 

@@ -11,9 +11,9 @@ category_routes = Blueprint('categories', __name__)
 @login_required
 def get_categories():
     """
-    Query for all categories and returns them in a list of category dictionaries
+    Query for all categories belongs to the current user and returns them in a list of category dictionaries
     """
-    categories = [category.to_dict() for category in Category.query.all()]
+    categories = [category.to_dict() for category in Category.query.filter(Category.userId ==  current_user.id).all()]
 
     return {"Categories": categories}
 

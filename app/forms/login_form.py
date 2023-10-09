@@ -22,6 +22,7 @@ def password_matches(form, field):
     if not user.check_password(password):
         raise ValidationError('Password was incorrect.')
 
+# ! see how you pass in the functions(user_exists, password_matches) to validators as the second parameter, and it'll send with the key"errors" to the front end from thunk
 
 class LoginForm(FlaskForm):
     email = StringField('email', validators=[DataRequired(), user_exists])

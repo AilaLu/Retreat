@@ -14,8 +14,11 @@
 }
 
 .signup-button {
-  background-color: #79c561;
+  background-color: #abff2e9e;
   color: lightgrey;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: x-large;
   border: none;
   border-radius: 20px;
   margin-top: 10px;
@@ -27,7 +30,6 @@
 }
 
 .signup-subtitle {
-  font-size: 14px;
   margin-bottom: 20px;
 }
 
