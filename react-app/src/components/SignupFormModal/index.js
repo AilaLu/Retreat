@@ -17,7 +17,7 @@ function SignupFormModal() {
   const { closeModal } = useModal();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    if (password === confirmPassword) {
       // console.log('**************sign up modal', firstName);
 
       const data = await dispatch(
@@ -25,14 +25,15 @@ function SignupFormModal() {
       );
       if (data) {
         setErrors(data);
-        if(password !== confirmPassword){
-          data.push("password: Confirm Password field must be the same as the Password field.")
-          setErrors(data);
-        } 
       } else {
         closeModal();
       }
+    } else {
+      setErrors([
+        "password: Confirm Password field must be the same as the Password field",
+      ]);
     }
+  };
 
   return (
     <div className="signup-modal">
