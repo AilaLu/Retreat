@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
@@ -17,23 +17,35 @@ function SignupFormPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  const validateEmail = (email) => {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
+  // ! https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
+
+  useEffect(() => {
+    const errors = [];
+    if (!validateEmail(email)) errors.push( "email: please enter valid email"); 
+    if (password.length < 8) errors.push( "password: password should be more than 8 characters");   
+    if (password !== confirmPassword) errors.push("password: Confirm Password field must be the same as the Password field");   
+    setErrors(errors);
+  }, [email, password, confirmPassword]);
+
+
   if (sessionUser) return <Redirect to="/" />;
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
       const data = await dispatch(
         signUp(username, email, password, firstName, lastName)
       );
       if (data) {
         setErrors(data);
       }
-    } else {
-      setErrors([
-        "password: Confirm Password field must be the same as the Password field",
-      ]);
-    }
-  };
+    } 
 
   return (
     <div id="signup-entire-page">
@@ -133,5 +145,4 @@ function SignupFormPage() {
     </div>
   );
 }
-
 export default SignupFormPage;

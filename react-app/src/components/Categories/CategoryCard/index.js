@@ -29,7 +29,7 @@ if (!tasks) return null;
       <div className="edit-delete-category">
         <OpenModalButton
           buttonText="Edit Category"
-          modalComponent={<EditCategoryModal categoryId={category?.id} />}
+          modalComponent={<EditCategoryModal category={category} />}
         />
         <OpenModalButton
           buttonText="Delete Category"

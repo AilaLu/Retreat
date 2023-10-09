@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 // import "./AddCategoryModal.css";
 
-export const EditCategoryModal = ({ categoryId }) => {
+export const EditCategoryModal = ({ category }) => {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
+  const [name, setName] = useState(category.name);
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
@@ -21,7 +21,7 @@ export const EditCategoryModal = ({ categoryId }) => {
     e.preventDefault();
     // console.log("*********** in the edit modal***********", categoryId);
 
-    await dispatch(editCategoryThunk(name, categoryId)).then(closeModal);
+    await dispatch(editCategoryThunk(name, category.id)).then(closeModal);
   };
 
   return (

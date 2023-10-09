@@ -5,7 +5,7 @@ import { editTaskThunk } from "../../../store/taskReducer";
 
 export const EditTitleModal = ({ task, setTasks }) => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(task.title);
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
