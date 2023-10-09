@@ -1,6 +1,6 @@
 //* for creating a task, you select an icon first, and in the same modal, input the title
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 import { icons } from "../../../assets/icon";
@@ -14,6 +14,13 @@ export const IconSelectModal = ({ categoryId, setTasks }) => {
   const [title, setTitle] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
+
+  useEffect(() => {
+    const errors = {};
+    if (title.length < 1) errors.title = "please enter task title";
+    if (title.length > 50) errors.title = "task title should be under 50 characters";   
+    setErrors(errors);
+  }, [title]);
 
   const handleIconSubmit = async (e) => {
     e.preventDefault();
@@ -68,7 +75,7 @@ export const IconSelectModal = ({ categoryId, setTasks }) => {
                 required
               />
             </label>
-            <div className="errors">{errors.name && <p>{errors.name}</p>}</div>
+            <div className="errors">{errors.title && <p>{errors.title}</p>}</div>
             <div className="modal-btns">
               <button className="big-grey-btn" onClick={closeModal}>
                 Cancel

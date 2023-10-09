@@ -11,33 +11,34 @@ import { TaskModal } from "../../Tasks/TaskModal";
 
 export const CategoryCard = ({ category }) => {
   const dispatch = useDispatch();
-  const tasksProp = Object.values(category.tasks);
-  const latestTasks = Object.values(useSelector((state) => state.tasks));
-  const [tasks, setTasks] = useState(tasksProp);
+  // const tasksProp = Object.values(category?.tasks);
+  // const latestTasks = Object.values(useSelector((state) => state.tasks));
+  const [tasks, setTasks] = useState(category? Object.values(category.tasks): []);
 
   // console.log(
   //   "=============I am re-rendering when a new task is added!!!=================="
   // );
   useEffect(() => {
-    dispatch(getTasksThunk(category.id));
+    dispatch(getTasksThunk(category?.id));
   }, [dispatch]);
 
-  if (!tasks) return null;
+if (!tasks) return null;
+
   return (
     <>
       <div className="edit-delete-category">
         <OpenModalButton
           buttonText="Edit Category"
-          modalComponent={<EditCategoryModal categoryId={category.id} />}
+          modalComponent={<EditCategoryModal category={category} />}
         />
         <OpenModalButton
           buttonText="Delete Category"
-          modalComponent={<DeleteCategoryModal categoryId={category.id} />}
+          modalComponent={<DeleteCategoryModal categoryId={category?.id} />}
         />
       </div>
       <section className="category-card">
-        {/* <h6>Category id {category.id}</h6> */}
-        <h3>{category.name}</h3>
+        <h3>{category?.name}</h3>
+
         <div className="tasks">
           {tasks.map((task) => (
             <div key={task.id} className="task-icon">
@@ -53,6 +54,7 @@ export const CategoryCard = ({ category }) => {
             </div>
           ))}
         </div>
+        
         <div className="add-task">
           <OpenTaskModal
             // buttonStyle={}
@@ -61,7 +63,7 @@ export const CategoryCard = ({ category }) => {
             src="https://img.icons8.com/color/96/plus--v1.png"
             alt="plus"
             modalComponent={
-              <IconSelectModal categoryId={category.id} setTasks={setTasks} />
+              <IconSelectModal categoryId={category?.id} setTasks={setTasks} />
             }
           />
           <div className="new-task">New Task</div>

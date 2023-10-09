@@ -4,23 +4,24 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../../context/Modal";
 // import "./AddCategoryModal.css";
 
-export const EditCategoryModal = ({ categoryId }) => {
+export const EditCategoryModal = ({ category }) => {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
+  const [name, setName] = useState(category.name);
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
   useEffect(() => {
     const errors = {};
     if (name.length < 1) errors.name = "please enter category name";
+    if (name.length > 50) errors.name = "category name should be under 100 characters";    
     setErrors(errors);
   }, [name]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("*********** in the edit modal***********", categoryId);
+    // console.log("*********** in the edit modal***********", categoryId);
 
-    await dispatch(editCategoryThunk(name, categoryId)).then(closeModal);
+    await dispatch(editCategoryThunk(name, category.id)).then(closeModal);
   };
 
   return (

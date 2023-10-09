@@ -5,13 +5,14 @@ import { editTaskThunk } from "../../../store/taskReducer";
 
 export const EditTitleModal = ({ task, setTasks }) => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(task.title);
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
   useEffect(() => {
     const errors = {};
-    if (title.length < 1) errors.title = "please enter icon title";
+    if (title.length < 1) errors.title = "please enter task title";
+    if (title.length > 50) errors.title = "task title should be under 50 characters";   
     setErrors(errors);
   }, [title]);
 

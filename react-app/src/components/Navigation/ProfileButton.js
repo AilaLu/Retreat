@@ -31,7 +31,7 @@ function ProfileButton({ user }) {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    dispatch(logout());
+    dispatch(logout()); //! remove user, category, task redux in store session
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
