@@ -12,7 +12,7 @@ def get_checkIns():
     """
     Query for all checkIns and returns them in a list of checkIn dictionaries
     """
-    checkIns = [checkIn.to_dict() for checkIn in CheckIn.query.all()]
+    checkIns = [checkIn.to_dict() for checkIn in CheckIn.query.filter(CheckIn.userId ==  current_user.id).all()]
     return {"CheckIns": checkIns}
 
 

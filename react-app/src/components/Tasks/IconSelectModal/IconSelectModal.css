@@ -3,19 +3,12 @@
  cursor:pointer;
 } */
 
-.icons{
- display: flex;
- flex-direction: row;
- flex-wrap: wrap;
- gap: 20px;
- /* has 5 icon a row */
-}
-
 
 .icons {
  display: flex;
  flex-direction: row;
  justify-content: center;
+ flex-wrap: wrap;
  gap: 20px;
  margin: 10px 0 20px 0;
 }

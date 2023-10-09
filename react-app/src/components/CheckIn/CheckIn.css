@@ -1,0 +1,25 @@
+.moods{
+ background-color: rgb(50, 50, 50);
+ border-radius: 20px;
+ margin-bottom: 50px;
+ display: flex;
+ gap: 20px;
+ justify-content: center;
+ align-items: center;
+ justify-content: space-evenly;
+ padding: 50px;
+}
+
+.mood > button {
+ border-radius: 50%;
+ border: none;
+ padding: 10px;
+}
+
+.mood > button:hover {
+ cursor: pointer;
+}
+
+.checkin-card{
+ 
+}

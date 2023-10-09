@@ -1,13 +1,4 @@
-.moods{
- background-color: rgb(50, 50, 50);
- border-radius: 20px;
- margin-bottom: 50px;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: space-between;
- padding: 50px;
-}
+
 
 .add-category {
   background-color: rgb(50, 50, 50);

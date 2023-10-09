@@ -37,7 +37,12 @@ export const LandingPage = () => {
       <div className="go-add-task">
         <NavLink exact to="/manage_tasks">Let's go create some tasks for daily self-care <i className="fa-solid fa-arrow-right"></i></NavLink>
       </div>
-      <Calendar onChange={onChange} value={value} locale="en-GB" />
+      <section className="calendar">
+        <Calendar onChange={onChange} value={value} locale="en-GB" />
+        <div className="go-checkin">
+        <NavLink exact to="/check_in">Check In for the day<img src="https://img.icons8.com/color/96/fat-emoji.png" alt="" /></NavLink></div>
+      </section>
+
     </div>
   );
 };
