@@ -21,18 +21,17 @@ function SignupFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
-    const data = await dispatch(
-      signUp(username, email, password, firstName, lastName)
-    );
-    // console.log('data', data);// data is an array
-    
-    if (data) {
-      setErrors(data);
-      if(password !== confirmPassword){
-        data.push("password: Confirm Password field must be the same as the Password field.")
+    if (password === confirmPassword) {
+      const data = await dispatch(
+        signUp(username, email, password, firstName, lastName)
+      );
+      if (data) {
         setErrors(data);
-      } 
+      }
+    } else {
+      setErrors([
+        "password: Confirm Password field must be the same as the Password field",
+      ]);
     }
   };
 
@@ -98,7 +97,6 @@ function SignupFormPage() {
                 />
               </label>
             </div>
-
 
             <div id="password-signup-page">
               <label>

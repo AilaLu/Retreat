@@ -88,6 +88,10 @@
   padding: 5px 20px;
 }
 
+.log-out:hover{
+  cursor: pointer;
+}
+
 .login-signup-btns{
   display: flex;
   flex-direction: column;
@@ -102,6 +106,10 @@
   border: none;
   border-radius: 15px;
   padding: 5px 15px;
+}
+
+.login-signup-btns>button:hover{
+  cursor: pointer;
 }
 
 .login-btn{
