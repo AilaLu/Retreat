@@ -23,8 +23,9 @@ body {
 }
 
 #root{
-  min-height:100%;
-  position:relative;
+  position: relative;
+  min-height: 100vh;
+  min-height: 100%;
   padding-bottom: 500px;
   /*! to accommodate footer height around 400ish */
 }
