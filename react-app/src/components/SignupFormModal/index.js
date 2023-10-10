@@ -23,12 +23,26 @@ function SignupFormModal() {
   // ! https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
 
   useEffect(() => {
-    const errors = [];
-    if (!validateEmail(email)) errors.push( "email: please enter valid email"); 
-    if (password.length < 8) errors.push( "password: password should be more than 8 characters");    
-    if (password !== confirmPassword) errors.push("password: Confirm Password field must be the same as the Password field");   
+    const errors = {};
+    if (email < 3 || email > 40)
+      errors.email = "email should be more than 3 and less than 40 characters.";
+    if (!validateEmail(email)) errors.email = "please enter valid email";
+    if (username < 3 || lastName > 40)
+      errors.username =
+        "username should be more than 3 and less than 40 characters.";
+    if (firstName < 3 || firstName > 40)
+      errors.firstName =
+        "firstName should be more than 3 and less than 40 characters.";
+    if (lastName < 3 || lastName > 40)
+      errors.lastName =
+        "lastName should be more than 3 and less than 40 characters.";
+    if (password.length < 8)
+      errors.password = "password should be more than 8 characters";
+    if (password !== confirmPassword)
+      errors.confirmPassword =
+        "confirm Password field must be the same as the Password field";
     setErrors(errors);
-  }, [email, password, confirmPassword]);
+  }, [email, firstName, lastName, username, password, confirmPassword]);
 
 
 
@@ -49,15 +63,6 @@ function SignupFormModal() {
       <div className="signup-title">Create your account</div>
       <div className="signup-subtitle">Registration is easy.</div>
       <form className="signup-form" onSubmit={handleSubmit}>
-        {errors.length ? (
-          <ul className="errors">
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul>
-        ) : (
-          ""
-        )}
         <label className="signup-field">
           Email address
           <input
@@ -68,6 +73,9 @@ function SignupFormModal() {
             required
           />
         </label>
+        <div className="errors">
+                {errors.email && <p>{errors.email}</p>}
+              </div>
         <label className="signup-field">
           Username
           <input
@@ -77,6 +85,9 @@ function SignupFormModal() {
             required
           />
         </label>
+        <div className="errors">
+                {errors.username && <p>{errors.username}</p>}
+              </div>
         <label className="signup-field">
           First Name
           <input
@@ -86,6 +97,9 @@ function SignupFormModal() {
             required
           />
         </label>
+        <div className="errors">
+                {errors.firstName && <p>{errors.firstName}</p>}
+              </div>
         <label className="signup-field">
           Last Name
           <input
@@ -95,6 +109,9 @@ function SignupFormModal() {
             required
           />
         </label>
+        <div className="errors">
+                {errors.lastName && <p>{errors.lastName}</p>}
+              </div>
         <label className="signup-field">
           Password
           <input
@@ -104,6 +121,9 @@ function SignupFormModal() {
             required
           />
         </label>
+        <div className="errors">
+                {errors.password && <p>{errors.password}</p>}
+              </div>
         <label className="signup-field">
           Confirm Password
           <input
@@ -113,6 +133,9 @@ function SignupFormModal() {
             required
           />
         </label>
+        <div className="errors">
+                {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+              </div>
         <button className="signup-button grow" type="submit">
           Register
         </button>
