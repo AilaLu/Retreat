@@ -13,6 +13,7 @@ export const AddCategoryModal = () => {
   useEffect(() => {
     const errors = {};
     if (name.length < 1) errors.name = "please enter category name";
+    if (name.length > 50) errors.name = "category name should be under 50 characters";    
     setErrors(errors);
   }, [name]);
 

@@ -19,6 +19,7 @@ body {
 
 .errors {
   color: tomato;
+  font-size: small;
 }
 
 #root{

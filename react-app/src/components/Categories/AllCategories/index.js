@@ -43,7 +43,7 @@ export const AllCategories = () => {
       </section> */}
       <section className="categories">
         {categoriesArr.map((category) => (
-          <CategoryCard category={category} key={category.id} />
+          <CategoryCard category={category} key={category?.id} />
         ))}
       </section>
       <div className="add-category">

@@ -49,6 +49,16 @@ export const icons = [
 
 export const moods = [
   "https://img.icons8.com/color/96/fat-emoji.png",
-  "https://img.icons8.com/color/96/confused--v1.png",
+  "https://img.icons8.com/color/96/neutral-emoticon--v1.png",
   "https://img.icons8.com/color/96/crying--v1.png",
 ];
+
+// "https://img.icons8.com/color/96/confused--v1.png",
+// "https://img.icons8.com/color/96/happy.png",
+// "https://img.icons8.com/color/96/sad.png",
+// "https://img.icons8.com/color/96/sleeping.png",
+// "https://img.icons8.com/color/96/smiling.png",
+// "https://img.icons8.com/color/96/tongue-out--v1.png",
+// "https://img.icons8.com/color/96/wink.png",
+// "https://img.icons8.com/color/96/uwu.png",
+// "https://img.icons8.com/color/96/crazy.png",

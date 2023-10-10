@@ -1,6 +1,7 @@
 //type CRUD
 /** Action Type Constants: */
 export const GET_CATEGORIES = "category/GET_CATEGORIES";
+export const REMOVE_CATEGORIES = "category/REMOVE_CATEGORIES";
 
 /**  Action Creators: */
 export const getCategoriesAction = (categories) => ({
@@ -8,6 +9,9 @@ export const getCategoriesAction = (categories) => ({
   categories, //payload
 });
 
+export const removeCategoriesAction = () => ({
+	type: REMOVE_CATEGORIES,
+});
 /** Thunk: */
 export const getCategoriesThunk = () => async (dispatch) => {
   const res = await fetch("/api/categories/");
@@ -86,6 +90,8 @@ export const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_CATEGORIES:
       return { ...action.categories };
+      case REMOVE_CATEGORIES:
+        return { categories: null };
     default:
       return state;
   }

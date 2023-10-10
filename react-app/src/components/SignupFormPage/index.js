@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../store/session";
@@ -17,21 +17,44 @@ function SignupFormPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  const validateEmail = (email) => {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
+  // ! https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
+
+  useEffect(() => {
+    const errors = {};
+    if (email < 3 || email > 40)
+      errors.email = "email should be more than 3 and less than 40 characters.";
+    if (!validateEmail(email)) errors.email = "please enter valid email";
+    if (username < 3 || lastName > 40)
+      errors.username =
+        "username should be more than 3 and less than 40 characters.";
+    if (firstName < 3 || firstName > 40)
+      errors.firstName =
+        "firstName should be more than 3 and less than 40 characters.";
+    if (lastName < 3 || lastName > 40)
+      errors.lastName =
+        "lastName should be more than 3 and less than 40 characters.";
+    if (password.length < 8)
+      errors.password = "password should be more than 8 characters";
+    if (password !== confirmPassword)
+      errors.confirmPassword =
+        "confirm Password field must be the same as the Password field";
+    setErrors(errors);
+  }, [email, firstName, lastName, username, password, confirmPassword]);
+
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      const data = await dispatch(
-        signUp(username, email, password, firstName, lastName)
-      );
-      if (data) {
-        setErrors(data);
-      }
-    } else {
-      setErrors([
-        "password: Confirm Password field must be the same as the Password field",
-      ]);
+    const data = await dispatch(
+      signUp(username, email, password, firstName, lastName)
+    );
+    if (data) {
+      setErrors(data);
     }
   };
 
@@ -42,11 +65,6 @@ function SignupFormPage() {
         <form id="form-signup-page" onSubmit={handleSubmit}>
           <div id="whole-form-signup-page">
             <div id="email-signup-page">
-              <ul className="errors">
-                {errors.map((error, idx) => (
-                  <li key={idx}>{error}</li>
-                ))}
-              </ul>
               <label>
                 Email
                 <input
@@ -58,6 +76,9 @@ function SignupFormPage() {
                   required
                 />
               </label>
+              <div className="errors">
+                {errors.email && <p>{errors.email}</p>}
+              </div>
             </div>
             <div id="username-signup-page">
               <label>
@@ -70,6 +91,9 @@ function SignupFormPage() {
                   required
                 />
               </label>
+              <div className="errors">
+                {errors.username && <p>{errors.username}</p>}
+              </div>
             </div>
 
             <div id="firstname-signup-page">
@@ -83,6 +107,9 @@ function SignupFormPage() {
                   required
                 />
               </label>
+              <div className="errors">
+                {errors.firstName && <p>{errors.firstName}</p>}
+              </div>
             </div>
 
             <div id="lastname-signup-page">
@@ -96,6 +123,9 @@ function SignupFormPage() {
                   required
                 />
               </label>
+              <div className="errors">
+                {errors.lastName && <p>{errors.lastName}</p>}
+              </div>
             </div>
 
             <div id="password-signup-page">
@@ -109,6 +139,9 @@ function SignupFormPage() {
                   required
                 />
               </label>
+              <div className="errors">
+                {errors.password && <p>{errors.password}</p>}
+              </div>
             </div>
 
             <div id="confirm-password-signup-page">
@@ -122,6 +155,9 @@ function SignupFormPage() {
                   required
                 />
               </label>
+              <div className="errors">
+                {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+              </div>
             </div>
           </div>
 
@@ -133,5 +169,4 @@ function SignupFormPage() {
     </div>
   );
 }
-
 export default SignupFormPage;

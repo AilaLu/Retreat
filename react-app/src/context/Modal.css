@@ -43,10 +43,17 @@
   border-radius: 20px;
   margin-right: 50px;
 }
+.big-grey-btn:hover {
+cursor: pointer;
+}
 
 .big-green-btn {
   padding: 10px 20px;
   background-color: #abff2e9e;
   color: lightgray;
   border-radius: 20px;
+}
+
+.big-green-btn:hover {
+cursor: pointer;
 }
