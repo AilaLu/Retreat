@@ -97,3 +97,30 @@ def update_checkIn(id):
 
 
 # ! checkInTasks maybe under 
+
+# * a route that gets a specific day's checkin 
+#* checkin id is the same as year/month/date, it's unique 
+
+#* I want the redux to get a day's checkin, below is user Demo, he is happy for today (checkInId1), the tasks that he has done is tasks 1 and 2, all the other tasks is undone.
+{
+    "id": 1,
+    "userId": 1,
+    "happy": True,
+    "meh": False,
+    "sad": False,
+    "year": 2023,
+    "month": 10,
+    "date": 7,
+    checkInTasks: {
+                "id": 1,
+                "taskId": 1,
+                "checkInId": 1,
+                }, 
+                {
+                "id": 2,
+                "taskId": 2,
+                "checkInId": 1,
+                }
+}
+
+    

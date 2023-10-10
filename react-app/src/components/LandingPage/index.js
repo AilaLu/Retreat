@@ -21,6 +21,14 @@ export const LandingPage = () => {
     // closeModal()
   };
 
+  //! by clicking on the date buttons you can see all the checkins for that specific day
+  const viewCheckin = async (e) => {
+    e.preventDefault();
+    // const taskIcon = e.target.src
+    // const tasks = await dispatch(getCheckInsThunk(checkinid)) 
+    //! I guess check in id is associating with the year/month/date combination
+  };
+
   if (!user) return null;
 
   return (
