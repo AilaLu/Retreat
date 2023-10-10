@@ -4,18 +4,17 @@
   box-sizing: border-box;
   width: 100%; 
   /*! height: around 400px; so add padding bottom to root for 500px */
-  /* margin-right: -20px; */
-  /* margin-left: -20px; */
 }
 
 .footer-container {
   padding: 20px 5px;
-  background-color: rgb(50, 50, 50);
-  border-radius: 20px;
+  background-color: rgba(61, 61, 61, 0.44);
+  /* border-radius: 20px; */
   color: #ffffff;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  z-index: -1;
 }
 
 .footer-container > a {
@@ -66,7 +65,6 @@
   text-align: center;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgb(50, 50, 50);
   color: #ffffff;
 
 }
