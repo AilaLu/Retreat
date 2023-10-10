@@ -4,9 +4,7 @@ from sqlalchemy.sql import text
    # {
    #  "id": 1,
    #  "userId": 1,
-   #  "happy": True,
-   #  "meh": False,
-   #  "sad": False,
+   #  "mood": "happy",
    #  "year": 2023,
    #  "month": 10,
    #  "date": 7
@@ -15,33 +13,25 @@ from sqlalchemy.sql import text
 def seed_checkIns():
     checkIn1 = CheckIn(
                    userId= 1,
-                   happy= True,
-                   meh= False,
-                   sad= False,
+                    mood="happy",
                    year= 2023,
                    month= 10,
                    date= 7)
     checkIn2 = CheckIn(
                    userId= 1,
-                   happy= False,
-                   meh= True,
-                   sad= False,
+                    mood="meh",
                    year= 2023,
                    month= 10,
                    date= 8)
     checkIn3 = CheckIn(
                     userId= 1,
-                   happy= False,
-                   meh= True,
-                   sad= False,
+                    mood="sad",
                    year= 2023,
                    month= 10,
                    date= 9)
     checkIn4 = CheckIn(
                     userId= 1,
-                   happy= True,
-                   meh= False,
-                   sad= False,
+                    mood="happy",
                    year= 2023,
                    month= 10,
                    date= 10)

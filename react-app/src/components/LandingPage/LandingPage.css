@@ -67,6 +67,10 @@
 } */
 
 
+.calendar_btn{
+  background-color: red;
+}
+
 .go-checkin > a:-webkit-any-link {
   text-decoration: none;
   color: lightgray;
@@ -77,4 +81,13 @@
 
 .go-checkin:hover {
   cursor: pointer;
+}
+
+.react-calendar__month-view__days__day {
+  /* background-color: #d10000; */
+  background-image: url("https://img.icons8.com/color/96/fat-emoji.png");
+height: 80px;
+width: 80px;
+background-position: center;
+border-radius: 50%;
 }

@@ -34,9 +34,7 @@ def create_checkIn():
 
         newCheckIn = CheckIn(
             userId = current_user.id,
-            happy = form.data["happy"],
-            meh = form.data["meh"],
-            sad = form.data["sad"],
+            mood = form.data["mood"],
             year = form.data["year"],
             month = form.data["month"],
             date = form.data["date"],
@@ -66,9 +64,7 @@ def update_checkIn(id):
     if form.validate_on_submit():
         checkIn = CheckIn.query.get(id)
 
-        checkIn.happy = form.data["happy"]
-        checkIn.meh = form.data["meh"]
-        checkIn.sad = form.data["sad"]
+        checkIn.mood = form.data["mood"]
         # checkIn.year = form.data["year"]
         # checkIn.month = form.data["month"]
         # checkIn.date = form.data["date"]
@@ -101,26 +97,24 @@ def update_checkIn(id):
 # * a route that gets a specific day's checkin 
 #* checkin id is the same as year/month/date, it's unique 
 
-#* I want the redux to get a day's checkin, below is user Demo, he is happy for today (checkInId1), the tasks that he has done is tasks 1 and 2, all the other tasks is undone.
-{
-    "id": 1,
-    "userId": 1,
-    "happy": True,
-    "meh": False,
-    "sad": False,
-    "year": 2023,
-    "month": 10,
-    "date": 7,
-    checkInTasks: {
-                "id": 1,
-                "taskId": 1,
-                "checkInId": 1,
-                }, 
-                {
-                "id": 2,
-                "taskId": 2,
-                "checkInId": 1,
-                }
-}
+#* I want the redux to get a day's checkin, below is user Demo, he is happy for today, the tasks that he has done is tasks 1 and 2, all the other tasks is undone.
+# {
+#     "id": 1,
+#     "userId": 1,
+#     "mood": "happy",
+#     "year": 2023,
+#     "month": 10,
+#     "date": 7,
+#     checkInTasks: {
+#                 "id": 1,
+#                 "taskId": 1,
+#                 "checkInId": 1,
+#                 }, 
+#                 {
+#                 "id": 2,
+#                 "taskId": 2,
+#                 "checkInId": 1,
+#                 }
+# }
 
     

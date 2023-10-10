@@ -47,7 +47,7 @@ icons = [
 # print("===========icons selection from asset in the front end========", icons)
 
 def icon_matches(form, field):
-    icon = field.data #user input icon
+    icon = field.data #user input icon(which they clicked from the IconSelect component)
     icon_match = icons.index(icon)
     if not icon_match:
         raise ValidationError('Icon provided not found.')

@@ -8,9 +8,7 @@ class CheckIn(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    happy = db.Column(db.Boolean, nullable=False)
-    meh = db.Column(db.Boolean, nullable=False)
-    sad = db.Column(db.Boolean, nullable=False)
+    mood = db.Column(db.String, nullable=False)
     year = db.Column(db.Integer, nullable=False)
     month = db.Column(db.Integer, nullable=False)
     date = db.Column(db.Integer, nullable=False)
@@ -24,9 +22,7 @@ class CheckIn(db.Model):
         return {
             'id': self.id,
             'userId': self.userId,
-            'happy': self.happy,
-            'meh': self.meh,
-            'sad': self.sad,
+            'mood': self.mood,
             'year': self.year,
             'month': self.month,
             'date': self.date,
