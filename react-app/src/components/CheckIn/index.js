@@ -8,7 +8,7 @@ export const CheckIn = () => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.session.user);
-  const categoriesObj = useSelector((state) => state.categories);
+  const categoriesObj = useSelector((state) => state.categoryReducer);
   const categoriesArr = Object.values(categoriesObj);
 
   const handleMoodSubmit = async (e) => {

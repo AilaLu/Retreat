@@ -8,18 +8,22 @@ from sqlalchemy.sql import text
    #   }
 
 def seed_checkInTasks():
+    # 2023/10/7
     task1day1 = CheckInTask(
                    taskId= 1,
                    checkInId= 1,
                   )
+    # 2023/10/7
     task2day1 = CheckInTask(
                    taskId= 2,
                    checkInId= 1,
                   )
+    # 2023/10/8
     task1day2 = CheckInTask(
                    taskId= 1,
                    checkInId= 2,
                  )
+    # 2023/10/8
     task3day2 = CheckInTask(
                    taskId= 3,
                    checkInId= 2,

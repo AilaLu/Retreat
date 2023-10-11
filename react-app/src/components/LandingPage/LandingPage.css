@@ -5,11 +5,9 @@
   gap: 20px;
 }
 
-.landing-page>img{
+.landing-page > img {
   margin-top: 50px;
 }
-
-
 
 .go-add-task {
   margin-right: 20px;
@@ -29,8 +27,8 @@
   cursor: pointer;
 }
 
-.react-calendar{
-  width: 950px;
+.react-calendar {
+  /* width: 950px; */
   /* height: ; */
   box-sizing: border-box;
   margin: auto;
@@ -40,16 +38,17 @@
 
 .react-calendar__navigation {
   display: flex;
-  
+
   .react-calendar__navigation__label {
     font-weight: bold;
   }
 
-  .react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button{
+  .react-calendar__navigation__next2-button,
+  .react-calendar__navigation__prev2-button {
     display: none;
     /* hide the prev and next year on navigation */
   }
-  
+
   .react-calendar__navigation__arrow {
     flex-grow: 0.333;
   }
@@ -75,17 +74,21 @@
   background-color: #a5c1a5;
 } */
 
-
-
-
 .react-calendar__month-view__days__day {
-  /* background-color: #d10000; */
-  background-image: url("https://img.icons8.com/color/96/fat-emoji.png");
-height: 80px;
-width: 80px;
-aspect-ratio: 1;
-background-position: center;
-border-radius: 50%;
+  /* days button */
+  background-color: rgb(30, 30, 30);
+  border: solid 5px rgb(lightgray);
+  /* background-image: url("https://img.icons8.com/color/96/fat-emoji.png"); */
+  height: 80px !important;
+  width: 80px !important;
+  aspect-ratio: 1;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.react-calendar__month-view__days__day>abbr{
+  /* days button text */
+  color: lightgray;
 }
 
 .go-checkin > a:-webkit-any-link {

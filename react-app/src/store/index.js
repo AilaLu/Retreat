@@ -3,12 +3,14 @@ import thunk from "redux-thunk";
 import session from "./session";
 import { categoryReducer } from "./categoryReducer";
 import { taskReducer } from "./taskReducer"
+import { checkInReducer } from "./checkInReducer";
 
 //! gotta put it here to have the next state populated
 const rootReducer = combineReducers({
   session,
-  categories: categoryReducer,
-  tasks: taskReducer
+  categoryReducer,
+  taskReducer,
+  checkInReducer
 });
 
 let enhancer;

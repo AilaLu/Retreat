@@ -1,6 +1,8 @@
 from app.models import db, environment, SCHEMA, CheckIn
 from sqlalchemy.sql import text
 
+# ! mood should be the image url 
+
    # {
    #  "id": 1,
    #  "userId": 1,
@@ -13,25 +15,25 @@ from sqlalchemy.sql import text
 def seed_checkIns():
     checkIn1 = CheckIn(
                    userId= 1,
-                    mood="happy",
+                    mood="https://img.icons8.com/color/96/fat-emoji.png",
                    year= 2023,
                    month= 10,
                    date= 7)
     checkIn2 = CheckIn(
                    userId= 1,
-                    mood="meh",
+                    mood="https://img.icons8.com/color/96/neutral-emoticon--v1.png",
                    year= 2023,
                    month= 10,
                    date= 8)
     checkIn3 = CheckIn(
                     userId= 1,
-                    mood="sad",
+                    mood="https://img.icons8.com/color/96/crying--v1.png",
                    year= 2023,
                    month= 10,
                    date= 9)
     checkIn4 = CheckIn(
                     userId= 1,
-                    mood="happy",
+                    mood="https://img.icons8.com/color/96/fat-emoji.png",
                    year= 2023,
                    month= 10,
                    date= 10)

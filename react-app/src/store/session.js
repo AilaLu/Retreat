@@ -1,6 +1,6 @@
-import { getCategoriesAction, removeCategoriesAction } from "./categoryReducer";
-import { getTasksAction, removeTasksAction } from "./taskReducer";
-import { getCheckInsAction, removeCheckInsAction } from "./checkInReducer";
+import { removeCategoriesAction } from "./categoryReducer";
+import { removeTasksAction } from "./taskReducer";
+import { removeCheckInsAction } from "./checkInReducer";
 
 // constants
 const SET_USER = "session/SET_USER";
@@ -30,9 +30,6 @@ export const authenticate = () => async (dispatch) => {
 		}
 
 		dispatch(setUser(data));
-		dispatch(getCategoriesAction())
-		dispatch(getTasksAction())
-		dispatch(getCheckInsAction())
 	}
 };
 
