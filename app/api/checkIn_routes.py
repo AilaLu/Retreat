@@ -16,9 +16,6 @@ def get_checkIns():
     return {"CheckIns": checkIns}
 
 
-
-
-
 #C
 @checkIn_routes.route("/", methods=["POST"])
 @login_required

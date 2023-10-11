@@ -9,6 +9,8 @@
   margin-top: 50px;
 }
 
+
+
 .go-add-task {
   margin-right: 20px;
   margin-top: 50px;
@@ -28,7 +30,9 @@
 }
 
 .react-calendar{
-  max-width: 600px;
+  width: 950px;
+  /* height: ; */
+  box-sizing: border-box;
   margin: auto;
   margin-top: 50px;
   padding: 10px;
@@ -39,6 +43,11 @@
   
   .react-calendar__navigation__label {
     font-weight: bold;
+  }
+
+  .react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button{
+    display: none;
+    /* hide the prev and next year on navigation */
   }
   
   .react-calendar__navigation__arrow {
@@ -67,8 +76,16 @@
 } */
 
 
-.calendar_btn{
-  background-color: red;
+
+
+.react-calendar__month-view__days__day {
+  /* background-color: #d10000; */
+  background-image: url("https://img.icons8.com/color/96/fat-emoji.png");
+height: 80px;
+width: 80px;
+aspect-ratio: 1;
+background-position: center;
+border-radius: 50%;
 }
 
 .go-checkin > a:-webkit-any-link {
@@ -81,13 +98,4 @@
 
 .go-checkin:hover {
   cursor: pointer;
-}
-
-.react-calendar__month-view__days__day {
-  /* background-color: #d10000; */
-  background-image: url("https://img.icons8.com/color/96/fat-emoji.png");
-height: 80px;
-width: 80px;
-background-position: center;
-border-radius: 50%;
 }
