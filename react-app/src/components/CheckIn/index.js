@@ -24,7 +24,7 @@ export const CheckIn = () => {
     e.preventDefault();
     let mood = e.target.src;
     setImgColor("color-img");
-    dispatch(addCheckInThunk(mood, dateObj.year, dateObj.month, dateObj.year));
+    dispatch(addCheckInThunk(mood, dateObj.year, dateObj.month, dateObj.date));
 
     // * create or update checkin
   };
