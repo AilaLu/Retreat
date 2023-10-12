@@ -1,8 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategoriesThunk } from "../../store/categoryReducer";import { CheckInCard } from "./CheckInCard";
+import { getCategoriesThunk } from "../../store/categoryReducer";
+import { addCheckInThunk } from "../../store/checkInReducer";
+import { CheckInCard } from "./CheckInCard";
 import { moods } from "../../assets/icon";
-import "./CheckIn.css"
+import "./CheckIn.css";
+import { useContext } from "react";
+import { DateContext } from "../../context/onClickdate";
 
 export const CheckIn = () => {
   const dispatch = useDispatch();
@@ -10,10 +14,19 @@ export const CheckIn = () => {
   const user = useSelector((state) => state.session.user);
   const categoriesObj = useSelector((state) => state.categoryReducer);
   const categoriesArr = Object.values(categoriesObj);
+  const dateObj = useContext(DateContext);
 
-  const handleMoodSubmit = async (e) => {
+  console.log("=========clicked Date obj=======", dateObj);
+
+  const [imgColor, setImgColor] = useState("grey-img");
+
+  const CheckInMoodSubmit = async (e) => {
     e.preventDefault();
-  // * submit the checkin to checkin and checkinTask
+    let mood = e.target.src;
+    setImgColor("color-img");
+    dispatch(addCheckInThunk(mood, dateObj.year, dateObj.month, dateObj.year));
+
+    // * create or update checkin
   };
 
   useEffect(() => {
@@ -29,8 +42,13 @@ export const CheckIn = () => {
       <section className="moods">
         {moods.map((mood, index) => (
           <div className="mood" key={index}>
-            <button width="48"  height="48" type="submit" onClick={handleMoodSubmit}>
-              <img src={mood} alt="" />
+            <button
+              width="48"
+              height="48"
+              type="submit"
+              onClick={CheckInMoodSubmit}
+            >
+              <img id={imgColor} src={mood} alt="" />
             </button>
           </div>
         ))}

@@ -23,11 +23,11 @@ export const getCheckInsThunk = () => async (dispatch) => {
   }
 };
 
-export const addCheckInThunk = (mood, year, month, day) => async (dispatch) => {
+export const addCheckInThunk = (mood, year, month, date) => async (dispatch) => {
     const res = await fetch("/api/checkIns/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({mood, year, month, day}),
+      body: JSON.stringify({mood, year, month, date}),
     });
 
 
@@ -48,13 +48,13 @@ export const addCheckInThunk = (mood, year, month, day) => async (dispatch) => {
   };
 
 
-  export const editCheckInThunk = (mood, year, month, day, checkInId) => async (dispatch) => {
+  export const editCheckInThunk = (mood, year, month, date, checkInId) => async (dispatch) => {
     //  try {
 
     const res = await fetch(`/api/checkIns/${checkInId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({mood, year, month, day}),
+      body: JSON.stringify({mood, year, month, date}),
     });
 
 

@@ -1,23 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesThunk } from "../../store/categoryReducer";
 import { getCheckInsThunk } from "../../store/checkInReducer";
 import "./LandingPage.css";
 import Calendar from "react-calendar";
+import { DateContext } from "../../context/onClickdate";
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState(new Date());
+  const { value, setValue, year, month, date } = useContext(DateContext);
 
   const user = useSelector((state) => state.session.user);
   const categoryObj = useSelector((state) => state.categoryReducer);
   const checkInObj = useSelector((state) => state.checkInReducer);
   const checkInArr = Object.values(checkInObj);
 
-  let year = value.getUTCFullYear();
-  let month = value.getUTCMonth() + 1;
-  let date = value.getUTCDate();
 
   const findCheckIn = checkInArr.find(
     (checkIn) =>

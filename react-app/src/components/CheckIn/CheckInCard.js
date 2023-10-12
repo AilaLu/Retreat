@@ -7,11 +7,14 @@ import "./CheckIn.css";
 export const CheckInCard = ({ category }) => {
   const dispatch = useDispatch();
   const tasksProp = Object.values(category.tasks);
-  const latestTasks = Object.values(useSelector((state) => state.taskReducer));
-  const [tasks, setTasks] = useState(tasksProp);
 
-  const handleCheckInSubmit = async (e) => {
+  const [tasks, setTasks] = useState(tasksProp);
+  const [imgColor, setImgColor] = useState("grey-img")
+
+  const CheckInTaskSubmit = async (e) => {
     e.preventDefault();
+    setImgColor("color-img")
+    // * create or update checkinTask
     // const taskIcon = e.target.src;
 
     // const tasks = await dispatch(
@@ -34,8 +37,8 @@ export const CheckInCard = ({ category }) => {
         <div className="tasks">
           {tasks.map((task) => (
             <div key={task.id} className="task-icon">
-              <button type="submit" onClick={handleCheckInSubmit}>
-                <img width="48" height="48" src={task.icon} alt={task.title} />
+              <button type="submit" onClick={CheckInTaskSubmit}>
+                <img id={imgColor} width="48" height="48" src={task.icon} alt={task.title} />
               </button>
               <div className="task-title">{task.title}</div>
             </div>
