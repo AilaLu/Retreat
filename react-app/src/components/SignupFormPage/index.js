@@ -26,16 +26,16 @@ function SignupFormPage() {
 
   useEffect(() => {
     const errors = {};
-    if (email < 3 || email > 40)
+    if (email.length < 3 || email.length > 40)
       errors.email = "email should be more than 3 and less than 40 characters.";
     if (!validateEmail(email)) errors.email = "please enter valid email";
-    if (username < 3 || lastName > 40)
+    if (username.length < 3 || username.length > 40)
       errors.username =
         "username should be more than 3 and less than 40 characters.";
-    if (firstName < 3 || firstName > 40)
+    if (firstName.length < 3 || firstName.length > 40)
       errors.firstName =
         "firstName should be more than 3 and less than 40 characters.";
-    if (lastName < 3 || lastName > 40)
+    if (lastName.length < 3 || lastName.length > 40)
       errors.lastName =
         "lastName should be more than 3 and less than 40 characters.";
     if (password.length < 8)
@@ -46,10 +46,16 @@ function SignupFormPage() {
     setErrors(errors);
   }, [email, firstName, lastName, username, password, confirmPassword]);
 
+
   if (sessionUser) return <Redirect to="/" />;
+
+  const hasErrors = Object.keys(errors).length > 0;
+  let signupBtn = ""
+  if (!hasErrors) signupBtn = "signup-butt-signup-page";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(hasErrors) return 
     const data = await dispatch(
       signUp(username, email, password, firstName, lastName)
     );
@@ -161,7 +167,7 @@ function SignupFormPage() {
             </div>
           </div>
 
-          <button id="signup-butt-signup-page" type="submit">
+          <button id={signupBtn} type="submit" disabled={hasErrors}>
             Sign Up
           </button>
         </form>

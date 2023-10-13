@@ -17,8 +17,11 @@ export const EditCategoryModal = ({ category }) => {
     setErrors(errors);
   }, [name]);
 
+  const hasErrors = Object.keys(errors).length > 0;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(hasErrors) return 
     // console.log("*********** in the edit modal***********", categoryId);
 
     await dispatch(editCategoryThunk(name, category.id)).then(closeModal);
