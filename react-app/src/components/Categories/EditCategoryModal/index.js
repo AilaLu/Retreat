@@ -29,7 +29,7 @@ export const EditCategoryModal = ({ category }) => {
 
   return (
     <div className="edit-category modal">
-      <h1>Add Category Name</h1>
+      <h1>Change Category Name</h1>
       <form onSubmit={handleSubmit}>
         <label>
           <input
