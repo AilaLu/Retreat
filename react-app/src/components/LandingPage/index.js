@@ -14,11 +14,11 @@ export const LandingPage = () => {
   const user = useSelector((state) => state.session.user);
   const categoryObj = useSelector((state) => state.categoryReducer);
 
-  console.log("=============value==============", value);
-  console.log("=============year==============", year);
-  console.log("=============month==============", month);
-  console.log("=============date==============", date);
-  console.log("=============checkin==============", findCheckIn);
+  // console.log("=============value==============", value);
+  // console.log("=============year==============", year);
+  // console.log("=============month==============", month);
+  // console.log("=============date==============", date);
+  // console.log("=============checkin==============", findCheckIn);
 
   let dayButton = "day-btn";
   //! if checkIn.mood === "https://img.icons8.com/color/96/fat-emoji.png", that date shows the mood

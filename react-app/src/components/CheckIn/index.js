@@ -10,11 +10,12 @@ import { DateContext } from "../../context/onClickdate";
 
 export const CheckIn = () => {
   const dispatch = useDispatch();
+  const {  year, month, date, findCheckIn } = useContext(DateContext);
+  const [selectedMood, setSelectedMood] = useState(findCheckIn?.mood)
 
   const user = useSelector((state) => state.session.user);
   const categoriesObj = useSelector((state) => state.categoryReducer);
   const categoriesArr = Object.values(categoriesObj);
-  const {  year, month, date, findCheckIn } = useContext(DateContext);
 
   let refs = useRef()
 
@@ -22,11 +23,12 @@ export const CheckIn = () => {
     e.preventDefault();
     // ! create or update checkin
     let mood = e.target.src;
+    setSelectedMood(mood)
     e.target.className = "color-img"
-    console.log("=========checkin for that day=======", findCheckIn)
+    // console.log("=========checkin for that day=======", findCheckIn)
     
     if(!findCheckIn) {
-      console.log("====add mood for the day======");
+      // console.log("====add mood for the day======");
       dispatch(addCheckInThunk(mood, year, month, date));
       return
     }
@@ -59,7 +61,7 @@ export const CheckIn = () => {
               type="submit"
               onClick={CheckInMoodSubmit}
             >
-              <img className="grey-img" src={mood} alt="" />
+              <img className={selectedMood === mood ? "color-img":"grey-img"} src={mood} alt="" />
             </button>
           </div>
         ))}
