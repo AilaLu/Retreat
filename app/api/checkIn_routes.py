@@ -1,9 +1,34 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, CheckIn
+from app.models import db, CheckIn, CheckInTask
 from app.forms.checkIn_form import CheckInForm
 
 checkIn_routes = Blueprint('checkIns', __name__)
+
+# * a route that gets a specific day's checkin 
+#* checkin id is the same as year/month/date, it's unique 
+
+#* I want the redux to get a day's checkin, below is user Demo, he is happy for today, the tasks that he has done is tasks 1 and 2, all the other tasks is undone.
+# {
+#     "id": 1,
+#     "userId": 1,
+#     "mood": "happy",
+#     "year": 2023,
+#     "month": 10,
+#     "date": 7,
+#     checkInTasks: {
+#                 "id": 1,
+#                 "taskId": 1,
+#                 "checkInId": 1,
+#                 }, 
+#                 {
+#                 "id": 2,
+#                 "taskId": 2,
+#                 "checkInId": 1,
+#                 }
+# }
+
+    
 
 #R
 @checkIn_routes.route("/")
@@ -63,9 +88,6 @@ def update_checkIn(id):
 
         checkIn.mood = form.data["mood"]
         print("**************backend **************", checkIn.mood)
-        # checkIn.year = form.data["year"]
-        # checkIn.month = form.data["month"]
-        # checkIn.date = form.data["date"]
         db.session.commit()
         return checkIn.to_dict()
     else:
@@ -90,29 +112,35 @@ def update_checkIn(id):
 
 
 
-# ! checkInTasks maybe under 
+# ! checkInTasks under 
 
-# * a route that gets a specific day's checkin 
-#* checkin id is the same as year/month/date, it's unique 
+#C
+@checkIn_routes.route("/<int:id>/<int:taskId>/task_done", methods=["POST"])
+@login_required
+def create_checkInTask(id, taskId):
+    """
+    Create a new checkInTask, the task is done for the date
+    """
 
-#* I want the redux to get a day's checkin, below is user Demo, he is happy for today, the tasks that he has done is tasks 1 and 2, all the other tasks is undone.
-# {
-#     "id": 1,
-#     "userId": 1,
-#     "mood": "happy",
-#     "year": 2023,
-#     "month": 10,
-#     "date": 7,
-#     checkInTasks: {
-#                 "id": 1,
-#                 "taskId": 1,
-#                 "checkInId": 1,
-#                 }, 
-#                 {
-#                 "id": 2,
-#                 "taskId": 2,
-#                 "checkInId": 1,
-#                 }
-# }
+    taskDone = CheckInTask(
+        taskId = taskId,
+        checkInId = id
 
+    )
+    db.session.add(taskDone)
+    db.session.commit()
+    return taskDone.to_dict()
+
+
+#D
+@checkIn_routes.route("/<int:checkInId>/<int:taskId>/task_undone", methods=["DELETE"])
+@login_required
+def delete_checkInTask(checkInId, taskId):
+    """
+    Delete a checkInTask, the task is undone for the date
+    """
+    taskUndone = CheckInTask.query.filter(CheckInTask.taskId == taskId, CheckInTask.checkInId == checkInId).first()
     
+    db.session.delete(taskUndone)
+    db.session.commit()
+    return "Deleted"

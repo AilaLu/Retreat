@@ -84,6 +84,47 @@ export const deleteCheckInThunk = (checkInId) => async (dispatch) => {
   }
 };
 
+
+// ! checkInTask thunks below 
+export const addCheckInTaskThunk = (checkInId, taskId) => async (dispatch) => {
+  const res = await fetch(`/api/checkIns/${checkInId}/${taskId}/task_done`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(),
+  });
+
+
+  if (res.ok) {
+    const taskDone = await res.json();
+    // console.log(
+    //   "*********************in the if block, res.json()**************",
+    //   taskDone
+    // );
+    dispatch(getCheckInsThunk());
+    return taskDone;
+  } else {
+    const errors = await res.json();
+
+    return errors;
+  }
+
+};
+
+
+export const deleteCheckInTaskThunk = (checkInId, taskId) => async (dispatch) => {
+  const res = await fetch(`/api/checkIns/${checkInId}/${taskId}/task_undone`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    dispatch(getCheckInsThunk());
+  } else {
+    const errors = await res.json();
+    return errors;
+  }
+};
+
+
 const initialState = {}; //store shape
 
 export const checkInReducer = (state = initialState, action) => {

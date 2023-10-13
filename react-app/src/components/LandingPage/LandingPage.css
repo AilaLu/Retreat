@@ -27,104 +27,6 @@
   cursor: pointer;
 }
 
-.react-calendar {
-  /* width: 950px; */
-  /* height: ; */
-  box-sizing: border-box;
-  text-align: center;
-  margin: auto;
-  margin-top: 50px;
-  padding: 10px;
-}
-
-.react-calendar__navigation__label__labelText--from {
-}
-
-.react-calendar__navigation {
-  display: flex;
-  gap: 20px;
-
-  .react-calendar__navigation__label {
-    /* navigation month */
-    font-weight: bold;
-    font-size: xx-large;
-    border-radius: 20px;
-    /* background-color: rgb(95, 146, 79); */
-  }
-
-  .react-calendar__navigation__arrow {
-        /* navigation next month and last month */
-    border-radius: 20px;
-    flex-grow: 0.333;
-    font-size: xx-large;
-  }
-
-  .react-calendar__navigation__next2-button,
-  .react-calendar__navigation__prev2-button {
-    display: none;
-    /* hide the prev and next year on navigation */
-  }
-  
-}
-
-.react-calendar__month-view__weekdays {
-  text-align: center;
-
-}
-
-/* .react-calendar__month-view__days > button {
-  margin: 3px;
-  background-color: #6f876f;
-  border: 0;
-  border-radius: 3px;
-  color: white;
-  padding: 5px 0;
-}
-&:hover {
-  background-color: #556b55;
-}
-
-&:active {
-  background-color: #a5c1a5;
-} */
-.react-calendar__month-view__days {
-  gap: 5px;
-}
-
-.day-btn {
-  /* days button */
-  background-color: rgb(30, 30, 30);
-  /* border: 3px solid lightgray; */
-  height: 80px !important;
-  width: 80px !important;
-  padding: 2px;
-  aspect-ratio: 1;
-  background-position: center;
-  border-radius: 50%;
-}
-
-.day-btn:hover {
-  box-shadow: 0px 0px 5px 5px lightgrey;
-  transition: 0.1s ease-in;
-  cursor: pointer;
-}
-
-.mood-happy {
-  background-image: url("https://img.icons8.com/color/96/fat-emoji.png");
-}
-
-.mood-meh {
-  background-image: url("https://img.icons8.com/color/96/neutral-emoticon--v1.png");
-}
-
-.mood-sad {
-  background-image: url("https://img.icons8.com/color/96/crying--v1.png");
-}
-
-.react-calendar__month-view__days__day > abbr {
-  /* days button text */
-  color: lightgray;
-}
 
 .go-checkin > a:-webkit-any-link {
   text-decoration: none;
@@ -136,4 +38,15 @@
 
 .go-checkin:hover {
   cursor: pointer;
+}
+
+.date-task-done-block{
+  margin-top: 50px;
+  background-color: rgb(50, 50, 50);
+  border-radius: 20px;
+  margin-bottom: 50px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  padding: 50px;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesThunk } from "../../store/categoryReducer";
 import { addCheckInThunk, editCheckInThunk } from "../../store/checkInReducer";
@@ -17,7 +17,6 @@ export const CheckIn = () => {
   const categoriesObj = useSelector((state) => state.categoryReducer);
   const categoriesArr = Object.values(categoriesObj);
 
-  let refs = useRef()
 
   const CheckInMoodSubmit = async (e) => {
     e.preventDefault();
@@ -25,17 +24,13 @@ export const CheckIn = () => {
     let mood = e.target.src;
     setSelectedMood(mood)
     e.target.className = "color-img"
-    // console.log("=========checkin for that day=======", findCheckIn)
-    
+
     if(!findCheckIn) {
-      // console.log("====add mood for the day======");
       dispatch(addCheckInThunk(mood, year, month, date));
       return
     }
     
     if(findCheckIn?.mood) {
-      console.log("======update mood for the day=====", mood);
-      console.log(findCheckIn.id);
       dispatch(editCheckInThunk(mood, year, month, date, findCheckIn.id))
       return
     }
