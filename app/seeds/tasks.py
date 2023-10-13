@@ -13,17 +13,50 @@ def seed_tasks():
     task1 = Task(
         userId=1, categoryId= 1, title="yoga", icon="https://img.icons8.com/color/96/yoga.png")
     task2 = Task(
-        userId=1, categoryId= 1, title="swim", icon="https://img.icons8.com/color/96/snorkeling.png")
+        userId=1, categoryId= 1, title="swim", icon="https://img.icons8.com/color/96/marathon-swimming.png")
     task3 = Task(
-        userId=1, categoryId= 2, title="meditation", icon="https://img.icons8.com/color/96/floating-guru.png")
+        userId=1, categoryId= 1, title="gym", icon="https://img.icons8.com/color/96/dumbbell.png")
     task4 = Task(
+        userId=1, categoryId= 1, title="bike", icon="https://img.icons8.com/color/96/bicycle.png")
+    
+
+
+
+    task5 = Task(
+        userId=1, categoryId= 2, title="meditation", icon="https://img.icons8.com/color/96/floating-guru.png")
+    task6 = Task(
         userId=1, categoryId= 2, title="hug", icon="https://img.icons8.com/color/96/hug.png")
+    task7 = Task(
+        userId=1, categoryId= 2, title="love urself", icon="https://img.icons8.com/color/96/filled-like.png")
+    task8 = Task(
+        userId=1, categoryId= 2, title="kind to others", icon="https://img.icons8.com/color/96/hand-holding-heart.png")
+    task9 = Task(
+        userId=1, categoryId= 2, title="kind to others", icon="https://img.icons8.com/color/96/floating-guru.png")
+    
+
+
+    task10 = Task(
+        userId=1, categoryId= 3, title="pet pet", icon="https://img.icons8.com/color/96/look-after.png")
+    task11 = Task(
+        userId=1, categoryId= 3, title="celebrate small wins", icon="https://img.icons8.com/color/96/confetti.png")
+    task12 = Task(
+        userId=1, categoryId= 3, title="have a nice drink", icon="https://img.icons8.com/color/96/kawaii-coffee.png")
+    
+
   
 
     db.session.add(task1)
     db.session.add(task2)
     db.session.add(task3)
     db.session.add(task4)
+    db.session.add(task5)
+    db.session.add(task6)
+    db.session.add(task7)
+    db.session.add(task8)
+    db.session.add(task9)
+    db.session.add(task10)
+    db.session.add(task11)
+    db.session.add(task12)
 
 
     db.session.commit()
