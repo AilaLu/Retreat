@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesThunk } from "../../store/categoryReducer";
-import { addCheckInThunk } from "../../store/checkInReducer";
+import { addCheckInThunk, editCheckInThunk } from "../../store/checkInReducer";
 import { CheckInCard } from "./CheckInCard";
 import { moods } from "../../assets/icon";
 import "./CheckIn.css";
@@ -14,22 +14,31 @@ export const CheckIn = () => {
   const user = useSelector((state) => state.session.user);
   const categoriesObj = useSelector((state) => state.categoryReducer);
   const categoriesArr = Object.values(categoriesObj);
-  const dateObj = useContext(DateContext);
-
-  console.log("=========clicked Date obj=======", dateObj);
+  const {  year, month, date, findCheckIn } = useContext(DateContext);
 
   let refs = useRef()
 
   const CheckInMoodSubmit = async (e) => {
     e.preventDefault();
+    // ! create or update checkin
     let mood = e.target.src;
-    //! if the mood is 
     e.target.className = "color-img"
-    // setImgColor("color-img");
-    dispatch(addCheckInThunk(mood, dateObj.year, dateObj.month, dateObj.date));
-
-    // * create or update checkin
+    console.log("=========checkin for that day=======", findCheckIn)
+    
+    if(!findCheckIn) {
+      console.log("====add mood for the day======");
+      dispatch(addCheckInThunk(mood, year, month, date));
+      return
+    }
+    
+    if(findCheckIn?.mood) {
+      console.log("======update mood for the day=====", mood);
+      console.log(findCheckIn.id);
+      dispatch(editCheckInThunk(mood, year, month, date, findCheckIn.id))
+      return
+    }
   };
+
 
   useEffect(() => {
     dispatch(getCategoriesThunk());
@@ -40,7 +49,7 @@ export const CheckIn = () => {
   // *if the user has no task, redirect to manage_tasks page
   return (
     <>
-      <div>Hello {user.username}:) Let's check in</div>
+      <div>Hello {user.username}:) Let's check in for {year}/{month}/{date}</div>
       <section className="moods">
         {moods.map((mood, index) => (
           <div className="mood" key={index}>

@@ -62,6 +62,7 @@ def update_checkIn(id):
         checkIn = CheckIn.query.get(id)
 
         checkIn.mood = form.data["mood"]
+        print("**************backend **************", checkIn.mood)
         # checkIn.year = form.data["year"]
         # checkIn.month = form.data["month"]
         # checkIn.date = form.data["date"]

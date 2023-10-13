@@ -9,18 +9,10 @@ import { DateContext } from "../../context/onClickdate";
 
 export const LandingPage = () => {
   const dispatch = useDispatch();
-  const { value, setValue, year, month, date } = useContext(DateContext);
+  const { value, setValue, year, month, date, findCheckIn } = useContext(DateContext);
 
   const user = useSelector((state) => state.session.user);
   const categoryObj = useSelector((state) => state.categoryReducer);
-  const checkInObj = useSelector((state) => state.checkInReducer);
-  const checkInArr = Object.values(checkInObj);
-
-
-  const findCheckIn = checkInArr.find(
-    (checkIn) =>
-      checkIn?.year === year && checkIn?.month === month && checkIn?.date === date
-  );
 
   console.log("=============value==============", value);
   console.log("=============year==============", year);
@@ -28,29 +20,29 @@ export const LandingPage = () => {
   console.log("=============date==============", date);
   console.log("=============checkin==============", findCheckIn);
 
-  let dayButton = "day-btn"
-  //! if checkIn.mood === "https://img.icons8.com/color/96/fat-emoji.png", that date shows the mood 
+  let dayButton = "day-btn";
+  //! if checkIn.mood === "https://img.icons8.com/color/96/fat-emoji.png", that date shows the mood
 
   //! if the mood exists, whn you click on it it shows the mood and task for the day, if not, redirect to check_in page
-  
+
   // dayButton = "day-btn mood-happy"
   // dayButton = "day-btn mood-meh"
   // dayButton = "day-btn mood-sad"
-  
+
   const handleMoodSubmit = async (e) => {
     e.preventDefault();
     // const taskIcon = e.target.src
-    
+
     // const tasks = await dispatch(editTaskThunk(task.title, taskIcon, task.id, task.categoryId))
     // setTasks(tasks)
     // closeModal()
   };
-  
+
   useEffect(() => {
     dispatch(getCategoriesThunk());
     dispatch(getCheckInsThunk());
   }, [dispatch]);
-  
+
   //! by clicking on the date buttons you can see all the checkins for that specific day
   const viewCheckin = async (e) => {
     e.preventDefault();
@@ -58,7 +50,7 @@ export const LandingPage = () => {
     // const tasks = await dispatch(getCheckInsThunk(checkinid))
     //! I guess check in id is associating with the year/month/date combination
   };
-  
+
   if (!user) return null;
   //* if the user has tasks show calendar; if they don't, show the lil duck gif + btn to create task
   return (
@@ -85,7 +77,7 @@ export const LandingPage = () => {
         <section className="calendar">
           <div className="go-checkin">
             <NavLink exact to="/check_in">
-              Check In for the day
+              You've selected {year}/{month}/{date}, go check In for the day
               <img src="https://img.icons8.com/color/96/fat-emoji.png" alt="" />
             </NavLink>
           </div>
@@ -105,8 +97,14 @@ export const LandingPage = () => {
           </div>
           <div>
             task done for the day:{" "}
-            {findCheckIn?.checkInTasks.map((task) => (
-              <div key={task.taskId}>task {task.taskId}</div>
+            {findCheckIn?.checkInTasks.map((checkIn, id) => (
+              <img
+                key={id}
+                src={checkIn.task.icon}
+                width="48"
+                height="48"
+                alt={checkIn.task.title}
+              />
             ))}
           </div>
         </section>
