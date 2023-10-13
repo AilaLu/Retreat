@@ -18,12 +18,15 @@ export const IconSelectModal = ({ categoryId, setTasks }) => {
   useEffect(() => {
     const errors = {};
     if (title.length < 1) errors.title = "please enter task title";
-    if (title.length > 50) errors.title = "task title should be under 50 characters";   
+    if (title.length > 15) errors.title = "task title should be under 15 characters";   
     setErrors(errors);
   }, [title]);
 
+  const hasErrors = Object.keys(errors).length > 0;
+
   const handleIconSubmit = async (e) => {
     e.preventDefault();
+    if(hasErrors) return 
     //! send task icon and categoryId, render task title form to collect task title
     setModalSwitch("task title"); //render the task title form
     setTaskIcon(e.target.src);
