@@ -24,16 +24,16 @@ function SignupFormModal() {
 
   useEffect(() => {
     const errors = {};
-    if (email < 3 || email > 40)
+    if (email.length < 3 || email.length > 40)
       errors.email = "email should be more than 3 and less than 40 characters.";
     if (!validateEmail(email)) errors.email = "please enter valid email";
-    if (username < 3 || lastName > 40)
+    if (username.length < 3 || username.length > 40)
       errors.username =
         "username should be more than 3 and less than 40 characters.";
-    if (firstName < 3 || firstName > 40)
+    if (firstName.length < 3 || firstName.length > 40)
       errors.firstName =
         "firstName should be more than 3 and less than 40 characters.";
-    if (lastName < 3 || lastName > 40)
+    if (lastName.length < 3 || lastName.length > 40)
       errors.lastName =
         "lastName should be more than 3 and less than 40 characters.";
     if (password.length < 8)
@@ -45,9 +45,13 @@ function SignupFormModal() {
   }, [email, firstName, lastName, username, password, confirmPassword]);
 
 
+  const hasErrors = Object.keys(errors).length > 0;
+  let signupBtn = ""
+  if (!hasErrors) signupBtn = "signup-button grow";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(hasErrors) return 
       const data = await dispatch(
         signUp(username, email, password, firstName, lastName)
       );
@@ -136,7 +140,7 @@ function SignupFormModal() {
         <div className="errors">
                 {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
               </div>
-        <button className="signup-button grow" type="submit">
+        <button className={signupBtn} type="submit" disabled={hasErrors}>
           Register
         </button>
       </form>

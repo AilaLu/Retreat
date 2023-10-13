@@ -12,6 +12,8 @@ def seed_categories():
         userId=1, name="Physical health")
     category2 = Category(
         userId=1, name="Mental health")
+    category3 = Category(
+        userId=1, name="Quality time")
   
 
     db.session.add(category1)
