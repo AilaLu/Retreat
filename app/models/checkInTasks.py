@@ -12,7 +12,7 @@ class CheckInTask(db.Model):
     
 
 # relationship attribute
-    tasks = db.relationship("Task", back_populates="checkInTasks")
+    tasks = db.relationship("Task", back_populates="checkInTasks", lazy="joined")
     checkIns = db.relationship("CheckIn", back_populates="checkInTasks")
 
 
@@ -20,5 +20,11 @@ class CheckInTask(db.Model):
         return {
             'id': self.id,
             'taskId': self.taskId,
-            'checkInId': self.checkInId
+            'checkInId': self.checkInId,
+            'task': {
+                'id': self.tasks.id,
+                'categoryId': self.tasks.categoryId,
+                'title': self.tasks.title,
+                'icon': self.tasks.icon
+            }
         }

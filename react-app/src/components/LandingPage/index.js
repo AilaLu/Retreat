@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesThunk } from "../../store/categoryReducer";
 import { getCheckInsThunk } from "../../store/checkInReducer";
@@ -19,7 +19,7 @@ export const LandingPage = () => {
 
   const findCheckIn = checkInArr.find(
     (checkIn) =>
-      checkIn.year === year && checkIn.month === month && checkIn.date === date
+      checkIn?.year === year && checkIn?.month === month && checkIn?.date === date
   );
 
   console.log("=============value==============", value);
@@ -28,20 +28,29 @@ export const LandingPage = () => {
   console.log("=============date==============", date);
   console.log("=============checkin==============", findCheckIn);
 
+  let dayButton = "day-btn"
+  //! if checkIn.mood === "https://img.icons8.com/color/96/fat-emoji.png", that date shows the mood 
+
+  //! if the mood exists, whn you click on it it shows the mood and task for the day, if not, redirect to check_in page
+  
+  // dayButton = "day-btn mood-happy"
+  // dayButton = "day-btn mood-meh"
+  // dayButton = "day-btn mood-sad"
+  
   const handleMoodSubmit = async (e) => {
     e.preventDefault();
     // const taskIcon = e.target.src
-
+    
     // const tasks = await dispatch(editTaskThunk(task.title, taskIcon, task.id, task.categoryId))
     // setTasks(tasks)
     // closeModal()
   };
-
+  
   useEffect(() => {
     dispatch(getCategoriesThunk());
     dispatch(getCheckInsThunk());
   }, [dispatch]);
-
+  
   //! by clicking on the date buttons you can see all the checkins for that specific day
   const viewCheckin = async (e) => {
     e.preventDefault();
@@ -49,7 +58,7 @@ export const LandingPage = () => {
     // const tasks = await dispatch(getCheckInsThunk(checkinid))
     //! I guess check in id is associating with the year/month/date combination
   };
-
+  
   if (!user) return null;
   //* if the user has tasks show calendar; if they don't, show the lil duck gif + btn to create task
   return (
@@ -87,6 +96,7 @@ export const LandingPage = () => {
             className="react-calendar"
             minDetail="decade"
             onClickDay={(e) => setValue(e)}
+            tileClassName={dayButton}
           />
 
           <div>

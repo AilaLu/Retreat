@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesThunk } from "../../store/categoryReducer";
 import { addCheckInThunk } from "../../store/checkInReducer";
@@ -18,12 +18,14 @@ export const CheckIn = () => {
 
   console.log("=========clicked Date obj=======", dateObj);
 
-  const [imgColor, setImgColor] = useState("grey-img");
+  let refs = useRef()
 
   const CheckInMoodSubmit = async (e) => {
     e.preventDefault();
     let mood = e.target.src;
-    setImgColor("color-img");
+    //! if the mood is 
+    e.target.className = "color-img"
+    // setImgColor("color-img");
     dispatch(addCheckInThunk(mood, dateObj.year, dateObj.month, dateObj.date));
 
     // * create or update checkin
@@ -48,7 +50,7 @@ export const CheckIn = () => {
               type="submit"
               onClick={CheckInMoodSubmit}
             >
-              <img id={imgColor} src={mood} alt="" />
+              <img className="grey-img" src={mood} alt="" />
             </button>
           </div>
         ))}

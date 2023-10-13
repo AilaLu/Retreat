@@ -9,11 +9,10 @@ export const CheckInCard = ({ category }) => {
   const tasksProp = Object.values(category.tasks);
 
   const [tasks, setTasks] = useState(tasksProp);
-  const [imgColor, setImgColor] = useState("grey-img")
 
   const CheckInTaskSubmit = async (e) => {
     e.preventDefault();
-    setImgColor("color-img")
+    e.target.className = "color-img"
     // * create or update checkinTask
     // const taskIcon = e.target.src;
 
@@ -38,7 +37,7 @@ export const CheckInCard = ({ category }) => {
           {tasks.map((task) => (
             <div key={task.id} className="task-icon">
               <button type="submit" onClick={CheckInTaskSubmit}>
-                <img id={imgColor} width="48" height="48" src={task.icon} alt={task.title} />
+                <img className="grey-img" width="48" height="48" src={task.icon} alt={task.title} />
               </button>
               <div className="task-title">{task.title}</div>
             </div>

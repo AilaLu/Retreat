@@ -74,16 +74,27 @@
   background-color: #a5c1a5;
 } */
 
-.react-calendar__month-view__days__day {
+.day-btn {
   /* days button */
   background-color: rgb(30, 30, 30);
   border: solid 5px rgb(lightgray);
-  /* background-image: url("https://img.icons8.com/color/96/fat-emoji.png"); */
   height: 80px !important;
   width: 80px !important;
   aspect-ratio: 1;
   background-position: center;
   border-radius: 50%;
+}
+
+.mood-happy{
+  background-image: url("https://img.icons8.com/color/96/fat-emoji.png");
+}
+
+.mood-meh{
+  background-image: url("https://img.icons8.com/color/96/neutral-emoticon--v1.png");
+}
+
+.mood-sad{
+  background-image: url("https://img.icons8.com/color/96/crying--v1.png");
 }
 
 .react-calendar__month-view__days__day>abbr{
