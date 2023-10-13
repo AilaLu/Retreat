@@ -31,16 +31,32 @@
   /* width: 950px; */
   /* height: ; */
   box-sizing: border-box;
+  text-align: center;
   margin: auto;
   margin-top: 50px;
   padding: 10px;
 }
 
+.react-calendar__navigation__label__labelText--from {
+}
+
 .react-calendar__navigation {
   display: flex;
+  gap: 20px;
 
   .react-calendar__navigation__label {
+    /* navigation month */
     font-weight: bold;
+    font-size: xx-large;
+    border-radius: 20px;
+    /* background-color: rgb(95, 146, 79); */
+  }
+
+  .react-calendar__navigation__arrow {
+        /* navigation next month and last month */
+    border-radius: 20px;
+    flex-grow: 0.333;
+    font-size: xx-large;
   }
 
   .react-calendar__navigation__next2-button,
@@ -48,14 +64,12 @@
     display: none;
     /* hide the prev and next year on navigation */
   }
-
-  .react-calendar__navigation__arrow {
-    flex-grow: 0.333;
-  }
+  
 }
 
 .react-calendar__month-view__weekdays {
   text-align: center;
+
 }
 
 /* .react-calendar__month-view__days > button {
@@ -73,31 +87,41 @@
 &:active {
   background-color: #a5c1a5;
 } */
+.react-calendar__month-view__days {
+  gap: 5px;
+}
 
 .day-btn {
   /* days button */
   background-color: rgb(30, 30, 30);
-  border: solid 5px rgb(lightgray);
+  /* border: 3px solid lightgray; */
   height: 80px !important;
   width: 80px !important;
+  padding: 2px;
   aspect-ratio: 1;
   background-position: center;
   border-radius: 50%;
 }
 
-.mood-happy{
+.day-btn:hover {
+  box-shadow: 0px 0px 5px 5px lightgrey;
+  transition: 0.1s ease-in;
+  cursor: pointer;
+}
+
+.mood-happy {
   background-image: url("https://img.icons8.com/color/96/fat-emoji.png");
 }
 
-.mood-meh{
+.mood-meh {
   background-image: url("https://img.icons8.com/color/96/neutral-emoticon--v1.png");
 }
 
-.mood-sad{
+.mood-sad {
   background-image: url("https://img.icons8.com/color/96/crying--v1.png");
 }
 
-.react-calendar__month-view__days__day>abbr{
+.react-calendar__month-view__days__day > abbr {
   /* days button text */
   color: lightgray;
 }
