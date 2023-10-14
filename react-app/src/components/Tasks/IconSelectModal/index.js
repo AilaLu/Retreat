@@ -18,9 +18,11 @@ export const IconSelectModal = ({ categoryId, setTasks }) => {
   useEffect(() => {
     const errors = {};
     if (title.length < 1) errors.title = "please enter task title";
-    if (title.length > 50) errors.title = "task title should be under 50 characters";   
+    if (title.length > 15) errors.title = "task title should be under 15 characters";   
     setErrors(errors);
   }, [title]);
+
+  const hasErrors = Object.keys(errors).length > 0;
 
   const handleIconSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +33,7 @@ export const IconSelectModal = ({ categoryId, setTasks }) => {
 
   const handleTitleSubmit = async (e) => {
     e.preventDefault();
+    if(hasErrors) return 
     const tasks = await dispatch(addTaskThunk(title, taskIcon, categoryId));
     closeModal();
     setTasks(tasks); //! you can send setState as a prop, and still update the state in another component(category card)!!!

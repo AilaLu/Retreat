@@ -17,8 +17,11 @@ export const AddCategoryModal = () => {
     setErrors(errors);
   }, [name]);
 
+  const hasErrors = Object.keys(errors).length > 0;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(hasErrors) return 
     await dispatch(addCategoryThunk(name)).then(closeModal);
   };
 

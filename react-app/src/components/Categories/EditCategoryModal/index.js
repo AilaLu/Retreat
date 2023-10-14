@@ -17,8 +17,11 @@ export const EditCategoryModal = ({ category }) => {
     setErrors(errors);
   }, [name]);
 
+  const hasErrors = Object.keys(errors).length > 0;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(hasErrors) return 
     // console.log("*********** in the edit modal***********", categoryId);
 
     await dispatch(editCategoryThunk(name, category.id)).then(closeModal);
@@ -26,7 +29,7 @@ export const EditCategoryModal = ({ category }) => {
 
   return (
     <div className="edit-category modal">
-      <h1>Add Category Name</h1>
+      <h1>Change Category Name</h1>
       <form onSubmit={handleSubmit}>
         <label>
           <input

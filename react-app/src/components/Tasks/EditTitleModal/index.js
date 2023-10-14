@@ -9,15 +9,18 @@ export const EditTitleModal = ({ task, setTasks }) => {
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
+  const hasErrors = Object.keys(errors).length > 0;
+
   useEffect(() => {
     const errors = {};
     if (title.length < 1) errors.title = "please enter task title";
-    if (title.length > 50) errors.title = "task title should be under 50 characters";   
+    if (title.length > 15) errors.title = "task title should be under 15 characters";   
     setErrors(errors);
   }, [title]);
 
   const handleTitleSubmit = async (e) => {
     e.preventDefault();
+    if(hasErrors) return 
     const tasks = await dispatch(
       editTaskThunk(title, task.icon, task.id, task.categoryId)
     );

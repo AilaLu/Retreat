@@ -21,13 +21,17 @@
 #modal-content {
   text-align: center;
   /* center children */
-  width: 30vw;
+  width: 50vw;
   /* for icon select 50vw is better */
   position: absolute;
   background-color: rgb(30, 30, 30);
   padding: 20px;
   border: solid 1px lightgrey;
   border-radius: 20px;
+
+  /* to scroll scroll, you need a height to make scroll work*/
+  height: 50vh;
+  overflow: scroll;
 }
 
 .modal-btns {
