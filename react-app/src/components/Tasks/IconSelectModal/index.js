@@ -26,7 +26,6 @@ export const IconSelectModal = ({ categoryId, setTasks }) => {
 
   const handleIconSubmit = async (e) => {
     e.preventDefault();
-    if(hasErrors) return 
     //! send task icon and categoryId, render task title form to collect task title
     setModalSwitch("task title"); //render the task title form
     setTaskIcon(e.target.src);
@@ -34,6 +33,7 @@ export const IconSelectModal = ({ categoryId, setTasks }) => {
 
   const handleTitleSubmit = async (e) => {
     e.preventDefault();
+    if(hasErrors) return 
     const tasks = await dispatch(addTaskThunk(title, taskIcon, categoryId));
     closeModal();
     setTasks(tasks); //! you can send setState as a prop, and still update the state in another component(category card)!!!
