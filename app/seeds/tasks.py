@@ -69,17 +69,17 @@ def seed_tasks():
         userId=1, categoryId= 2, title="love urself", icon="https://img.icons8.com/color/96/filled-like.png")
     task8 = Task(
         userId=1, categoryId= 2, title="kind to others", icon="https://img.icons8.com/color/96/hand-holding-heart.png")
-    task9 = Task(
-        userId=1, categoryId= 2, title="kind to others", icon="https://img.icons8.com/color/96/floating-guru.png")
     
 
 
+    task9 = Task(
+        userId=1, categoryId= 3, title="listen to music", icon="https://img.icons8.com/color/96/headphones.png")
     task10 = Task(
-        userId=1, categoryId= 3, title="pet pet", icon="https://img.icons8.com/color/96/look-after.png")
+        userId=1, categoryId= 3, title="pet furry pet", icon="https://img.icons8.com/color/96/look-after.png")
     task11 = Task(
-        userId=1, categoryId= 3, title="celebrate small wins", icon="https://img.icons8.com/color/96/confetti.png")
+        userId=1, categoryId= 3, title="yay small wins", icon="https://img.icons8.com/color/96/confetti.png")
     task12 = Task(
-        userId=1, categoryId= 3, title="have a nice drink", icon="https://img.icons8.com/color/96/kawaii-coffee.png")
+        userId=1, categoryId= 3, title="nice drink", icon="https://img.icons8.com/color/96/kawaii-coffee.png")
     
 
   
