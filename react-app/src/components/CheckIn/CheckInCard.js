@@ -11,7 +11,7 @@ export const CheckInCard = ({ category }) => {
   const dispatch = useDispatch();
   const tasks = Object.values(category.tasks);
   const {findCheckIn} = useContext(DateContext)
-  const doneTask = findCheckIn.checkInTasks.map(task => task.taskId) //an array of the tasks done for the day
+  const doneTask = findCheckIn?.checkInTasks?.map(task => task.taskId) //an array of the tasks done for the day
   console.log("=========checkin tasks for the day obj", );
 
   const CheckInTaskSubmit = async (e) => {
