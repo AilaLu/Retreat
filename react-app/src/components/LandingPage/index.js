@@ -72,7 +72,7 @@ export const LandingPage = () => {
               <img width="35" height="35" src="https://img.icons8.com/external-those-icons-flat-those-icons/96/external-Clover-objects-those-icons-flat-those-icons.png" alt="Clover-icon"></img>{" "}<i className="fa-solid fa-arrow-right"></i>
             </NavLink>
           </div>
-          <div className="date-task-done-block">
+          {findCheckIn? <div className="date-task-done-block">
             <div>
               mood:
               <img width="48" height="48" src={findCheckIn?.mood} alt="" />
@@ -89,7 +89,7 @@ export const LandingPage = () => {
                 />
               ))}
             </div>
-          </div>
+          </div>: null}
         </section>
       )}
     </div>

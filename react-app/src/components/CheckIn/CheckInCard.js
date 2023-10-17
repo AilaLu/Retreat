@@ -11,7 +11,8 @@ export const CheckInCard = ({ category }) => {
   const dispatch = useDispatch();
   const tasks = Object.values(category.tasks);
   const {findCheckIn} = useContext(DateContext)
-  console.log("=========checkin obj", findCheckIn?.id);
+  const doneTask = findCheckIn.checkInTasks.map(task => task.taskId) //an array of the tasks done for the day
+  console.log("=========checkin tasks for the day obj", );
 
   const CheckInTaskSubmit = async (e) => {
     e.preventDefault();
@@ -46,14 +47,26 @@ export const CheckInCard = ({ category }) => {
     {findCheckIn?  <section className="category-card">
         <h3>{category.name}</h3>
         <div className="tasks">
-          {tasks.map((task) => (
-            <div key={task.id} className="task-icon">
+          {tasks.map((task) => {
+            {/* if you already checked in for this task this day, the task is already colored */}
+              if(doneTask.find(taskId => taskId === task.id)){
+                return  <div key={task.id} className="task-icon">
+              <button type="submit" onClick={CheckInTaskSubmit}>
+                <img className="color-img" width="48" height="48" src={task.icon} alt={task.title} data-taskid={task.id}/>
+              </button>
+              <div className="task-title">{task.title}</div>
+            </div> 
+              }
+              else{
+                return <div key={task.id} className="task-icon">
               <button type="submit" onClick={CheckInTaskSubmit}>
                 <img className="grey-img" width="48" height="48" src={task.icon} alt={task.title} data-taskid={task.id}/>
               </button>
               <div className="task-title">{task.title}</div>
-            </div>
-          ))}
+            </div> 
+              }
+
+          })}
         </div>
       </section>: null}
     </>
