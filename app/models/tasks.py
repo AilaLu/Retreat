@@ -16,7 +16,7 @@ class Task(db.Model):
 # relationship attribute
     users = db.relationship("User", back_populates="tasks")
     categories = db.relationship("Category", back_populates="tasks")
-    check_in_tasks = db.relationship("CheckInTask", back_populates="tasks", cascade="all, delete", lazy="joined")
+    checkInTasks = db.relationship("CheckInTask", back_populates="tasks", cascade="all, delete", lazy="joined")
 
 
     def to_dict(self):
