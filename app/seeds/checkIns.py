@@ -55,9 +55,9 @@ def seed_checkIns():
 # it will reset the primary keys for you as well.
 def undo_checkIns():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.checkIns RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.check_ins RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM checkIns"))
+        db.session.execute(text("DELETE FROM check_ins"))
 
     db.session.commit()
 
