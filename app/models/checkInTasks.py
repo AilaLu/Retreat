@@ -1,7 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class CheckInTask(db.Model):
-    __tablename__ = 'checkInTasks'
+    __tablename__ = 'check_in_tasks'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
@@ -12,8 +12,8 @@ class CheckInTask(db.Model):
     
 
 # relationship attribute
-    tasks = db.relationship("Task", back_populates="checkInTasks", lazy="joined")
-    checkIns = db.relationship("CheckIn", back_populates="checkInTasks")
+    tasks = db.relationship("Task", back_populates="check_in_tasks", lazy="joined")
+    checkIns = db.relationship("CheckIn", back_populates="check_in_tasks")
 
 
     def to_dict(self):
