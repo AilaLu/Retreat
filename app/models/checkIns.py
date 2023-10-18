@@ -15,7 +15,7 @@ class CheckIn(db.Model):
 
 # relationship attribute
     users = db.relationship("User", back_populates="check_ins")
-    checkInTasks = db.relationship("CheckInTask", back_populates="check_ins", cascade="all, delete", lazy="joined")
+    check_in_tasks = db.relationship("CheckInTask", back_populates="check_ins", cascade="all, delete", lazy="joined")
 
 
     def to_dict(self):

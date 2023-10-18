@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     # relationship attribute
     categories = db.relationship("Category", back_populates="users", cascade="all, delete")
     tasks = db.relationship("Task", back_populates="users", cascade="all, delete")
-    checkIns = db.relationship("CheckIn", back_populates="users", cascade="all, delete")
+    check_ins = db.relationship("CheckIn", back_populates="users", cascade="all, delete")
 
 
     @property
