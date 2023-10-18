@@ -13,7 +13,7 @@ class CheckInTask(db.Model):
 
 # relationship attribute
     tasks = db.relationship("Task", back_populates="check_in_tasks", lazy="joined")
-    checkIns = db.relationship("CheckIn", back_populates="check_in_tasks")
+    check_ins = db.relationship("CheckIn", back_populates="check_in_tasks")
 
 
     def to_dict(self):
