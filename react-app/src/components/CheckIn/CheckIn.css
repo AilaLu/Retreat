@@ -1,0 +1,42 @@
+.moods{
+ background-color: rgb(50, 50, 50);
+ border-radius: 20px;
+ margin-bottom: 50px;
+ display: flex;
+ gap: 20px;
+ justify-content: center;
+ align-items: center;
+ justify-content: space-evenly;
+ padding: 50px;
+}
+
+.mood > button {
+ border-radius: 50%;
+ border: none;
+ padding: 10px;
+}
+
+.mood > button:hover {
+ cursor: pointer;
+}
+
+/* .checkin-card{
+ 
+} */
+
+/*! before check in --grayed out*/
+.grey-img{
+  -webkit-filter: grayscale(100%);
+     -moz-filter: grayscale(100%);
+       -o-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+          filter: grayscale(100%);
+         }
+         
+.color-img{
+ -webkit-filter: grayscale(0);
+    -moz-filter: grayscale(0);
+      -o-filter: grayscale(0);
+     -ms-filter: grayscale(0);
+         filter: grayscale(0);
+}

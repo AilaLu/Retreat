@@ -7,8 +7,10 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { AllCategories } from "./components/Categories/AllCategories";
+import { CheckIn } from "./components/CheckIn";
 import { LandingPage } from "./components/LandingPage";
 import Footer from "./components/Footer";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -26,7 +28,10 @@ function App() {
             <LandingPage />
           </ProtectedRoute>
           <ProtectedRoute path="/manage_tasks">
-            <AllCategories/>
+            <AllCategories />
+          </ProtectedRoute>
+          <ProtectedRoute path="/check_in">
+            <CheckIn />
           </ProtectedRoute>
           <Route path="/login">
             <LoginFormPage />
@@ -36,7 +41,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 }

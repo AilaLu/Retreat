@@ -1,5 +1,6 @@
-import { removeTasksAction } from "./taskReducer";
 import { removeCategoriesAction } from "./categoryReducer";
+import { removeTasksAction } from "./taskReducer";
+import { removeCheckInsAction } from "./checkInReducer";
 
 // constants
 const SET_USER = "session/SET_USER";
@@ -69,6 +70,7 @@ export const logout = () => async (dispatch) => {
 		dispatch(removeUser());
 		dispatch(removeCategoriesAction())
 		dispatch(removeTasksAction())
+		dispatch(removeCheckInsAction())
 	}
 };
 

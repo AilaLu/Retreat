@@ -12,8 +12,10 @@ import { TaskModal } from "../../Tasks/TaskModal";
 export const CategoryCard = ({ category }) => {
   const dispatch = useDispatch();
   // const tasksProp = Object.values(category?.tasks);
-  // const latestTasks = Object.values(useSelector((state) => state.tasks));
-  const [tasks, setTasks] = useState(category? Object.values(category.tasks): []);
+  // const latestTasks = Object.values(useSelector((state) => state.taskReducer));
+  const [tasks, setTasks] = useState(
+    category ? Object.values(category.tasks) : []
+  );
 
   // console.log(
   //   "=============I am re-rendering when a new task is added!!!=================="
@@ -22,7 +24,7 @@ export const CategoryCard = ({ category }) => {
     dispatch(getTasksThunk(category?.id));
   }, [dispatch]);
 
-if (!tasks) return null;
+  if (!tasks) return null;
 
   return (
     <>
@@ -54,7 +56,7 @@ if (!tasks) return null;
             </div>
           ))}
         </div>
-        
+
         <div className="add-task">
           <OpenTaskModal
             // buttonStyle={}

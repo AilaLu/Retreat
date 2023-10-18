@@ -48,8 +48,11 @@ export const icons = [
 ];
 
 export const moods = [
+  // happy
   "https://img.icons8.com/color/96/fat-emoji.png",
+  // meh
   "https://img.icons8.com/color/96/neutral-emoticon--v1.png",
+  // sad
   "https://img.icons8.com/color/96/crying--v1.png",
 ];
 
