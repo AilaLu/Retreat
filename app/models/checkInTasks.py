@@ -8,7 +8,7 @@ class CheckInTask(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     taskId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("tasks.id")))
-    checkInId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("checkIns.id")))
+    checkInId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("check_ins.id")))
     
 
 # relationship attribute

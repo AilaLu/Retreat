@@ -34,7 +34,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('taskId', sa.Integer(), nullable=True),
     sa.Column('checkInId', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['checkInId'], ['checkIns.id'], ),
+    sa.ForeignKeyConstraint(['checkInId'], [''], ),
     sa.ForeignKeyConstraint(['taskId'], ['tasks.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
