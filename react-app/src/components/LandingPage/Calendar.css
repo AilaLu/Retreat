@@ -7,9 +7,13 @@
 
 
 .react-calendar__navigation {
+  text-align: center;
   display: flex;
+  justify-content: center;
   gap: 20px;
   width: 950px;
+  /* margin-left: 80px; */
+  margin-bottom: 50px;
 
   .react-calendar__navigation__label {
     font-weight: bold;
@@ -35,23 +39,26 @@
 
 }
 
-.react-calendar__month-view__days {
+/* .react-calendar__month-view__days {
+  box-sizing: border-box;
   gap: 5px;
-}
+} */
 
 .day-btn {
   color: lightgray;
+  font-size: large;
   background-color: rgb(30, 30, 30);
-  border: 3px solid lightgray;
+  border: 1px solid #717171;
+  border: none;
   flex-grow:0;
-  padding: 5px 15px;
+  padding: 30px 0;
   box-sizing: border-box;
   background-position: center;
-  border-radius: 20px;
+  border-radius: 50%;
 }
 
 .day-btn:hover {
-  box-shadow: 0px 0px 5px 5px lightgrey;
+  box-shadow: 0px 0px 2px 2px lightgrey;
   transition: 0.1s ease-in;
   cursor: pointer;
 }

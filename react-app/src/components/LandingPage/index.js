@@ -3,9 +3,9 @@ import { NavLink, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesThunk } from "../../store/categoryReducer";
 import { getCheckInsThunk } from "../../store/checkInReducer";
-import 'react-calendar/dist/Calendar.css'
+// import 'react-calendar/dist/Calendar.css'
 import "./LandingPage.css";
-// import "./Calendar.css"
+import "./Calendar.css"
 import Calendar from "react-calendar";
 import { DateContext } from "../../context/onClickdate";
 
