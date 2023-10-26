@@ -1,4 +1,4 @@
-# Retreat[LIVE LINK](https://retreat-iivp.onrender.com/)
+# [Retreat LIVE LINK](https://retreat-iivp.onrender.com/)
 
 Retreat is a full-stack web application that that focuses on user experience where users may check-in on daily mood/tasks.
 
@@ -9,7 +9,7 @@ For more details of our current features, visit our wiki page:
 - [User Stories](https://github.com/AilaLu/Retreat/wiki/User-Stories)
 
 # Calendar landing Page
-[gif]
+![image]
 
 # Check In Page
 [gif]
@@ -27,14 +27,12 @@ Backend
 
 
 # Features
-While using Itys, users can:
+While using Retreat, users can:
 - Create an account and login, or sign in with a demo user.
-- View a landing page of sample products on the itsy website.
-- Create, read, update, and delete your own sample products.
-- Create, read, update, and delete reviews on products.
-- Add and delete to your favorites list.
-- Add and modify products in your shopping cart.
-- Search for products by name, category or description in the searchbar.
+- View a landing page of Calendar and click "check In for year/month/date" for the date they clicked.
+- Create, read, update, and delete your own categories.
+- Create, read, update, and delete tasks on categories.
+- Create, read, update your check-ins.
 
 # Endpoints
 | Request | Purpose |
@@ -62,10 +60,8 @@ While using Itys, users can:
 
 
 # Future Goals
-- AWS Image integration for uploading photos of products
-- Chat feature, users can chat with product owners
-- Make Itsy mobile friendly
-- Multiple product images per product detail page
+- AWS Image integration for uploading daily photos
+
 
 ## Set Up
 
