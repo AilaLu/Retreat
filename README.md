@@ -1,148 +1,123 @@
-# Flask React Project
+# Retreat[LIVE LINK](https://retreat-iivp.onrender.com/)
 
-This is the starter for the Flask React project.
+Retreat is a full-stack web application that that focuses on user experience where users may check-in on daily mood/tasks.
 
-## Getting started
-1. Clone this repository (only this branch)
+For more details of our current features, visit our wiki page:
 
-2. Install dependencies
+ - [Feature List](https://github.com/AilaLu/Retreat/wiki/Feature-List)
+- [Schema](https://github.com/AilaLu/Retreat/wiki/Schema)
+- [User Stories](https://github.com/AilaLu/Retreat/wiki/User-Stories)
 
-      ```bash
-      pipenv install -r requirements.txt
-      ```
+# Calendar landing Page
+[gif]
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
+# Check In Page
+[gif]
 
-4. Make sure the SQLite3 database connection URL is in the **.env** file
-
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
-
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+# Manage Tasks Page
+[gif]
 
 
-## Deployment through Render.com
+# Technologies Used
+Frontend
+- Javascript, React, Redux, HTML, CSS
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+Backend
+- Python, Flask, SQLAlchemy
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+# Features
+While using Itys, users can:
+- Create an account and login, or sign in with a demo user.
+- View a landing page of sample products on the itsy website.
+- Create, read, update, and delete your own sample products.
+- Create, read, update, and delete reviews on products.
+- Add and delete to your favorites list.
+- Add and modify products in your shopping cart.
+- Search for products by name, category or description in the searchbar.
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+# Endpoints
+| Request | Purpose |
+| --- | --- |
+| GET / | Navigate to the Itsy Homepage, and view our products and information |
+| GET /products/<:id> | View a product detail page, see the information related to that individual product. |
+| GET /products/<:id>/reviews | Query for reviews by product id |
+| GET /favorites | View all favorites by specific user, if not logged in, redirects to login page |
+| GET /logout | Logs out a user |
+| GET /unauthorized | Returns unauthorized JSON when flask-login authentication fails |
+| GET /reviews/<:id> | Query for reviews by id |
+| GET /reviews | Query for all reviews by user id |
+| GET /shopping_cart/current | Query for all shopping_cart_items and returns them in a list of shopping_cart dictionaries with the current user |
+| POST /login | Logs in Authenticated user |
+| POST /signup | Creates a new user and logs them in |
+| POST /products/new | Creates a new product by id |
+| POST /products/update/<:id> | Updates a product by id |
+| POST /products/<:id>/shopping_cart | Create a shopping cart item to the shopping cart from the product detail page |
+| POST /products/<:id>/favorites | Adds a product to your favorites |
+| PUT /reviews/<:id> | Post new review for product by product id |
+| DELETE /products/delete/<:id> | Deletes a product by id if you are the owner of the product |
+| DELETE /products/<:id>/favorites | Removes a product from your favorites |
+| DELETE /reviews/<:id> | Delete a review by review id |
+| DELETE /shopping_cart/<:id> | Clicking X remove an item in shopping cart, clicking Order Up clears product from shopping cart, |
 
-### Part A: Configure the Start and Build Commands
 
-Start by giving your application a name.
+# Future Goals
+- AWS Image integration for uploading photos of products
+- Chat feature, users can chat with product owners
+- Make Itsy mobile friendly
+- Multiple product images per product detail page
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+## Set Up
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
+- Clone the repo
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
+### Back End Server
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
+- Open up a new terminal
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
+- Open up the project folder
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
+- Install dependencies
 
-Now, add your start command in the Start field:
+  ```bash
+  pipenv install -r requirements.txt
+  ```
 
-```shell
-# start script
-gunicorn app:app
-```
+- Create a **.env** file based on the example
 
-_If you are using websockets, use the following start command instead for increased performance:_
+- Run the following commands to open your pipenv, migrate the database, seed the database, and run the Flask app
 
-`gunicorn --worker-class eventlet -w 1 app:app`
+  ```bash
+  pipenv shell
+  ```
 
-### Part B: Add the Environment Variables
+  ```bash
+  flask db upgrade
+  ```
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
+  ```bash
+  flask seed all
+  ```
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
+  ```bash
+  flask run
+  ```
 
-Add the following keys and values in the Render GUI form:
+### Front End
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
+- Open up another new terminal
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
+- Direct to the <code>react-app</code> folder
 
-Add the following keys and values:
+- Install dependencies
 
-- DATABASE_URL (copy value from Internal Database URL field)
+  ```bash
+  npm install
+  ```
 
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
+- Start the React App
 
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
+  ```bash
+  npm start
+  ```
 
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/
