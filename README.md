@@ -8,14 +8,16 @@ For more details of our current features, visit our wiki page:
 - [Schema](https://github.com/AilaLu/Retreat/wiki/Schema)
 - [User Stories](https://github.com/AilaLu/Retreat/wiki/User-Stories)
 
+
 # Calendar landing Page
-![image]
+<img width="1081" alt="Screenshot 2023-10-25 at 22 09 03" src="https://github.com/AilaLu/Retreat/assets/61234744/0a9b9d01-52ad-417a-8f8a-7ba2e9fd3484">
 
 # Check In Page
-[gif]
+<img width="1543" alt="Screenshot 2023-10-25 at 22 10 24" src="https://github.com/AilaLu/Retreat/assets/61234744/9bbc78a6-1688-4aa8-9c56-7f71127945f2">
+
 
 # Manage Tasks Page
-[gif]
+<img width="2560" alt="Screenshot 2023-10-25 at 22 09 07" src="https://github.com/AilaLu/Retreat/assets/61234744/5ba4ada5-a229-40c0-874e-ab2832b78e58">
 
 
 # Technologies Used
