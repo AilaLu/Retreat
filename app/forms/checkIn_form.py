@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
+from flask_wtf.file import FileField, FileAllowed, FileRequired
+from app.api.aws_helper import ALLOWED_EXTENSIONS
 
 def valid_year(form, field):
     year = field.data # user input from clicking one one day of the calendar
@@ -23,4 +25,5 @@ class CheckInForm(FlaskForm):
     year = IntegerField("year", validators=[DataRequired()])
     month = IntegerField("month", validators=[DataRequired()])
     date = IntegerField("date", validators=[DataRequired()])
+    image = FileField("image", validators=[ FileAllowed(list(ALLOWED_EXTENSIONS))])
     submit = SubmitField("submit")
