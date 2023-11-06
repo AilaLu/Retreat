@@ -6,7 +6,7 @@ from sqlalchemy.sql import text
    # {
    #  "id": 1,
    #  "userId": 1,
-   #  "mood": "happy",
+   #  "mood": "https://img.icons8.com/color/96/fat-emoji.png",
    #  "year": 2023,
    #  "month": 10,
    #  "date": 7
