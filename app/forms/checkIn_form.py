@@ -25,5 +25,5 @@ class CheckInForm(FlaskForm):
     year = IntegerField("year", validators=[DataRequired()])
     month = IntegerField("month", validators=[DataRequired()])
     date = IntegerField("date", validators=[DataRequired()])
-    image = FileField("image", validators=[ FileAllowed(list(ALLOWED_EXTENSIONS))])
+    image = FileField("image file", validators=[ FileAllowed(list(ALLOWED_EXTENSIONS))])
     submit = SubmitField("submit")

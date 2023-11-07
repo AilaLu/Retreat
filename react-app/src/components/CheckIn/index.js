@@ -66,6 +66,11 @@ export const CheckIn = () => {
           <CheckInCard category={category} key={category.id} />
         ))}
       </section>
+      <section className="upload-image">
+      <form action="/posts/new" method="POST" enctype="multipart/form-data">
+          <input type="file" name="" id="" />
+        </form>
+      </section>
     </>
   );
 };

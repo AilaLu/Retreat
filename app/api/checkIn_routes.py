@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, CheckIn, CheckInTask
+from app.models import db, CheckIn, CheckInTask, Image
 from app.forms.checkIn_form import CheckInForm
+from aws_helper import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 checkIn_routes = Blueprint('checkIns', __name__)
 
@@ -46,7 +47,7 @@ def get_checkIns():
 @login_required
 def create_checkIn():
     """
-    Create a new checkIn
+    Create a new checkIn, and upload an image for the checkIn
     """
 
     form = CheckInForm()
@@ -63,7 +64,29 @@ def create_checkIn():
         )
         db.session.add(newCheckIn)
         db.session.commit()
+    
+    # ! add image
+
+        image = form.data["image file"]
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
+        print("UPLOAD", upload)
+
+        if "url" not in upload:
+            return {"Errors": [upload]}
+
+        new_image = Image (
+                checkInId = newCheckIn.id,
+                image = upload["url"],
+        )
+
+        print(new_image)
+        db.session.add(new_image)
+        db.session.commit()
+
         return newCheckIn.to_dict()
+
+
     else:
           print(form.errors)
           return {"errors":form.errors}
@@ -142,5 +165,38 @@ def delete_checkInTask(checkInId, taskId):
     taskUndone = CheckInTask.query.filter(CheckInTask.taskId == taskId, CheckInTask.checkInId == checkInId).first()
     
     db.session.delete(taskUndone)
+    db.session.commit()
+    return "Deleted"
+
+
+# ! Images under 
+
+#C
+@checkIn_routes.route("/<int:checkInId>/image_add", methods=["POST"])
+@login_required
+def create_image(checkInId):
+    """
+    Create a new image for a specific checkIn(a specific day)
+    """
+
+    new_image = Image(
+        taskId = taskId,
+        checkInId = checkInId
+    )
+    db.session.add(new_image)
+    db.session.commit()
+    return new_image.to_dict()
+
+
+#D
+@checkIn_routes.route("/<int:checkInId>/image_delete", methods=["DELETE"])
+@login_required
+def delete_image(checkInId):
+    """
+    Delete an image that belongs to a specific checkIn(a specific day)
+    """
+    deleted_image = CheckInTask.query.filter(CheckInTask.taskId == taskId, CheckInTask.checkInId == checkInId).first()
+    
+    db.session.delete(deleted_image)
     db.session.commit()
     return "Deleted"
