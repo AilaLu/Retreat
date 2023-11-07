@@ -16,6 +16,7 @@ class CheckIn(db.Model):
 # relationship attribute
     users = db.relationship("User", back_populates="checkIns")
     checkInTasks = db.relationship("CheckInTask", back_populates="checkIns", cascade="all, delete", lazy="joined")
+    images = db.relationship("Image", back_populates="checkIns", cascade="all, delete", lazy="joined")
 
 
     def to_dict(self):
@@ -26,5 +27,6 @@ class CheckIn(db.Model):
             'year': self.year,
             'month': self.month,
             'date': self.date,
-            'checkInTasks': [checkInTask.to_dict() for checkInTask in self.checkInTasks]
+            'checkInTasks': [checkInTask.to_dict() for checkInTask in self.checkInTasks],
+            'images': [image.to_dict() for image in self.images]
         }
