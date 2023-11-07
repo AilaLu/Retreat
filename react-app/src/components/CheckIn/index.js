@@ -10,6 +10,7 @@ import { DateContext } from "../../context/onClickdate";
 
 export const CheckIn = () => {
   const dispatch = useDispatch();
+  const [image, setImage] = useState("");
   const {  year, month, date, findCheckIn } = useContext(DateContext);
   const [selectedMood, setSelectedMood] = useState(findCheckIn?.mood)
 
@@ -66,11 +67,22 @@ export const CheckIn = () => {
           <CheckInCard category={category} key={category.id} />
         ))}
       </section>
-      <section className="upload-image">
-      <form action="/posts/new" method="POST" enctype="multipart/form-data">
-          <input type="file" name="" id="" />
+       {/* ternary operator: once you check into mood, you can then check into tasks */}
+    {findCheckIn?<section className="upload-image">
+      <form enctype="multipart/form-data">
+      <label>
+                <input id="image"
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => setImage(e.target.files[0])}
+                  required
+                />
+              </label>
+              <div>
+                <img src={image} alt="upload" />
+              </div>
         </form>
-      </section>
+      </section>: null}
     </>
   );
 };

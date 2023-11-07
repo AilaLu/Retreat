@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, CheckIn, CheckInTask, Image
 from app.forms.checkIn_form import CheckInForm
-from aws_helper import upload_file_to_s3, get_unique_filename, remove_file_from_s3
+from .aws_helper import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 checkIn_routes = Blueprint('checkIns', __name__)
 
@@ -67,22 +67,22 @@ def create_checkIn():
     
     # ! add image
 
-        image = form.data["image file"]
-        image.filename = get_unique_filename(image.filename)
-        upload = upload_file_to_s3(image)
-        print("UPLOAD", upload)
+    #     image = form.data["image"]
+    #     image.filename = get_unique_filename(image.filename)
+    #     upload = upload_file_to_s3(image)
+    #     print("UPLOAD", upload)
 
-        if "url" not in upload:
-            return {"Errors": [upload]}
+    #     if "url" not in upload:
+    #         return {"Errors": [upload]}
 
-        new_image = Image (
-                checkInId = newCheckIn.id,
-                image = upload["url"],
-        )
+    #     new_image = Image (
+    #             checkInId = newCheckIn.id,
+    #             image = upload["url"],
+    #     )
 
-        print(new_image)
-        db.session.add(new_image)
-        db.session.commit()
+    #     print(new_image)
+    #     db.session.add(new_image)
+    #     db.session.commit()
 
         return newCheckIn.to_dict()
 
