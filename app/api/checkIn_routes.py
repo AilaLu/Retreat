@@ -64,26 +64,6 @@ def create_checkIn():
         )
         db.session.add(newCheckIn)
         db.session.commit()
-    
-    # ! add image
-
-    #     image = form.data["image"]
-    #     image.filename = get_unique_filename(image.filename)
-    #     upload = upload_file_to_s3(image)
-    #     print("UPLOAD", upload)
-
-    #     if "url" not in upload:
-    #         return {"Errors": [upload]}
-
-    #     new_image = Image (
-    #             checkInId = newCheckIn.id,
-    #             image = upload["url"],
-    #     )
-
-    #     print(new_image)
-    #     db.session.add(new_image)
-    #     db.session.commit()
-
         return newCheckIn.to_dict()
 
 
@@ -179,6 +159,26 @@ def create_image(checkInId):
     Create a new image for a specific checkIn(a specific day)
     """
 
+     # ! add image
+
+    #     image = form.data["image"]
+    #     image.filename = get_unique_filename(image.filename)
+    #     upload = upload_file_to_s3(image)
+    #     print("UPLOAD", upload)
+
+    #     if "url" not in upload:
+    #         return {"Errors": [upload]}
+
+    #     new_image = Image (
+    #             checkInId = newCheckIn.id,
+    #             image = upload["url"],
+    #     )
+
+    #     print(new_image)
+    #     db.session.add(new_image)
+    #     db.session.commit()
+
+
     new_image = Image(
         taskId = taskId,
         checkInId = checkInId
@@ -189,13 +189,19 @@ def create_image(checkInId):
 
 
 #D
-@checkIn_routes.route("/<int:checkInId>/image_delete", methods=["DELETE"])
+@checkIn_routes.route("/<int:imageId>/image_delete", methods=["DELETE"])
 @login_required
-def delete_image(checkInId):
+def delete_image(imageId):
     """
     Delete an image that belongs to a specific checkIn(a specific day)
     """
-    deleted_image = CheckInTask.query.filter(CheckInTask.taskId == taskId, CheckInTask.checkInId == checkInId).first()
+    deleted_image = Image.query.get(imageId)
+
+    aws_delete_image = remove_file_from_s3(deleted_image.image) # remove_file_from_s3 function takes in an image url, returns true 
+
+    if aws_delete_image != True:
+        return aws_delete_image.errors
+
     
     db.session.delete(deleted_image)
     db.session.commit()

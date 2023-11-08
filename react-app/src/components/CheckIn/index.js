@@ -18,7 +18,6 @@ export const CheckIn = () => {
   const categoriesObj = useSelector((state) => state.categoryReducer);
   const categoriesArr = Object.values(categoriesObj);
 
-
   const CheckInMoodSubmit = async (e) => {
     e.preventDefault();
     // ! create or update checkin
@@ -36,6 +35,18 @@ export const CheckIn = () => {
       return
     }
   };
+
+  const uploadImage = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("image", image);
+
+    // ! dispatch upload image thunk
+    // await fetch("/api/checkIn/upload", {
+    //   method: "POST",
+    //   body: formData,
+    // });
+  }
 
 
   useEffect(() => {
@@ -69,18 +80,21 @@ export const CheckIn = () => {
       </section>
        {/* ternary operator: once you check into mood, you can then check into tasks */}
     {findCheckIn?<section className="upload-image">
-      <form enctype="multipart/form-data">
-      <label>
-                <input id="image"
+      <form enctype="multipart/form-data" onSubmit={uploadImage}>
+      <label 
+      // htmlFor="image"
+      >
+                <input id="input-image"
                   type="file"
                   accept="image/*"
                   onChange={(e) => setImage(e.target.files[0])}
                   required
                 />
               </label>
-              <div>
+             {image? <div >
                 <img src={image} alt="upload" />
-              </div>
+              </div>: null}
+              <button type="submit">Upload</button>
         </form>
       </section>: null}
     </>
