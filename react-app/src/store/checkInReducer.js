@@ -132,18 +132,17 @@ export const deleteCheckInTaskThunk = (checkInId, taskId) => async (dispatch) =>
 export const addImageThunk = (checkInId, formData) => async (dispatch) => {
   const res = await fetch(`/api/checkIns/${checkInId}/image_add`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
+    body: formData,
   });
 
   if (res.ok) {
-    // const newTaskResponse = await res.json();
-    const tasks = await dispatch(getCheckInsThunk());
-    // console.log(
-    //   "*********************in the if block, **************",
-    // tasks
-    // );
-    return tasks;
+    const newImageResponse = await res.json();
+     await dispatch(getCheckInsThunk());
+    console.log(
+      "*********************in add image thunk, **************",
+      newImageResponse
+    );
+    return newImageResponse;
   } else {
     const errors = await res.json();
 

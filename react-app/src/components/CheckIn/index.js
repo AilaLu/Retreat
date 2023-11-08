@@ -41,9 +41,10 @@ export const CheckIn = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", image);
+    console.log("============formData============", formData);
 
     // ! dispatch upload image thunk
-    await dispatch(addImageThunk(formData, findCheckIn.id));
+    await dispatch(addImageThunk(findCheckIn.id, formData));
 
   }
 
