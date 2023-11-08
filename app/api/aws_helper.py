@@ -42,7 +42,9 @@ def upload_file_to_s3(file, acl="public-read"):
 def remove_file_from_s3(image_url):
     # AWS needs the image file name, not the URL, 
     # so you split that out of the URL
+    # http://retreat-daily-img.s3.amazonaws.com/c62c56e7f3754e5483c80e3d02df9eee.jpeg
     key = image_url.rsplit("/", 1)[1]
+    # print("===========************key in aws helper remove file from s3 bucket**********==========", key)
     try:
         s3.delete_object(
         Bucket=BUCKET_NAME,

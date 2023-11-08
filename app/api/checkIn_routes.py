@@ -193,11 +193,13 @@ def delete_image(imageId):
     Delete an image that belongs to a specific checkIn(a specific day)
     """
     deleted_image = Image.query.get(imageId)
-
+    print("************deleted_image**********", deleted_image.image)
     aws_delete_image = remove_file_from_s3(deleted_image.image) # remove_file_from_s3 function takes in an image url, returns true 
+    print("************deleted_image api route**********", aws_delete_image)
+    # aws_delete_image = {'errors': 'An error occurred (AccessDenied) when calling the DeleteObject operation: Access Denied'}
 
     if aws_delete_image != True:
-        return aws_delete_image.errors
+        return aws_delete_image
 
     
     db.session.delete(deleted_image)

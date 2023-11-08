@@ -45,9 +45,15 @@ export const CheckIn = () => {
 
     // ! dispatch upload image thunk
     await dispatch(addImageThunk(findCheckIn.id, formData));
-
   }
 
+  const deleteImage = async (e) => {
+    e.preventDefault();
+    const imageId = e.target.dataset.imageid;
+    console.log("============imageId============", imageId);
+
+    await dispatch(deleteImageThunk(imageId));
+  }
 
   useEffect(() => {
     dispatch(getCategoriesThunk());
@@ -96,6 +102,19 @@ export const CheckIn = () => {
               </div>: null}
               <button type="submit">Upload</button>
         </form>
+        <div className="checkIn-images">
+          {findCheckIn?.images.map((image, id) => (
+            <div className="checkIn-image" key={id}>
+              <img
+                src={image.image}
+                width="200"
+                height="200"
+                alt={image.image}
+              />
+              <button onClick={deleteImage} data-imageid= {image.id}>Delete</button>
+            </div>
+          ))}
+        </div>
       </section>: null}
     </>
   );

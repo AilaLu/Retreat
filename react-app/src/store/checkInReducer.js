@@ -158,8 +158,8 @@ export const deleteImageThunk = (imageId) => async (dispatch) => {
   });
 
   if (res.ok) {
-    const tasks = await dispatch(getCheckInsThunk());
-    return tasks;
+    const checkIns = await dispatch(getCheckInsThunk());
+    return checkIns
   } else {
     const errors = await res.json();
     return errors;
