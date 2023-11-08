@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesThunk } from "../../store/categoryReducer";
 import { addCheckInThunk, editCheckInThunk } from "../../store/checkInReducer";
+import { addImageThunk, deleteImageThunk } from "../../store/checkInReducer";
 import { CheckInCard } from "./CheckInCard";
 import { moods } from "../../assets/icon";
 import "./CheckIn.css";
@@ -42,10 +43,8 @@ export const CheckIn = () => {
     formData.append("image", image);
 
     // ! dispatch upload image thunk
-    // await fetch("/api/checkIn/upload", {
-    //   method: "POST",
-    //   body: formData,
-    // });
+    await dispatch(addImageThunk(formData, findCheckIn.id));
+
   }
 
 

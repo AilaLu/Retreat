@@ -4,13 +4,14 @@ import session from "./session";
 import { categoryReducer } from "./categoryReducer";
 import { taskReducer } from "./taskReducer"
 import { checkInReducer } from "./checkInReducer";
-
+import { imageReducer } from "./imageReducer";
 //! gotta put it here to have the next state populated
 const rootReducer = combineReducers({
   session,
   categoryReducer,
   taskReducer,
-  checkInReducer
+  checkInReducer,
+  imageReducer
 });
 
 let enhancer;

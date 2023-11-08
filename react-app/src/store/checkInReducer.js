@@ -1,4 +1,7 @@
 //type CRUD
+
+import { get } from "mongoose";
+
 /** Action Type Constants: */
 export const GET_CHECKINS = "checkIns/GET_CHECKINS";
 export const REMOVE_CHECKINS = "checkIns/REMOVE_CHECKINS";
@@ -118,6 +121,46 @@ export const deleteCheckInTaskThunk = (checkInId, taskId) => async (dispatch) =>
 
   if (res.ok) {
     dispatch(getCheckInsThunk());
+  } else {
+    const errors = await res.json();
+    return errors;
+  }
+};
+
+
+// ! Image thunks below
+export const addImageThunk = (checkInId, formData) => async (dispatch) => {
+  const res = await fetch(`/api/checkIns/${checkInId}/image_add`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  });
+
+  if (res.ok) {
+    // const newTaskResponse = await res.json();
+    const tasks = await dispatch(getCheckInsThunk());
+    // console.log(
+    //   "*********************in the if block, **************",
+    // tasks
+    // );
+    return tasks;
+  } else {
+    const errors = await res.json();
+
+    return errors;
+  }
+};
+
+
+
+export const deleteImageThunk = (imageId) => async (dispatch) => {
+  const res = await fetch(`/api/checkIns/${imageId}/image_delete`, {
+    method: "DELETE",
+  });
+
+  if (res.ok) {
+    const tasks = await dispatch(getCheckInsThunk());
+    return tasks;
   } else {
     const errors = await res.json();
     return errors;
