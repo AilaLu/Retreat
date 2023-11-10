@@ -41,7 +41,9 @@ export const CheckIn = () => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("image", image);
+
     console.log("============formData============", formData);
+    console.log("============image============", image);
 
     // ! dispatch upload image thunk
     await dispatch(addImageThunk(findCheckIn.id, formData));
@@ -86,6 +88,7 @@ export const CheckIn = () => {
       </section>
        {/* ternary operator: once you check into mood, you can then check into tasks */}
     {findCheckIn?<section className="upload-image">
+      <h3>Today's photos</h3>
       <form enctype="multipart/form-data" onSubmit={uploadImage}>
       <label 
       // htmlFor="image"
@@ -97,21 +100,20 @@ export const CheckIn = () => {
                   required
                 />
               </label>
-             {image? <div >
-                <img src={image} alt="upload" />
-              </div>: null}
-              <button type="submit">Upload</button>
+             {/* {image? <div >
+                <img src="photo-not-hosted-yet" alt={image.name} />
+              </div>: null} */}
+              <button className="upload-image-button" type="submit">Upload</button>
         </form>
         <div className="checkIn-images">
           {findCheckIn?.images.map((image, id) => (
-            <div className="checkIn-image" key={id}>
+            <div className="checkIn-images-container" key={id}>
+              <div className="delete-image"><button onClick={deleteImage} ><img data-imageid= {image.id} width="30" height="30" src="https://img.icons8.com/color/96/cancel--v1.png" alt="cancel--v1"/></button></div>
               <img
+              className="checkIn-image"
                 src={image.image}
-                width="200"
-                height="200"
                 alt={image.image}
               />
-              <button onClick={deleteImage} data-imageid= {image.id}>Delete</button>
             </div>
           ))}
         </div>

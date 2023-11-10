@@ -198,8 +198,8 @@ def delete_image(imageId):
     print("************deleted_image api route**********", aws_delete_image)
     # aws_delete_image = {'errors': 'An error occurred (AccessDenied) when calling the DeleteObject operation: Access Denied'}
 
-    if aws_delete_image != True:
-        return aws_delete_image
+    # if aws_delete_image != True:
+    #     return aws_delete_image.errors
 
     
     db.session.delete(deleted_image)
