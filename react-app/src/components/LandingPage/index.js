@@ -13,6 +13,8 @@ export const LandingPage = () => {
   const dispatch = useDispatch();
   const { value, setValue, year, month, date, findCheckIn } = useContext(DateContext);
 
+  console.log("==========checkin========", findCheckIn)
+
   const user = useSelector((state) => state.session.user);
   const categoryObj = useSelector((state) => state.categoryReducer);
 
@@ -73,11 +75,11 @@ export const LandingPage = () => {
             </NavLink>
           </div>
           {findCheckIn? <div className="date-task-done-block">
-            <div>
+            <div className="landing-page-mood">
               mood:
               <img width="48" height="48" src={findCheckIn?.mood} alt="" />
             </div>
-            <div>
+            <div className="landing-page-done-tasks">
               task done for the day:{" "}
               {findCheckIn?.checkInTasks.map((checkIn, id) => (
                 <img
@@ -86,6 +88,18 @@ export const LandingPage = () => {
                   width="48"
                   height="48"
                   alt={checkIn.task.title}
+                />
+              ))}
+            </div>
+            <div className="landing-page-image">
+              image:{" "}
+              {findCheckIn?.images.map((image, id) => (
+                <img
+                  key={id}
+                  src={image.image}
+                  width="200"
+                  height="200"
+                  alt={image.image}
                 />
               ))}
             </div>

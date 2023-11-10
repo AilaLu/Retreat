@@ -1,7 +1,9 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, CheckIn, CheckInTask
+from app.models import db, CheckIn, CheckInTask, Image
 from app.forms.checkIn_form import CheckInForm
+from app.forms.image_form import ImageForm
+from .aws_helper import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 
 checkIn_routes = Blueprint('checkIns', __name__)
 
@@ -46,7 +48,7 @@ def get_checkIns():
 @login_required
 def create_checkIn():
     """
-    Create a new checkIn
+    Create a new checkIn, and upload an image for the checkIn
     """
 
     form = CheckInForm()
@@ -64,6 +66,8 @@ def create_checkIn():
         db.session.add(newCheckIn)
         db.session.commit()
         return newCheckIn.to_dict()
+
+
     else:
           print(form.errors)
           return {"errors":form.errors}
@@ -142,5 +146,62 @@ def delete_checkInTask(checkInId, taskId):
     taskUndone = CheckInTask.query.filter(CheckInTask.taskId == taskId, CheckInTask.checkInId == checkInId).first()
     
     db.session.delete(taskUndone)
+    db.session.commit()
+    return "Deleted"
+
+
+# ! Images under 
+
+#C
+@checkIn_routes.route("/<int:checkInId>/image_add", methods=["POST"])
+@login_required
+def create_image(checkInId):
+    """
+    Create a new image for a specific checkIn(a specific day)
+    """
+
+     # ! add image
+    form = ImageForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+
+        image = form.data["image"]
+        image.filename = get_unique_filename(image.filename)
+        upload = upload_file_to_s3(image)
+        print("************UPLOAD**********", upload)
+
+        if "url" not in upload:
+            return {"Errors": [upload]}
+
+        new_image = Image (
+                checkInId = checkInId,
+                image = upload["url"],
+        )
+
+        print("************UPLOAD new image**********", new_image)
+        db.session.add(new_image)
+        db.session.commit()
+        return new_image.to_dict()
+
+
+#D
+@checkIn_routes.route("/<int:imageId>/image_delete", methods=["DELETE"])
+@login_required
+def delete_image(imageId):
+    """
+    Delete an image that belongs to a specific checkIn(a specific day)
+    """
+    deleted_image = Image.query.get(imageId)
+    print("************deleted_image**********", deleted_image.image)
+    aws_delete_image = remove_file_from_s3(deleted_image.image) # remove_file_from_s3 function takes in an image url, returns true 
+    print("************deleted_image api route**********", aws_delete_image)
+    # aws_delete_image = {'errors': 'An error occurred (AccessDenied) when calling the DeleteObject operation: Access Denied'}
+
+    # if aws_delete_image != True:
+    #     return aws_delete_image.errors
+
+    
+    db.session.delete(deleted_image)
     db.session.commit()
     return "Deleted"

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesThunk } from "../../store/categoryReducer";
 import { addCheckInThunk, editCheckInThunk } from "../../store/checkInReducer";
+import { addImageThunk, deleteImageThunk } from "../../store/checkInReducer";
 import { CheckInCard } from "./CheckInCard";
 import { moods } from "../../assets/icon";
 import "./CheckIn.css";
@@ -10,13 +11,13 @@ import { DateContext } from "../../context/onClickdate";
 
 export const CheckIn = () => {
   const dispatch = useDispatch();
+  const [image, setImage] = useState("");
   const {  year, month, date, findCheckIn } = useContext(DateContext);
   const [selectedMood, setSelectedMood] = useState(findCheckIn?.mood)
 
   const user = useSelector((state) => state.session.user);
   const categoriesObj = useSelector((state) => state.categoryReducer);
   const categoriesArr = Object.values(categoriesObj);
-
 
   const CheckInMoodSubmit = async (e) => {
     e.preventDefault();
@@ -36,6 +37,25 @@ export const CheckIn = () => {
     }
   };
 
+  const uploadImage = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("image", image);
+
+    console.log("============formData============", formData);
+    console.log("============image============", image);
+
+    // ! dispatch upload image thunk
+    await dispatch(addImageThunk(findCheckIn.id, formData));
+  }
+
+  const deleteImage = async (e) => {
+    e.preventDefault();
+    const imageId = e.target.dataset.imageid;
+    console.log("============imageId============", imageId);
+
+    await dispatch(deleteImageThunk(imageId));
+  }
 
   useEffect(() => {
     dispatch(getCategoriesThunk());
@@ -66,6 +86,38 @@ export const CheckIn = () => {
           <CheckInCard category={category} key={category.id} />
         ))}
       </section>
+       {/* ternary operator: once you check into mood, you can then check into tasks */}
+    {findCheckIn?<section className="upload-image">
+      <h3>Today's photos</h3>
+      <form enctype="multipart/form-data" onSubmit={uploadImage}>
+      <label 
+      // htmlFor="image"
+      >
+                <input id="input-image"
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => setImage(e.target.files[0])}
+                  required
+                />
+              </label>
+             {/* {image? <div >
+                <img src="photo-not-hosted-yet" alt={image.name} />
+              </div>: null} */}
+              <button className="upload-image-button" type="submit">Upload</button>
+        </form>
+        <div className="checkIn-images">
+          {findCheckIn?.images.map((image, id) => (
+            <div className="checkIn-images-container" key={id}>
+              <div className="delete-image"><button onClick={deleteImage} ><img data-imageid= {image.id} width="30" height="30" src="https://img.icons8.com/color/96/cancel--v1.png" alt="cancel--v1"/></button></div>
+              <img
+              className="checkIn-image"
+                src={image.image}
+                alt={image.image}
+              />
+            </div>
+          ))}
+        </div>
+      </section>: null}
     </>
   );
 };
