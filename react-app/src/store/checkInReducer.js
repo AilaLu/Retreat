@@ -1,6 +1,5 @@
 //type CRUD
 
-import { get } from "mongoose";
 
 /** Action Type Constants: */
 export const GET_CHECKINS = "checkIns/GET_CHECKINS";
