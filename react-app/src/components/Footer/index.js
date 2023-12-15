@@ -3,6 +3,7 @@ import "./Footer.css";
 import githubLogo from "./github.png";
 import redux_icon from "./redux_icon.png";
 import flask_icon from "./flask_icon.png";
+import linkinLogo from "./linkedin-logo.png"
 
 function Footer() {
   return (
@@ -17,7 +18,8 @@ function Footer() {
           >
             <img
               className="member-image"
-              src="https://media.licdn.com/dms/image/C4E03AQHw8P2euo3WZQ/profile-displayphoto-shrink_200_200/0/1517638025526?e=1698883200&v=beta&t=lnYjzvYCaP07-P7VWIQKpe-kwv-p3pCzFJhImAhd2fs"
+              src="https://media.licdn.com/dms/image/C4E03AQHw8P2euo3WZQ/profile-displayphoto-shrink_100_100/0/1517638026379?e=1707955200&v=beta&t=zAOnhfJwNzlEEH1xeLRkh533wwr7_RPJE1gmHAva7nQ"
+              
               alt="Team Member 1"
             />
           </a>
@@ -30,7 +32,7 @@ function Footer() {
             >
               <img
                 className="linkedin-logo"
-                src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/linkedin-icon-18-256.png"
+                src={linkinLogo}
                 alt="linkedin"
               />
             </a>
@@ -131,7 +133,7 @@ function Footer() {
 
       <div className="retreat-inspired-by">
         {" "}
-        © 2023 Retreat - inspired by DailyBean
+        © 2023 Retreat 
       </div>
     </footer>
   );
