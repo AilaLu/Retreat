@@ -7,7 +7,7 @@ import linkinLogo from "./linkedin-logo.png"
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer id="footer">
       <div className="footer-container">
         <div className="creator">
           <h4>Creator</h4>
@@ -18,7 +18,7 @@ function Footer() {
           >
             <img
               className="member-image"
-              src="https://media.licdn.com/dms/image/C4E03AQHw8P2euo3WZQ/profile-displayphoto-shrink_100_100/0/1517638026379?e=1707955200&v=beta&t=zAOnhfJwNzlEEH1xeLRkh533wwr7_RPJE1gmHAva7nQ"
+              src="https://media.licdn.com/dms/image/D5635AQHBzC9zFBnuvA/profile-framedphoto-shrink_800_800/0/1702753344206?e=1705838400&v=beta&t=OvPP_JKff3vsr7bPJUqLzHyBuvLtxJuQ88X8IzXFMEI"
               
               alt="Team Member 1"
             />
