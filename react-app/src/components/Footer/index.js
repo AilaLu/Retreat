@@ -7,7 +7,7 @@ import linkinLogo from "./linkedin-logo.png"
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer id="footer">
       <div className="footer-container">
         <div className="creator">
           <h4>Creator</h4>
