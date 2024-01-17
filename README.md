@@ -39,30 +39,19 @@ While using Retreat, users can:
 # Endpoints
 | Request | Purpose |
 | --- | --- |
-| GET / | Navigate to the Itsy Homepage, and view our products and information |
-| GET /products/<:id> | View a product detail page, see the information related to that individual product. |
-| GET /products/<:id>/reviews | Query for reviews by product id |
-| GET /favorites | View all favorites by specific user, if not logged in, redirects to login page |
+| GET / | Navigate to the Retreat Homepage, view the check in calendar |
+| GET /check_in | View all check-in  in a day. Create, Updating a check-in is by a pop-up module |
+| GET /manage_tasks | View all categories, each with all tasks. Create, Update Delete a category/task is by pop-up module |
+
 | GET /logout | Logs out a user |
-| GET /unauthorized | Returns unauthorized JSON when flask-login authentication fails |
-| GET /reviews/<:id> | Query for reviews by id |
-| GET /reviews | Query for all reviews by user id |
-| GET /shopping_cart/current | Query for all shopping_cart_items and returns them in a list of shopping_cart dictionaries with the current user |
 | POST /login | Logs in Authenticated user |
 | POST /signup | Creates a new user and logs them in |
-| POST /products/new | Creates a new product by id |
-| POST /products/update/<:id> | Updates a product by id |
-| POST /products/<:id>/shopping_cart | Create a shopping cart item to the shopping cart from the product detail page |
-| POST /products/<:id>/favorites | Adds a product to your favorites |
-| PUT /reviews/<:id> | Post new review for product by product id |
-| DELETE /products/delete/<:id> | Deletes a product by id if you are the owner of the product |
-| DELETE /products/<:id>/favorites | Removes a product from your favorites |
-| DELETE /reviews/<:id> | Delete a review by review id |
-| DELETE /shopping_cart/<:id> | Clicking X remove an item in shopping cart, clicking Order Up clears product from shopping cart, |
+
 
 
 # Future Goals
 - AWS Image integration for uploading daily photos
+- Daily Journal 
 
 
 ## Set Up
