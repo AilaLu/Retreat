@@ -49,6 +49,7 @@ icons = [
    #   }
 
 def seed_tasks():
+# get moving
     task1 = Task(
         userId=1, categoryId= 1, title="yoga", icon="https://img.icons8.com/color/96/yoga.png")
     task2 = Task(
@@ -57,10 +58,13 @@ def seed_tasks():
         userId=1, categoryId= 1, title="gym", icon="https://img.icons8.com/color/96/dumbbell.png")
     task4 = Task(
         userId=1, categoryId= 1, title="bike", icon="https://img.icons8.com/color/96/bicycle.png")
+    task15 = Task(
+        userId=1, categoryId= 1, title="take a walk", icon="https://img.icons8.com/color/96/national-park.png")
+    
     
 
 
-
+# mental health
     task5 = Task(
         userId=1, categoryId= 2, title="meditation", icon="https://img.icons8.com/color/96/floating-guru.png")
     task6 = Task(
@@ -69,9 +73,11 @@ def seed_tasks():
         userId=1, categoryId= 2, title="love urself", icon="https://img.icons8.com/color/96/filled-like.png")
     task8 = Task(
         userId=1, categoryId= 2, title="kind to others", icon="https://img.icons8.com/color/96/hand-holding-heart.png")
+    task8 = Task(
+        userId=1, categoryId= 2, title="journal", icon="https://img.icons8.com/color/96/writing-down.png")
     
 
-
+# quality time
     task9 = Task(
         userId=1, categoryId= 3, title="listen to music", icon="https://img.icons8.com/color/96/headphones.png")
     task10 = Task(
@@ -80,23 +86,34 @@ def seed_tasks():
         userId=1, categoryId= 3, title="yay small wins", icon="https://img.icons8.com/color/96/confetti.png")
     task12 = Task(
         userId=1, categoryId= 3, title="nice drink", icon="https://img.icons8.com/color/96/kawaii-coffee.png")
+    task16 = Task(
+        userId=1, categoryId= 3, title="movies", icon="https://img.icons8.com/color/96/popcorn.png")
+    task17 = Task(
+        userId=1, categoryId= 3, title="piano", icon="https://img.icons8.com/color/96/piano.png")
+    
+# intakes
+    task13 = Task(
+        userId=1, categoryId=4 , title="H2O", icon="https://img.icons8.com/color/96/thirst.png")
+    task14 = Task(
+        userId=1, categoryId=4 , title="supplements", icon="https://img.icons8.com/color/96/pill.png")
+    task18 = Task(
+        userId=1, categoryId=4 , title="protein", icon="https://img.icons8.com/color/96/kawaii-egg.png")
+    task19 = Task(
+        userId=1, categoryId=4 , title="protein", icon="https://img.icons8.com/color/96/broccoli.png")
+    
+    
+# chores
+    task20 = Task(
+        userId=1, categoryId=5 , title="tidy room", icon="https://img.icons8.com/color/96/tidy-up.png")
+    task21 = Task(
+        userId=1, categoryId=5 , title="dishes", icon="https://img.icons8.com/color/96/washing-dishes.png")
+    task22 = Task(
+        userId=1, categoryId=5 , title="dishes", icon= "https://img.icons8.com/color/96/clothes-in-laundry.png")
     
 
-  
-
-    db.session.add(task1)
-    db.session.add(task2)
-    db.session.add(task3)
-    db.session.add(task4)
-    db.session.add(task5)
-    db.session.add(task6)
-    db.session.add(task7)
-    db.session.add(task8)
-    db.session.add(task9)
-    db.session.add(task10)
-    db.session.add(task11)
-    db.session.add(task12)
-
+    tasks = [task1, task2, task3, task4, task5, task6, task7, task8, task9, task10, task11, task12, task13, task14, task15, task16, task17, task18, task19, task20, task21, task22]
+    for task in tasks:
+        db.session.add(task)
 
     db.session.commit()
 

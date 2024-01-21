@@ -3,7 +3,8 @@ import "./Footer.css";
 import githubLogo from "./github.png";
 import redux_icon from "./redux_icon.png";
 import flask_icon from "./flask_icon.png";
-import linkinLogo from "./linkedin-logo.png"
+import linkinLogo from "./linkedin-logo.png";
+import linkinphoto from "./Pipfile.jpeg"
 
 function Footer() {
   return (
@@ -18,7 +19,7 @@ function Footer() {
           >
             <img
               className="member-image"
-              src="https://media.licdn.com/dms/image/D5635AQHBzC9zFBnuvA/profile-framedphoto-shrink_800_800/0/1702753344206?e=1705838400&v=beta&t=OvPP_JKff3vsr7bPJUqLzHyBuvLtxJuQ88X8IzXFMEI"
+              src={linkinphoto}
               
               alt="Team Member 1"
             />
