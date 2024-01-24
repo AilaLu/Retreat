@@ -38,6 +38,14 @@ function LoginFormPage() {
   return (
     <div id="log-in-entire-page">
       <div id="inner-login-page">
+      <div>
+            Retreat is a simple tool to track your mood, daily task and store your daily photos.{" "}
+          </div>
+          <img
+            width="250"
+            src="https://media0.giphy.com/media/xT0xeAIDaF8WaeHF6w/giphy.gif?cid=ecf05e474ipkfkv5pmyulhvu2r5f6lv9gw3ks79qo02s3jzs&ep=v1_gifs_related&rid=giphy.gif&ct=g"
+            alt=""
+          />
         <h1>Log In</h1>
         <form id="form-login-page" onSubmit={handleSubmit}>
           <div id="email-password-login-page">
