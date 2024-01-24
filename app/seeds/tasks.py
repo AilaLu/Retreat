@@ -6,6 +6,7 @@ icons = [
   "https://img.icons8.com/color/96/national-park.png",
   "https://img.icons8.com/color/96/marathon-swimming.png",
   "https://img.icons8.com/color/96/bicycle.png",
+  "https://img.icons8.com/color/96/massage.png",
   "https://img.icons8.com/color/96/floating-guru.png",
   "https://img.icons8.com/color/96/hug.png",
   "https://img.icons8.com/color/96/filled-like.png",
@@ -38,6 +39,11 @@ icons = [
   "https://img.icons8.com/color/96/beach.png",
   "https://img.icons8.com/color/96/snorkeling.png",
   "https://img.icons8.com/color/96/taipei-towers.png",
+  "https://img.icons8.com/color/96/garden-gloves.png",
+  "https://img.icons8.com/color/96/flower.png",
+  "https://img.icons8.com/color/96/galaxy.png",
+  "https://img.icons8.com/color/96/alien.png",
+  "https://img.icons8.com/color/96/cactus.png",
 ];
 
    # {
@@ -99,7 +105,7 @@ def seed_tasks():
     task18 = Task(
         userId=1, categoryId=4 , title="protein", icon="https://img.icons8.com/color/96/kawaii-egg.png")
     task19 = Task(
-        userId=1, categoryId=4 , title="protein", icon="https://img.icons8.com/color/96/broccoli.png")
+        userId=1, categoryId=4 , title="greens", icon="https://img.icons8.com/color/96/broccoli.png")
     
     
 # chores
@@ -108,10 +114,12 @@ def seed_tasks():
     task21 = Task(
         userId=1, categoryId=5 , title="dishes", icon="https://img.icons8.com/color/96/washing-dishes.png")
     task22 = Task(
-        userId=1, categoryId=5 , title="dishes", icon= "https://img.icons8.com/color/96/clothes-in-laundry.png")
+        userId=1, categoryId=5 , title="laundry", icon= "https://img.icons8.com/color/96/clothes-in-laundry.png")
+    task23 = Task(
+        userId=1, categoryId=5 , title="water plants", icon= "https://img.icons8.com/color/96/cactus.png")
     
 
-    tasks = [task1, task2, task3, task4, task5, task6, task7, task8, task9, task10, task11, task12, task13, task14, task15, task16, task17, task18, task19, task20, task21, task22]
+    tasks = [task1, task2, task3, task4, task5, task6, task7, task8, task9, task10, task11, task12, task13, task14, task15, task16, task17, task18, task19, task20, task21, task22, task23]
     for task in tasks:
         db.session.add(task)
 
