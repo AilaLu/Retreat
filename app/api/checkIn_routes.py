@@ -169,6 +169,7 @@ def create_image(checkInId):
         image = form.data["image"]
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
+        print("************image********", image)
         print("************UPLOAD**********", upload)
 
         if "url" not in upload:

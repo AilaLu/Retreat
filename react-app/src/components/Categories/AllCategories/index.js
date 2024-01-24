@@ -32,6 +32,7 @@ export const AllCategories = () => {
   return (
     <>
       <div>Hello {user.username}:)</div>
+      <p>Click on the block to add a new category!</p>
       {/* <section className="moods">
         {moods.map((mood, index) => (
           <div className="mood" key={index}>

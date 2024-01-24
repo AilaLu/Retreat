@@ -115,3 +115,21 @@ input[type="file" i] {
 .checkIn-image {
   margin-bottom: 20px;
 }
+
+.center-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.go-calendar > a:-webkit-any-link {
+  text-decoration: none;
+  color: lightgray;
+  background-color: rgba(120, 197, 97, 0.682);
+  border-radius: 20px;
+  padding: 15px 30px;
+}
+
+.go-calendar:hover {
+  cursor: pointer;
+}

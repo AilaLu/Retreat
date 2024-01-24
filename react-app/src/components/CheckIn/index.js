@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategoriesThunk } from "../../store/categoryReducer";
 import { addCheckInThunk, editCheckInThunk } from "../../store/checkInReducer";
@@ -118,6 +119,14 @@ export const CheckIn = () => {
           ))}
         </div>
       </section>: null}
+      <div className="center-container">
+        <div className="go-calendar">
+            <NavLink exact to="/">
+                  Go Back to calender{"   "}
+                  <img width="35" height="35" src="https://img.icons8.com/external-those-icons-flat-those-icons/96/external-Clover-objects-those-icons-flat-those-icons.png" alt="Clover-icon"></img>{" "}<i className="fa-solid fa-arrow-right"></i>
+                </NavLink>
+          </div>
+      </div>
     </>
   );
 };

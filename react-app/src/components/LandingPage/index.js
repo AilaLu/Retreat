@@ -40,6 +40,7 @@ export const LandingPage = () => {
   return (
     <div className="landing-page">
       <div>Hello {user.username}:)</div>
+      <p>Hover on the calendar and select the date for a check-in!</p>
       {!categoryObj ? (
         <section>
           <div>

@@ -134,7 +134,7 @@ function Footer() {
 
       <div className="retreat-inspired-by">
         {" "}
-        © 2023 Retreat 
+        © 2024 Retreat 
       </div>
     </footer>
   );
