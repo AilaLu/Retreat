@@ -9,16 +9,22 @@ from sqlalchemy.sql import text
 
 def seed_categories():
     category1 = Category(
-        userId=1, name="Physical health")
+        userId=1, name="Get Moving")
     category2 = Category(
         userId=1, name="Mental health")
     category3 = Category(
         userId=1, name="Quality time")
+    category4 = Category(
+        userId=1, name="Intakes")
+    category5 = Category(
+        userId=1, name="Chores")
   
 
     db.session.add(category1)
     db.session.add(category2)
     db.session.add(category3)
+    db.session.add(category4)
+    db.session.add(category5)
 
 
     db.session.commit()
