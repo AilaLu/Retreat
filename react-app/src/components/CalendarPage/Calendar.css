@@ -44,6 +44,8 @@
   gap: 5px;
 } */
 
+
+
 .day-btn {
   color: lightgray;
   font-size: large;
@@ -61,6 +63,21 @@
   box-shadow: 0px 0px 2px 2px lightgrey;
   transition: 0.1s ease-in;
   cursor: pointer;
+}
+
+
+.selected-date {
+  color: lightgray;
+font-size: large;
+background-color: rgb(103, 199, 103); 
+border: 1px solid #717171;
+border: none;
+flex-grow:0;
+padding: 30px 0;
+box-sizing: border-box;
+background-position: center;
+border-radius: 50%;
+color: white; /* Optional: Change the text color for better visibility */
 }
 
 .mood-happy {

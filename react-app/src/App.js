@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { AllCategories } from "./components/Categories/AllCategories";
 import { CheckIn } from "./components/CheckIn";
 import { LandingPage } from "./components/LandingPage";
+import {CalendarPage} from "./components/CalendarPage"
 import Footer from "./components/Footer";
 
 
@@ -24,8 +25,11 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <ProtectedRoute exact path="/">
+          <Route exact path="/">
             <LandingPage />
+          </Route>
+          <ProtectedRoute path="/calendar">
+            <CalendarPage />
           </ProtectedRoute>
           <ProtectedRoute path="/manage_tasks">
             <AllCategories />

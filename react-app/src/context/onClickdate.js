@@ -5,10 +5,10 @@ export const DateContext = createContext();
 
 export const DateProvider = (props) => {
  
- const [value, setValue] = useState(new Date());
- let year = value.getUTCFullYear();
- let month = value.getUTCMonth() + 1;
- let date = value.getUTCDate();
+ const [selectedDate, setSelectedDate] = useState(new Date());
+ let year = selectedDate.getUTCFullYear();
+ let month = selectedDate.getUTCMonth() + 1;
+ let date = selectedDate.getUTCDate();
 
  const checkInObj = useSelector((state) => state.checkInReducer);
  const checkInArr = Object.values(checkInObj);
@@ -21,7 +21,7 @@ export const DateProvider = (props) => {
  );
  
   return (
-    <DateContext.Provider value={{ sign: "captain Lu", value, setValue, year, month, date, findCheckIn }}>
+    <DateContext.Provider value={{ sign: "captain Lu", selectedDate, setSelectedDate, year, month, date, findCheckIn }}>
       {props.children}
     </DateContext.Provider>
   );

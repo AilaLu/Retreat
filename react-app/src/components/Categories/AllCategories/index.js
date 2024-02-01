@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AddCategoryModal } from "../AddCategoryModal";
+import { NavLink } from "react-router-dom";
 import "./AllCategories.css";
 import { getCategoriesThunk } from "../../../store/categoryReducer";
 import { CategoryCard } from "../CategoryCard";
 import { OpenTaskModal } from "../../Tasks/OpenTaskModal";
-import { moods } from "../../../assets/icon";
 
 export const AllCategories = () => {
   const dispatch = useDispatch();
@@ -13,15 +13,6 @@ export const AllCategories = () => {
   const user = useSelector((state) => state.session.user);
   const categoriesObj = useSelector((state) => state.categoryReducer);
   const categoriesArr = Object.values(categoriesObj);
-
-  const handleMoodSubmit = async (e) => {
-    e.preventDefault();
-    // const taskIcon = e.target.src
-
-    // const tasks = await dispatch(editTaskThunk(task.title, taskIcon, task.id, task.categoryId))
-    // setTasks(tasks)
-    // closeModal()
-  };
 
   useEffect(() => {
     dispatch(getCategoriesThunk());
@@ -56,6 +47,20 @@ export const AllCategories = () => {
           modalComponent={<AddCategoryModal />}
         />
         <div className="new-category">New Category</div>
+      </div>
+      <div className="center-container">
+        <div className="back-to-calendar">
+          <NavLink exact to="/">
+            Go Back to calender{"   "}
+            <img
+              width="35"
+              height="35"
+              src="https://img.icons8.com/external-those-icons-flat-those-icons/96/external-Clover-objects-those-icons-flat-those-icons.png"
+              alt="Clover-icon"
+            ></img>{" "}
+            <i className="fa-solid fa-arrow-right"></i>
+          </NavLink>
+        </div>
       </div>
     </>
   );
