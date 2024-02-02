@@ -12,7 +12,7 @@ export const CheckInCard = ({ category }) => {
   const tasks = Object.values(category.tasks);
   const {findCheckIn} = useContext(DateContext)
   const doneTask = findCheckIn?.checkInTasks?.map(task => task.taskId) //an array of the tasks done for the day
-  console.log("=========checkin tasks for the day obj", );
+  // console.log("=========checkin tasks for the day obj", );
 
   const CheckInTaskSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ export const CheckInCard = ({ category }) => {
     if(e.target.className === "grey-img") {
       e.target.className = "color-img"
       dispatch(addCheckInTaskThunk(checkInId, taskId));
-      console.log("======task done for ", e.target.alt);
+      // console.log("======task done for ", e.target.alt);
       return
     }
     
@@ -31,7 +31,7 @@ export const CheckInCard = ({ category }) => {
     if(e.target.className === "color-img") {
       e.target.className = "grey-img"
       dispatch(deleteCheckInTaskThunk(checkInId, taskId))
-      console.log("========task UNDONE for ", e.target.alt);
+      // console.log("========task UNDONE for ", e.target.alt);
       return
     }
   };

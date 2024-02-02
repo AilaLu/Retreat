@@ -137,10 +137,10 @@ export const addImageThunk = (checkInId, formData) => async (dispatch) => {
   if (res.ok) {
     const newImageResponse = await res.json();
      await dispatch(getCheckInsThunk());
-    console.log(
-      "*********************in add image thunk, **************",
-      newImageResponse
-    );
+    // console.log(
+    //   "*********************in add image thunk, **************",
+    //   newImageResponse
+    // );
     return newImageResponse;
   } else {
     const errors = await res.json();
