@@ -68,7 +68,8 @@ export const CheckIn = () => {
   return (
     <>
       <div>
-        Hello {user.username}:) Let's check in for {year}/{month}/{date}
+        Hello {user.username}:) Let's check in for {year}/{month}/{date}. How
+        are you feeling right now?
       </div>
       <section className="moods">
         {moods.map((mood, index) => (
@@ -141,9 +142,11 @@ export const CheckIn = () => {
         </section>
       ) : null}
       <div className="center-container">
-        <div className="back-to-calendar">
+        <div>Nice job with the check-in!</div>
+        <div> You know what? Every moment is an opportunity to begin again;)</div>
+        <div className="green-action-btn shine-hope-anim">
           <NavLink exact to="/">
-            Go Back to calender{"   "}
+            Go back to calender{"   "}
             <img
               width="35"
               height="35"

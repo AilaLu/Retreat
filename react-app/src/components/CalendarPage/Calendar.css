@@ -5,7 +5,6 @@
   margin: 20px 0 50px 0;
 }
 
-
 .react-calendar__navigation {
   text-align: center;
   display: flex;
@@ -31,12 +30,10 @@
   .react-calendar__navigation__prev2-button {
     display: none;
   }
-  
 }
 
 .react-calendar__month-view__weekdays {
   text-align: center;
-
 }
 
 /* .react-calendar__month-view__days {
@@ -44,15 +41,13 @@
   gap: 5px;
 } */
 
-
-
 .day-btn {
   color: lightgray;
   font-size: large;
   background-color: rgb(30, 30, 30);
   border: 1px solid #717171;
   border: none;
-  flex-grow:0;
+  flex-grow: 0;
   padding: 30px 0;
   box-sizing: border-box;
   background-position: center;
@@ -65,29 +60,97 @@
   cursor: pointer;
 }
 
-
 .selected-date {
   color: lightgray;
-font-size: large;
-background-color: rgb(103, 199, 103); 
-border: 1px solid #717171;
-border: none;
-flex-grow:0;
-padding: 30px 0;
-box-sizing: border-box;
-background-position: center;
-border-radius: 50%;
-color: white; /* Optional: Change the text color for better visibility */
+  font-size: large;
+  background-color: rgba(172, 255, 47, 0.62);
+  border: 1px solid #717171;
+  border: none;
+  flex-grow: 0;
+  padding: 30px 0;
+  box-sizing: border-box;
+  background-position: center;
+  border-radius: 50%;
+  color: white; /* Optional: Change the text color for better visibility */
 }
 
+.date-selected {
+  margin-bottom: 50px;
+}
+
+.green-action-btn{
+  margin-top:50px
+}
+
+.green-action-btn > a {
+  display: inline-block;
+  text-decoration: none;
+  color: lightgray;
+  background-color: rgba(120, 197, 97, 0.682);
+  border-radius: 20px;
+  padding: 15px 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s;
+}
+
+.shine-hope-anim > a:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: ShineAnim 3s ease infinite;
+  animation-delay: 2s;
+}
+
+@keyframes ShineAnim {
+  0% {
+    left: -100%;
+  }
+  10% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+.green-action-btn shine-hope-anim:hover {
+  cursor: pointer;
+}
+
+.date-task-done-block {
+  margin-top: 50px;
+  background-color: rgb(50, 50, 50);
+  border-radius: 20px;
+  margin-bottom: 50px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  padding: 50px;
+}
+/* 
+.calendar{
+  text-align: center;
+} */
+
 .mood-happy {
- background-image: url("https://img.icons8.com/color/96/fat-emoji.png");
+  background-image: url("https://img.icons8.com/color/96/fat-emoji.png");
 }
 
 .mood-meh {
- background-image: url("https://img.icons8.com/color/96/neutral-emoticon--v1.png");
+  background-image: url("https://img.icons8.com/color/96/neutral-emoticon--v1.png");
 }
 
 .mood-sad {
- background-image: url("https://img.icons8.com/color/96/crying--v1.png");
+  background-image: url("https://img.icons8.com/color/96/crying--v1.png");
 }

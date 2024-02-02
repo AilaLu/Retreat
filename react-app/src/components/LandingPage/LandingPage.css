@@ -9,13 +9,13 @@
   margin-top: 50px;
 }
 
-.go-add-task {
+.green-action-btn shine-hope-anim {
   margin-right: 20px;
   margin-top: 50px;
   color: lightgray;
 }
 
-.go-add-task > a:-webkit-any-link {
+.green-action-btn shine-hope-anim > a:-webkit-any-link {
   text-decoration: none;
   color: lightgray;
   background-color: rgba(120, 197, 97, 0.682);
@@ -23,34 +23,6 @@
   padding: 15px 30px;
 }
 
-.go-add-task:hover {
+.green-action-btn shine-hope-anim:hover {
   cursor: pointer;
 }
-
-
-.go-checkin > a:-webkit-any-link {
-  text-decoration: none;
-  color: lightgray;
-  background-color: rgba(120, 197, 97, 0.682);
-  border-radius: 20px;
-  padding: 15px 30px;
-}
-
-.go-checkin:hover {
-  cursor: pointer;
-}
-
-.date-task-done-block{
-  margin-top: 50px;
-  background-color: rgb(50, 50, 50);
-  border-radius: 20px;
-  margin-bottom: 50px;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: space-between; */
-  padding: 50px;
-}
-/* 
-.calendar{
-  text-align: center;
-} */

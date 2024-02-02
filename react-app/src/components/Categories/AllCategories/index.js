@@ -23,7 +23,10 @@ export const AllCategories = () => {
   return (
     <>
       <div>Hello {user.username}:)</div>
-      <p>Click on the block to add a new category!</p>
+      <p>
+        Click on the block to add a new category or a new task for your daily
+        check-ins!
+      </p>
       {/* <section className="moods">
         {moods.map((mood, index) => (
           <div className="mood" key={index}>
@@ -49,9 +52,10 @@ export const AllCategories = () => {
         <div className="new-category">New Category</div>
       </div>
       <div className="center-container">
-        <div className="back-to-calendar">
+        <div>Remember, one step at a time;)</div>
+        <div className="green-action-btn shine-hope-anim">
           <NavLink exact to="/">
-            Go Back to calender{"   "}
+            Go back to calender{"   "}
             <img
               width="35"
               height="35"

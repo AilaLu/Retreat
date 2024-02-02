@@ -122,11 +122,11 @@ input[type="file" i] {
   text-align: center;
 }
 
-.back-to-calendar {
+.green-action-btn shine-hope-anim {
   margin-top: 50px;
 }
 
-.back-to-calendar > a:-webkit-any-link {
+.green-action-btn shine-hope-anim > a:-webkit-any-link {
   text-decoration: none;
   color: lightgray;
   background-color: rgba(120, 197, 97, 0.682);
@@ -134,6 +134,6 @@ input[type="file" i] {
   padding: 15px 30px;
 }
 
-.back-to-calendar:hover {
+.green-action-btn shine-hope-anim:hover {
   cursor: pointer;
 }
