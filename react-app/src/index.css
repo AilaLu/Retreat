@@ -18,7 +18,7 @@ body {
 }
 
 .errors {
-  color: tomato;
+  color: grey;
   font-size: small;
 }
 
@@ -39,4 +39,9 @@ body {
 .center-self {
   display: block;
   margin: auto;
+} */
+
+/* .center-children {
+  display: flex;
+  justify-content: center;
 } */

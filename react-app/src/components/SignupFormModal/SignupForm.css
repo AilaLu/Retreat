@@ -3,14 +3,27 @@
 }
 
 .signup-form {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(7, 1fr);
-  row-gap: 10px;
+  row-gap: 10px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 20px;
 }
 
 .signup-field {
-  display: grid;
+  /* display: grid; */
+  font-size: 30px;
+}
+
+.signup-field > input{
+  margin-left: 20px;
+  width: 220px;
+  height:30px;
 }
 
 .signup-button {
@@ -18,20 +31,22 @@
   color: lightgrey;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  font-size: x-large;
-  border: none;
-  border-radius: 20px;
-  margin-top: 10px;
+    font-size: x-large;
+    border: none;
+    border-radius: 15px;
+    margin-top: 10px;
+    width: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .signup-title {
   font-weight: bold;
-  font-size: 24px;
 }
 
-.signup-subtitle {
-  margin-bottom: 20px;
-}
+
 
 .signup-button:hover {
   cursor: pointer;

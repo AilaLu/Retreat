@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
 
 #whole-form-signup-page {
@@ -35,28 +36,14 @@
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-#email-input-signup-page {
-  margin-left: 104px;
+#form-field > label{
+  font-size: 30px;
 }
 
-#firstname-input-signup-page {
-  margin-left: 67px;
-}
-
-#lastname-input-signup-page {
-  margin-left: 67px;
-}
-
-#username-input-signup-page {
-  margin-left: 74px;
-}
-
-#password-input-signup-page {
-  margin-left: 79px;
-}
-
-#confirm-password-input-signup-page {
-  margin-left: 15px;
+#form-field > label> input{
+  margin-left: 20px;
+  width: 220px;
+  height: 30px;
 }
 
 #signup-butt-signup-page {

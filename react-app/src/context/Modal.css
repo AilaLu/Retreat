@@ -18,6 +18,11 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+#modal-content::-webkit-scrollbar{
+  /* so the scroll bar of the modal is hidden, you wouldn't see the ugly scroll bar */
+  display: none;
+}
+
 #modal-content {
   text-align: center;
   /* center children */
@@ -31,7 +36,7 @@
 
   /* to scroll scroll, you need a height to make scroll work*/
   height: 50vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .modal-btns {
