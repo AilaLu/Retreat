@@ -21,8 +21,10 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="app-wrapper">
       <Navigation isLoaded={isLoaded} />
+      <main>
+
       {isLoaded && (
         <Switch>
           <Route exact path="/">
@@ -45,8 +47,9 @@ function App() {
           </Route>
         </Switch>
       )}
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
