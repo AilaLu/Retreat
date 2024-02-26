@@ -70,13 +70,13 @@ function SignupFormPage() {
         <h1>Sign Up</h1>
         <form id="form-signup-page" onSubmit={handleSubmit}>
           <div id="whole-form-signup-page">
-            <div id="email-signup-page">
+            <div id="form-field">
               <label>
                 Email
                 <input
-                  id="email-input-signup-page"
                   type="text"
                   value={email}
+                  placeholder="for example: littletwirl@wiggle.com"
                   onChange={(e) => setEmail(e.target.value)}
                   pattern="^\S+@\S+$"
                   required
@@ -86,13 +86,13 @@ function SignupFormPage() {
                 {errors.email && <p>{errors.email}</p>}
               </div>
             </div>
-            <div id="username-signup-page">
+            <div id="form-field">
               <label>
                 Username
                 <input
-                  id="username-input-signup-page"
                   type="text"
                   value={username}
+                  placeholder="littleTwirl"
                   onChange={(e) => setUsername(e.target.value)}
                   required
                 />
@@ -102,13 +102,13 @@ function SignupFormPage() {
               </div>
             </div>
 
-            <div id="firstname-signup-page">
+            <div id="form-field">
               <label>
                 First Name
                 <input
-                  id="firstname-input-signup-page"
                   type="text"
                   value={firstName}
+                  placeholder="Wiggle"
                   onChange={(e) => setFirstName(e.target.value)}
                   required
                 />
@@ -118,13 +118,13 @@ function SignupFormPage() {
               </div>
             </div>
 
-            <div id="lastname-signup-page">
+            <div id="form-field">
               <label>
                 Last Name
                 <input
-                  id="lastname-input-signup-page"
                   type="text"
                   value={lastName}
+                  placeholder="Button"
                   onChange={(e) => setLastName(e.target.value)}
                   required
                 />
@@ -134,13 +134,13 @@ function SignupFormPage() {
               </div>
             </div>
 
-            <div id="password-signup-page">
+            <div id="form-field">
               <label>
                 Password
                 <input
-                  id="password-input-signup-page"
                   type="password"
                   value={password}
+                  placeholder="put your darkest secret here"
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
@@ -150,13 +150,13 @@ function SignupFormPage() {
               </div>
             </div>
 
-            <div id="confirm-password-signup-page">
+            <div id="form-field">
               <label>
                 Confirm Password
                 <input
-                  id="confirm-password-input-signup-page"
                   type="password"
                   value={confirmPassword}
+                  placeholder="same as the above"
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />

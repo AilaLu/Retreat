@@ -18,18 +18,16 @@ body {
 }
 
 .errors {
-  color: tomato;
+  color: grey;
   font-size: small;
 }
 
-
-
-#root{
-  position: relative;
-  min-height: 100vh;
-  min-height: 100%;
-  padding-bottom: 500px;
-  /*! to accommodate footer height around 400ish */
+/* app wrapper is sort of like the root of the page */
+.app-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100svh; 
+  gap: 1rem;
 }
 
 /* .center-children {
@@ -39,4 +37,9 @@ body {
 .center-self {
   display: block;
   margin: auto;
+} */
+
+/* .center-children {
+  display: flex;
+  justify-content: center;
 } */

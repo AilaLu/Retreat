@@ -52,10 +52,10 @@ export const CalendarPage = () => {
   //* if the user has tasks, show the calendar; if user has no category/task created yet, guide them to manage tasks.
   return (
     <div className="guide-to-manage-tasks">
-      <div>Hello {user.username}:)</div>
 
       {!categoryArr ? (
         <section>
+      <div>Hello {user.username}:)</div>
           <div>Let's go create some tasks for daily self-care </div>
 
           <div className="green-action-btn shine-hope-anim">
@@ -66,18 +66,21 @@ export const CalendarPage = () => {
         </section>
       ) : (
         <section className="calendar">
+        <div>Hello {user.username}:)</div>
           <p>Hover on the calendar and select the date for a check-in!</p>
-          <Calendar
-            value={selectedDate} //!value looks like this:  Thu Sep 28 2023 00:00:00 GMT-0700 (Pacific Daylight Time)
-            locale="en-GB"
-            className="calendar"
-            minDetail="decade"
-            onClickDay={(e) => setSelectedDate(e)}
-            //
-            tileClassName={tileClassName}
-            //
-            onChange={handleDateChange}
-          />
+          <div className="center-container">
+            <Calendar
+              value={selectedDate} //!value looks like this:  Thu Sep 28 2023 00:00:00 GMT-0700 (Pacific Daylight Time)
+              locale="en-GB"
+              className="calendar"
+              minDetail="decade"
+              onClickDay={(e) => setSelectedDate(e)}
+              //
+              tileClassName={tileClassName}
+              //
+              onChange={handleDateChange}
+            />
+          </div>
 
           <div className="date-selected">
             {year}/{month}/{date} selected :)

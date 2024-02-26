@@ -64,14 +64,14 @@ function SignupFormModal() {
 
   return (
     <div className="signup-modal">
-      <div className="signup-title">Create your account</div>
-      <div className="signup-subtitle">Registration is easy.</div>
+      <div className="signup-title">Create your account and start on your retreat:)</div>
       <form className="signup-form" onSubmit={handleSubmit}>
         <label className="signup-field">
           Email address
           <input
             type="text"
             value={email}
+            placeholder="for example: littletwirl@wiggle.com"
             onChange={(e) => setEmail(e.target.value)}
             pattern="^\S+@\S+$"
             required
@@ -85,6 +85,7 @@ function SignupFormModal() {
           <input
             type="text"
             value={username}
+            placeholder="littleTwirl"
             onChange={(e) => setUsername(e.target.value)}
             required
           />
@@ -97,6 +98,7 @@ function SignupFormModal() {
           <input
             type="text"
             value={firstName}
+            placeholder="Wiggle"
             onChange={(e) => setFirstName(e.target.value)}
             required
           />
@@ -109,6 +111,7 @@ function SignupFormModal() {
           <input
             type="text"
             value={lastName}
+            placeholder="Button"
             onChange={(e) => setLastName(e.target.value)}
             required
           />
@@ -121,6 +124,7 @@ function SignupFormModal() {
           <input
             type="password"
             value={password}
+            placeholder="put your darkest secret here"
             onChange={(e) => setPassword(e.target.value)}
             required
           />
@@ -133,6 +137,7 @@ function SignupFormModal() {
           <input
             type="password"
             value={confirmPassword}
+            placeholder="same as the above"
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
@@ -141,7 +146,7 @@ function SignupFormModal() {
                 {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
               </div>
         <button className={signupBtn} type="submit" disabled={hasErrors}>
-          Register
+        Sign Up
         </button>
       </form>
     </div>
