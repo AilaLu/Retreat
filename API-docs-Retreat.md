@@ -14,6 +14,8 @@
 ![Retreat-database-schema]
 
 [Retreat-database-schema]: https://github.com/AilaLu/Retreat/wiki/Schema
+![drawSQL-image-export-2025-06-19](https://github.com/user-attachments/assets/5acbc2ff-8d4a-428b-92d3-ec8f0df35463)
+
 
 <!--!!END -->
 <!--!!ADD -->
