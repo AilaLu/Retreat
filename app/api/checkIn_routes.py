@@ -4,6 +4,7 @@ from app.models import db, CheckIn, CheckInTask, Image
 from app.forms.checkIn_form import CheckInForm
 from app.forms.image_form import ImageForm
 from .aws_helper import upload_file_to_s3, get_unique_filename, remove_file_from_s3
+from app import openai
 
 checkIn_routes = Blueprint('checkIns', __name__)
 
@@ -72,7 +73,20 @@ def create_checkIn():
           print(form.errors)
           return {"errors":form.errors}
 
-
+# New AI backend route for checking mood and mental health
+def get_ai_response(user_mood):
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",  # You can use gpt-3.5-turbo for lower costs
+            messages=[
+                {"role": "system", "content": "You are an empathetic mental health assistant."},
+                {"role": "user", "content": f"My current mood is {user_mood}. Can you offer any advice or thoughts?"}
+            ]
+        )
+        assistant_message = response['choices'][0]['message']['content']
+        return assistant_message
+    except Exception as e:
+        return str(e)  # Return error message if something goes wrong
 
 
 
