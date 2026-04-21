@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  frontend:
+    build:
+      context: ./react-app  # Updated to match your frontend folder name
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./app  # Updated to match your backend folder name
+      dockerfile: Dockerfile
+    environment:
+      SECRET_KEY: "lolthatwassofunnyidk"
+      DATABASE_URL: "postgres://user:password@db:5432/database"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: database
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

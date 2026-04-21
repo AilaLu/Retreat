@@ -13,7 +13,11 @@ from .api.checkIn_routes import checkIn_routes
 from .seeds import seed_commands
 from .config import Config
 
+import openai
+
+
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
+openai.api_key = app.config['OPENAI_API_KEY']
 
 # Setup login manager
 login = LoginManager(app)

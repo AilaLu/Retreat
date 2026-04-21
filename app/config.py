@@ -11,3 +11,4 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'DATABASE_URL').replace('postgres://', 'postgresql://')
     SQLALCHEMY_ECHO = True
+    OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')  #get the secret openai key from .env
